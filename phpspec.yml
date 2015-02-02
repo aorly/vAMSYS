@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: vAMSYS
+        psr4_prefix: vAMSYS
+        src_path: app

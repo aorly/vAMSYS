@@ -1,0 +1,20 @@
+// App Variables
+@import "variables";
+
+// Bootstrap
+@import "bootstrap";
+
+// Bootstrap Switch
+@import "boostrap-switch/dist/css/bootstrap3/bootstrap-switch.css";
+
+// Font Awesome
+@import "../../../vendor/bower_components/font-awesome/scss/font-awesome";
+
+// Metronic v3.6.1 Includes
+@import "metronic/global/plugins/simple-line-icons.min";
+@import "metronic/admin/layout/layout";
+@import "metronic/global/components-rounded";
+@import "metronic/global/plugins";
+
+// Metronic Theme
+@import "metronic/admin/layout/themes/darkblue";
