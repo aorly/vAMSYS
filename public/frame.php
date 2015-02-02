@@ -22,8 +22,6 @@ define('LOAD_TYPE_RANDOM_EDITABLE','randomopen');
 define('LOAD_TYPE_RANDOM_LOCKED','randomlocked');
 require_once("interface.php");
 
-die(print_r(smartCARS::getaircraft(2)));
-
 $dbcreds = smartCARS::getdbcredentials();
 $dbConnection;
 try {
