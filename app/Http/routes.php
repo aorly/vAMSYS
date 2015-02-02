@@ -26,6 +26,8 @@ Route::get('/', function () {
 Route::get('/flights/cancel/{booking}', 'FlightsController@getCancel');
 Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
 
+Route::get('/acars/smartcars/{airlineICAO}/frame.php', 'smartCARS@frame');
+
 Route::controllers([
   'auth'      => 'Auth\AuthController',
   'password'  => 'Auth\PasswordController',

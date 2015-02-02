@@ -23,7 +23,7 @@ define('LOAD_TYPE_RANDOM_LOCKED','randomlocked');
 require_once("interface.php");
 
 $dbcreds = smartCARS::getdbcredentials();
-$dbConnection;
+$dbConnection = null;
 try {
 	$dbConnection = new PDO('mysql:dbname=' . $dbcreds['name'] . ';host=' . $dbcreds['server'] . ';charset=utf8', $dbcreds['user'], $dbcreds['pass']);
 }
@@ -74,6 +74,8 @@ function check_session($dbid, $sessionid) {
 }
 
 $action = $_GET['action'];
+$_GET['userid'] = $airlineIcao.str_pad($_GET['userid'], 4, 0, STR_PAD_LEFT);
+error_log($_GET['userid']);
 switch($action) {
 	case "manuallogin":
 		table_structure();
