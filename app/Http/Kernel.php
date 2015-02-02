@@ -14,8 +14,7 @@ class Kernel extends HttpKernel {
 		'Illuminate\Cookie\Middleware\EncryptCookies',
 		'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
 		'Illuminate\Session\Middleware\StartSession',
-		'Illuminate\View\Middleware\ShareErrorsFromSession',
-		'vAMSYS\Http\Middleware\VerifyCsrfToken',
+		'Illuminate\View\Middleware\ShareErrorsFromSession'
 	];
 
 	/**
@@ -29,6 +28,7 @@ class Kernel extends HttpKernel {
 		'guest' => 'vAMSYS\Http\Middleware\RedirectIfAuthenticated',
 		'admin'	=> 'vAMSYS\Http\Middleware\AuthenticateAdmin',
 		'airline-staff'	=> 'vAMSYS\Http\Middleware\AuthenticateStaff',
+		'csrf' => 'vAMSYS\Http\Middleware\VerifyCsrfToken',
 	];
 
 }

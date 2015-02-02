@@ -58,6 +58,9 @@ if (!isset($_GET['airlineICAO']))
 if (!isset($_GET['userid']))
 	$_GET['userid'] = 0;
 
+$_GET['userid'] = $_GET['airlineICAO'].str_pad($_GET['userid'], 4, 0, STR_PAD_LEFT);
+error_log($_GET['userid']);
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 $capsule = new Capsule;
 $capsule->addConnection([
