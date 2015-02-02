@@ -133,11 +133,11 @@ return [
 
 		'profiles' => [
 			'default' => [
-				'scheme' => 'http',
-				'host' => 'localhost',
-				'port' => 7474,
-				'username' => '',
-				'password' => ''
+				'scheme' => env('NEO4J_SCHEME', 'http'),
+				'host' => env('NEO4J_HOST', 'localhost'),
+				'port' => env('NEO4J_PORT', 7474),
+				'username' => env('NEO4J_USER', ''),
+				'password' => env('NEO4J_PASS', ''),
 			]
 		]
 	]
