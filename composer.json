@@ -5,8 +5,9 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "~5.0",
-	  	"guzzlehttp/guzzle": "~4.0",
+		"laravel/framework": "5.0.*@dev",
+	  	"predis/predis": "~1.0",
+		"guzzlehttp/guzzle": "4.*",
 	  	"neoxygen/neoclient": "2.1.*@dev",
 	  	"illuminate/database": "~5.0"
 	},
@@ -43,6 +44,5 @@
 	},
 	"config": {
 		"preferred-install": "dist"
-	},
-	"minimum-stability": "dev"
+	}
 }
