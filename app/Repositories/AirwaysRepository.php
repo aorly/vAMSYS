@@ -8,7 +8,6 @@ class AirwaysRepository {
   private static function buildConnection()
   {
     return ClientBuilder::create()
-      ->addDefaultLocalConnection()
       ->setAutoFormatResponse(true)
       ->build();
   }
