@@ -9,7 +9,10 @@ class AirwaysRepository {
   private static function buildConnection()
   {
     return ClientBuilder::create()
-      ->addConnection('default',Config::get('database.neo4j.profiles.default.scheme'),Config::get('database.neo4j.profiles.default.host'),Config::get('database.neo4j.profiles.default.port'))
+      ->addConnection('default',
+        Config::get('database.neo4j.profiles.default.scheme'),
+        Config::get('database.neo4j.profiles.default.host'),
+        (int)Config::get('database.neo4j.profiles.default.port'))
       ->setAutoFormatResponse(true)
       ->build();
   }
