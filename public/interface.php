@@ -51,6 +51,13 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $config = parse_ini_file(__DIR__.'/../.env');
 
+if (!isset($_GET['action']))
+	$_GET['action'] = null;
+if (!isset($_GET['airlineICAO']))
+	$_GET['airlineICAO'] = '';
+if (!isset($_GET['userid']))
+	$_GET['userid'] = 0;
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 $capsule = new Capsule;
 $capsule->addConnection([
