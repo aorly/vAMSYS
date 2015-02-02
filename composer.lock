@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "50913f76e1e6a818dd74cc06f3766d4a",
+    "hash": "b372300c38a17b5e398f33b2215c040a",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -3125,7 +3125,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "laravel/framework": 20,
-        "neoxygen/neoclient": 20
+        "neoxygen/neoclient": 20,
+        "illuminate/database": 20
     },
     "prefer-stable": false,
     "platform": [],

@@ -45,9 +45,9 @@
  * paul@skenmy.com
  */
 
-use Illuminate\Foundation\Application;
 use vAMSYS\Pilot;
-use vAMSYS\User;
+
+require_once __DIR__.'/../vendor/autoload.php';
 
 $config = parse_ini_file(__DIR__.'/../.env');
 
