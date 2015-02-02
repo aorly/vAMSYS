@@ -73,7 +73,7 @@ function check_session($dbid, $sessionid) {
 	return false;
 }
 
-if (!$_GET['action'])
+if (!isset($_GET['action']))
 	$_GET['action'] = null;
 $action = $_GET['action'];
 $_GET['userid'] = $_GET['airlineICAO'].str_pad($_GET['userid'], 4, 0, STR_PAD_LEFT);
