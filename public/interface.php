@@ -49,11 +49,6 @@ use Illuminate\Foundation\Application;
 use vAMSYS\Pilot;
 use vAMSYS\User;
 
-require __DIR__.'/../bootstrap/autoload.php';
-/* @var $app Application */
-$app = require_once __DIR__.'/../bootstrap/app.php';
-$app->boot();
-
 $config = parse_ini_file(__DIR__.'/../.env');
 
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -79,12 +74,12 @@ define('interface_version', 'phpvms-official-w3010-12/21/2014');
 class smartCARS {
 
 	static function getdbcredentials() {
-		// todo get db info
+		global $config;
 		$ret = array();
-		$ret['user'] = DBASE_USER;
-		$ret['pass'] = DBASE_PASS;
-		$ret['name'] = DBASE_NAME;
-		$ret['server'] = DBASE_SERVER;
+		$ret['user'] = $config['DB_USERNAME'];
+		$ret['pass'] = $config['DB_PASSWORD'];
+		$ret['name'] = $config['DB_DATABASE'];
+		$ret['server'] = $config['DB_HOST'];
 		return $ret;
 	}
 
