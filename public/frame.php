@@ -22,17 +22,17 @@ define('LOAD_TYPE_RANDOM_EDITABLE','randomopen');
 define('LOAD_TYPE_RANDOM_LOCKED','randomlocked');
 require_once("interface.php");
 
-$dbcreds = smartCARS::getdbcredentials();
-$dbConnection = null;
-try {
-	$dbConnection = new PDO('mysql:dbname=' . $dbcreds['name'] . ';host=' . $dbcreds['server'] . ';charset=utf8', $dbcreds['user'], $dbcreds['pass']);
-}
-catch(PDOException $err) {
-	die("Failed to connect to the database.");
-}
+
 
 function table_structure() {
-	global $dbConnection;
+	$dbcreds = smartCARS::getdbcredentials();
+	$dbConnection = null;
+	try {
+		$dbConnection = new PDO('mysql:dbname=' . $dbcreds['name'] . ';host=' . $dbcreds['server'] . ';charset=utf8', $dbcreds['user'], $dbcreds['pass']);
+	}
+	catch(PDOException $err) {
+		die("Failed to connect to the database.");
+	}
 	$param = "CREATE TABLE IF NOT EXISTS smartCARS_sessions ( id int(16) AUTO_INCREMENT, PRIMARY KEY(id), dbid int(16), sessionid varchar(64), timestamp int(16)); CREATE TABLE IF NOT EXISTS smartCARS_charteredflights (routeid int, PRIMARY KEY(routeid), dbid int, bidid int);";
 	$stmt  = $dbConnection->prepare($param);
 	$stmt->execute();
@@ -41,7 +41,14 @@ function table_structure() {
 }
 
 function clear_old_sessions() {
-	global $dbConnection;
+	$dbcreds = smartCARS::getdbcredentials();
+	$dbConnection = null;
+	try {
+		$dbConnection = new PDO('mysql:dbname=' . $dbcreds['name'] . ';host=' . $dbcreds['server'] . ';charset=utf8', $dbcreds['user'], $dbcreds['pass']);
+	}
+	catch(PDOException $err) {
+		die("Failed to connect to the database.");
+	}
 	$stmt = $dbConnection->prepare("DELETE FROM smartCARS_sessions WHERE timestamp < ?");
 	$stmt->execute(array(
 		time() - 2592000
@@ -50,7 +57,14 @@ function clear_old_sessions() {
 }
 
 function write_sessid($pilotid, $sessid) {
-	global $dbConnection;
+	$dbcreds = smartCARS::getdbcredentials();
+	$dbConnection = null;
+	try {
+		$dbConnection = new PDO('mysql:dbname=' . $dbcreds['name'] . ';host=' . $dbcreds['server'] . ';charset=utf8', $dbcreds['user'], $dbcreds['pass']);
+	}
+	catch(PDOException $err) {
+		die("Failed to connect to the database.");
+	}
 	$stmt = $dbConnection->prepare("INSERT INTO smartCARS_sessions (id, dbid, sessionid, timestamp) VALUES (NULL, ?, ?, ?)");
 	$stmt->execute(array(
 		$pilotid,
@@ -61,7 +75,14 @@ function write_sessid($pilotid, $sessid) {
 }
 
 function check_session($dbid, $sessionid) {
-	global $dbConnection;
+	$dbcreds = smartCARS::getdbcredentials();
+	$dbConnection = null;
+	try {
+		$dbConnection = new PDO('mysql:dbname=' . $dbcreds['name'] . ';host=' . $dbcreds['server'] . ';charset=utf8', $dbcreds['user'], $dbcreds['pass']);
+	}
+	catch(PDOException $err) {
+		die("Failed to connect to the database.");
+	}
 	$stmt = $dbConnection->prepare("SELECT * FROM smartCARS_sessions WHERE dbid = ? AND sessionid = ?");
 	$stmt->execute(array(
 		$dbid,
