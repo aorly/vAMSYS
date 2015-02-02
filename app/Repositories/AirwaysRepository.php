@@ -2,6 +2,7 @@
 
 namespace vAMSYS\Repositories;
 
+use Illuminate\Support\Facades\Config;
 use Neoxygen\NeoClient\ClientBuilder;
 
 class AirwaysRepository {
