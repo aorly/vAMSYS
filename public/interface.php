@@ -74,7 +74,7 @@ define('interface_version', 'phpvms-official-w3010-12/21/2014');
 class smartCARS {
 
 	static function getdbcredentials() {
-		global $config;
+		$config = parse_ini_file(__DIR__.'/../.env');
 		$ret = array();
 		$ret['user'] = $config['DB_USERNAME'];
 		$ret['pass'] = $config['DB_PASSWORD'];
