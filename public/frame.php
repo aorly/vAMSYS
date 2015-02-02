@@ -74,7 +74,7 @@ function check_session($dbid, $sessionid) {
 }
 
 $action = $_GET['action'];
-$_GET['userid'] = $airlineIcao.str_pad($_GET['userid'], 4, 0, STR_PAD_LEFT);
+$_GET['userid'] = $_GET['airlineICAO'].str_pad($_GET['userid'], 4, 0, STR_PAD_LEFT);
 error_log($_GET['userid']);
 switch($action) {
 	case "manuallogin":
