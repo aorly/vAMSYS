@@ -2,6 +2,7 @@
 
 use vAMSYS\Contracts\Route as RouteContract;
 use vAMSYS\Repositories\AirportsRepository;
+use vAMSYS\Repositories\AirwaysRepository;
 use vAMSYS\Route as RouteModel;
 
 class Route implements RouteContract
