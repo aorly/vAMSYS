@@ -29,7 +29,7 @@ Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
 Route::get('/acars/smartcars/{airlineICAO}/frame.php', function($airlineICAO)
 {
   $_GET['airlineICAO'] = $airlineICAO;
-  require_once(__DIR__.'../public/frame.php');
+  require_once(__DIR__.'/../../public/frame.php');
   die();
 });
 
