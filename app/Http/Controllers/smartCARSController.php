@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use vAMSYS\Contracts\SmartCARS;
+use vAMSYS\Pilot;
 use vAMSYS\SmartCARS_Session;
 
 /**
