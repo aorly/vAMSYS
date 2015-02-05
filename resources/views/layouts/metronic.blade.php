@@ -403,7 +403,7 @@
 <!-- BEGIN FOOTER -->
 <div class="page-footer">
     <div class="page-footer-inner">
-        Brought to you by {{ $airline->name }}, powered by vAMSYS.
+        Brought to you by {{ $airline->name }}, powered by vAMSYS. Served by <em>{{ gethostname() }}</em>.
     </div>
     <div class="scroll-to-top">
         <i class="icon-arrow-up"></i>

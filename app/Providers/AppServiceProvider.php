@@ -34,6 +34,11 @@ class AppServiceProvider extends ServiceProvider {
 			'vAMSYS\Contracts\Route',
 			'vAMSYS\Services\Route'
 		);
+
+		$this->app->bind(
+			'vAMSYS\Contracts\SmartCARS',
+			'vAMSYS\Services\SmartCARS'
+		);
 	}
 
 }

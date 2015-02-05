@@ -1,0 +1,222 @@
+20150204204526
+20150204205957
+20150204210610
+$ git clone "git@gitlab.com:vAMSYS/vAMSYS.git" "/var/www/vAMSYS/releases/20150204211228" --branch="master" --depth="1"
+git clone "git@gitlab.com:vAMSYS/vAMSYS.git" "/var/www/vAMSYS/releases/20150204211228" --branch="master" --depth="1"
+Cloning into '/var/www/vAMSYS/releases/20150204211228'...
+Checking out files:  44% (9517/21443)   Checking out files:  45% (9650/21443)   Checking out files:  46% (9864/21443)   Checking out files:  47% (10079/21443)   Checking out files:  48% (10293/21443)   Checking out files:  49% (10508/21443)   Checking out files:  50% (10722/21443)   Checking out files:  51% (10936/21443)   Checking out files:  52% (11151/21443)   Checking out files:  53% (11365/21443)   Checking out files:  54% (11580/21443)   Checking out files:  55% (11794/21443)   Checking out files:  56% (12009/21443)   Checking out files:  57% (12223/21443)   Checking out files:  58% (12437/21443)   Checking out files:  59% (12652/21443)   Checking out files:  60% (12866/21443)   Checking out files:  61% (13081/21443)   Checking out files:  62% (13295/21443)   Checking out files:  63% (13510/21443)   Checking out files:  64% (13724/21443)   Checking out files:  65% (13938/21443)   Checking out files:  65% (13968/21443)   Checking out files:  66% (14153/21443)   Checking out files:  67% (14367/21443)   Checking out files:  68% (14582/21443)   Checking out files:  69% (14796/21443)   Checking out files:  70% (15011/21443)   Checking out files:  71% (15225/21443)   Checking out files:  72% (15439/21443)   Checking out files:  73% (15654/21443)   Checking out files:  74% (15868/21443)   Checking out files:  75% (16083/21443)   Checking out files:  76% (16297/21443)   Checking out files:  77% (16512/21443)   Checking out files:  78% (16726/21443)   Checking out files:  79% (16940/21443)   Checking out files:  80% (17155/21443)   Checking out files:  81% (17369/21443)   Checking out files:  82% (17584/21443)   Checking out files:  83% (17798/21443)   Checking out files:  84% (18013/21443)   Checking out files:  85% (18227/21443)   Checking out files:  86% (18441/21443)   Checking out files:  87% (18656/21443)   Checking out files:  88% (18870/21443)   Checking out files:  89% (19085/21443)   Checking out files:  90% (19299/21443)   Checking out files:  91% (19514/21443)   Checking out files:  92% (19728/21443)   Checking out files:  93% (19942/21443)   Checking out files:  94% (20157/21443)   Checking out files:  95% (20371/21443)   Checking out files:  95% (20403/21443)   Checking out files:  96% (20586/21443)   Checking out files:  97% (20800/21443)   Checking out files:  98% (21015/21443)   Checking out files:  99% (21229/21443)   Checking out files: 100% (21443/21443)   Checking out files: 100% (21443/21443), done.
+$ cd /var/www/vAMSYS/releases/20150204211228
+$ git submodule update --init --recursive
+cd /var/www/vAMSYS/releases/20150204211228
+git submodule update --init --recursive
+
+
+/usr/local/bin/composer
+$ cd /var/www/vAMSYS/releases/20150204211228
+$ /usr/local/bin/composer install --no-interaction --no-dev --prefer-dist
+cd /var/www/vAMSYS/releases/20150204211228
+/usr/local/bin/composer install --no-interaction --no-dev --prefer-dist
+Loading composer repositories with package information
+Installing dependencies from lock file
+Warning: The lock file is not up to date with the latest changes in composer.json. You may be getting outdated dependencies. Run update to update them.
+  - Installing guzzlehttp/streams (2.1.0)
+    Loading from cache
+
+  - Installing jakub-onderka/php-console-color (0.1)
+    Loading from cache
+
+  - Installing vlucas/phpdotenv (v1.1.0)
+    Loading from cache
+
+  - Installing symfony/var-dumper (v2.6.3)
+    Loading from cache
+
+  - Installing symfony/translation (v2.6.3)
+    Loading from cache
+
+  - Installing symfony/security-core (v2.6.3)
+    Loading from cache
+
+  - Installing symfony/routing (v2.6.3)
+    Loading from cache
+
+  - Installing symfony/process (v2.6.3)
+    Loading from cache
+
+  - Installing symfony/http-foundation (v2.6.3)
+    Loading from cache
+
+  - Installing symfony/event-dispatcher (v2.6.3)
+    Loading from cache
+
+  - Installing psr/log (1.0.0)
+    Loading from cache
+
+  - Installing symfony/debug (v2.6.3)
+    Loading from cache
+
+  - Installing symfony/http-kernel (v2.6.3)
+    Loading from cache
+
+  - Installing symfony/finder (v2.6.3)
+    Loading from cache
+
+  - Installing symfony/console (v2.6.3)
+    Loading from cache
+
+  - Installing swiftmailer/swiftmailer (v5.3.1)
+    Loading from cache
+
+  - Installing nikic/php-parser (v1.1.0)
+    Loading from cache
+
+  - Installing jakub-onderka/php-console-highlighter (v0.3.1)
+    Loading from cache
+
+  - Installing dnoegel/php-xdg-base-dir (0.1)
+    Loading from cache
+
+  - Installing psy/psysh (v0.3.3)
+    Loading from cache
+
+  - Installing nesbot/carbon (1.13.0)
+    Loading from cache
+
+  - Installing mtdowling/cron-expression (v1.0.4)
+    Loading from cache
+
+  - Installing monolog/monolog (1.12.0)
+    Loading from cache
+
+  - Installing league/flysystem (1.0.1)
+    Downloading: connection...    Failed to download league/flysystem from dist: The "https://api.github.com/repos/thephpleague/flysystem/zipball/efa1d394bb45b0984a863854c608c607b9c2a9a4" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing league/flysystem (1.0.1)
+    Cloning efa1d394bb45b0984a863854c608c607b9c2a9a4
+
+  - Installing jeremeamia/superclosure (2.0.0)
+    Downloading: connection...    Failed to download jeremeamia/SuperClosure from dist: The "https://api.github.com/repos/jeremeamia/super_closure/zipball/ac4394c7e21777ac48543190fb0872b2fc7f17af" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing jeremeamia/superclosure (2.0.0)
+    Cloning ac4394c7e21777ac48543190fb0872b2fc7f17af
+
+  - Installing ircmaxell/password-compat (v1.0.4)
+    Downloading: connection...    Failed to download ircmaxell/password-compat from dist: The "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing ircmaxell/password-compat (v1.0.4)
+    Cloning 5c5cde8822a69545767f7c7f3058cb15ff84614c
+
+  - Installing doctrine/inflector (v1.0.1)
+    Downloading: connection...    Failed to download doctrine/inflector from dist: The "https://api.github.com/repos/doctrine/inflector/zipball/0bcb2e79d8571787f18b7eb036ed3d004908e604" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing doctrine/inflector (v1.0.1)
+    Cloning 0bcb2e79d8571787f18b7eb036ed3d004908e604
+
+  - Installing danielstjules/stringy (1.8.1)
+    Downloading: connection...    Failed to download danielstjules/stringy from dist: The "https://api.github.com/repos/danielstjules/Stringy/zipball/6a7b0391b2baf0bfdca3ec0c8d33ff379c2835ad" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing danielstjules/stringy (1.8.1)
+    Cloning 6a7b0391b2baf0bfdca3ec0c8d33ff379c2835ad
+
+  - Installing symfony/filesystem (v2.6.3)
+    Downloading: connection...    Failed to download symfony/filesystem from dist: The "https://api.github.com/repos/symfony/Filesystem/zipball/a1f566d1f92e142fa1593f4555d6d89e3044a9b7" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing symfony/filesystem (v2.6.3)
+    Cloning a1f566d1f92e142fa1593f4555d6d89e3044a9b7
+
+  - Installing classpreloader/classpreloader (1.2.0)
+    Downloading: connection...    Failed to download classpreloader/classpreloader from dist: The "https://api.github.com/repos/ClassPreloader/ClassPreloader/zipball/f0bfbf71fb3335c9473f695d4d966ba2fb879a9f" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing classpreloader/classpreloader (1.2.0)
+    Cloning f0bfbf71fb3335c9473f695d4d966ba2fb879a9f
+
+  - Installing laravel/framework (5.0.x-dev bb313e0)
+    Downloading: connection...    Failed to download laravel/framework from dist: The "https://api.github.com/repos/laravel/framework/zipball/bb313e0ae07e23bf6a677015942f6584963b9014" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing laravel/framework (5.0.x-dev bb313e0)
+    Cloning bb313e0ae07e23bf6a677015942f6584963b9014
+
+  - Installing symfony/yaml (v2.6.3)
+    Downloading: connection...    Failed to download symfony/yaml from dist: The "https://api.github.com/repos/symfony/Yaml/zipball/82462a90848a52c2533aa6b598b107d68076b018" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing symfony/yaml (v2.6.3)
+    Cloning 82462a90848a52c2533aa6b598b107d68076b018
+
+  - Installing symfony/dependency-injection (v2.6.3)
+    Downloading: connection...    Failed to download symfony/dependency-injection from dist: The "https://api.github.com/repos/symfony/DependencyInjection/zipball/72db9adf2f6c42e773108038bcdaff263f325b4e" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing symfony/dependency-injection (v2.6.3)
+    Cloning 72db9adf2f6c42e773108038bcdaff263f325b4e
+
+  - Installing symfony/config (v2.6.3)
+    Downloading: connection...    Failed to download symfony/config from dist: The "https://api.github.com/repos/symfony/Config/zipball/d94f222eff99a22ce313555b78642b4873418d56" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing symfony/config (v2.6.3)
+    Cloning d94f222eff99a22ce313555b78642b4873418d56
+
+  - Installing guzzlehttp/guzzle (4.2.3)
+    Downloading: connection...    Failed to download guzzlehttp/guzzle from dist: The "https://api.github.com/repos/guzzle/guzzle/zipball/66fd916e9f9130bc22c51450476823391cb2f67c" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing guzzlehttp/guzzle (4.2.3)
+    Cloning 66fd916e9f9130bc22c51450476823391cb2f67c
+
+  - Installing neoxygen/neoclient (dev-master d6b61f4)
+    Downloading: connection...    Failed to download neoxygen/neoclient from dist: The "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/d6b61f4db9a16cbe3b11232ca5b195a1c82442e4" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing neoxygen/neoclient (dev-master d6b61f4)
+    Cloning d6b61f4db9a16cbe3b11232ca5b195a1c82442e4
+
+  - Installing predis/predis (v1.0.1)
+    Downloading: connection...    Failed to download predis/predis from dist: The "https://api.github.com/repos/nrk/predis/zipball/7a170b3d8123c556597b4fbdb88631f99de180c2" file could not be downloaded (HTTP/1.1 403 Forbidden)
+    Now trying to download from source
+  - Installing predis/predis (v1.0.1)
+    Cloning 7a170b3d8123c556597b4fbdb88631f99de180c2
+
+Generating autoload files
+Generating optimized class loader
+Compiling common classes
+Compiling views
+/usr/bin/npm
+$ cd /var/www/vAMSYS/releases/20150204211228
+$ /usr/bin/npm install
+cd /var/www/vAMSYS/releases/20150204211228
+/usr/bin/npm install
+npm WARN package.json @ No repository field.
+npm WARN package.json gulp-filelog@0.4.1 No README data
+
+> node-sass@2.0.0-beta install /var/www/vAMSYS/releases/20150204211228/node_modules/node-sass
+> node scripts/install.js
+
+sh: 1: node: not found
+npm ERR! weird error 127
+npm WARN This failure might be due to the use of legacy binary "node"
+npm WARN For further explanations, please read
+/usr/share/doc/nodejs/README.Debian
+ 
+npm ERR! not ok code 0
+/usr/local/bin/bower
+$ cd /var/www/vAMSYS/releases/20150204211228
+$ /usr/local/bin/bower install --allow-root
+cd /var/www/vAMSYS/releases/20150204211228
+/usr/local/bin/bower install --allow-root
+/usr/bin/env: node: No such file or directory
+$ cd /var/www/vAMSYS/releases/20150204211228
+$ chmod -R 755 /var/www/vAMSYS/releases/20150204211228/
+$ chmod -R g+s /var/www/vAMSYS/releases/20150204211228/
+$ chown -R www-data:www-data /var/www/vAMSYS/releases/20150204211228/
+cd /var/www/vAMSYS/releases/20150204211228
+chmod -R 755 /var/www/vAMSYS/releases/20150204211228/
+chmod -R g+s /var/www/vAMSYS/releases/20150204211228/
+chown -R www-data:www-data /var/www/vAMSYS/releases/20150204211228/
+
+$ ln -s /var/www/vAMSYS/shared/.env /var/www/vAMSYS/releases/20150204211228/.env-temp
+$ mv -Tf /var/www/vAMSYS/releases/20150204211228/.env-temp /var/www/vAMSYS/releases/20150204211228/.env
+ln -s /var/www/vAMSYS/shared/.env /var/www/vAMSYS/releases/20150204211228/.env-temp
+mv -Tf /var/www/vAMSYS/releases/20150204211228/.env-temp /var/www/vAMSYS/releases/20150204211228/.env
+
+$ ln -s /var/www/vAMSYS/releases/20150204211228 /var/www/vAMSYS/current-temp
+$ mv -Tf /var/www/vAMSYS/current-temp /var/www/vAMSYS/current
+ln -s /var/www/vAMSYS/releases/20150204211228 /var/www/vAMSYS/current-temp
+mv -Tf /var/www/vAMSYS/current-temp /var/www/vAMSYS/current
+
+|=> No releases to prune from the server
