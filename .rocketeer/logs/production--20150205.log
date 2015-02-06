@@ -1,181 +1,0 @@
-20150204204526
-20150204205957
-20150204210610
-20150204211228
-$ git clone "git@gitlab.com:vAMSYS/vAMSYS.git" "/var/www/vAMSYS/releases/20150205200459" --branch="master" --depth="1"
-git clone "git@gitlab.com:vAMSYS/vAMSYS.git" "/var/www/vAMSYS/releases/20150205200459" --branch="master" --depth="1"
-Cloning into '/var/www/vAMSYS/releases/20150205200459'...
-Checking out files:  25% (5505/21452)   Checking out files:  26% (5578/21452)   Checking out files:  27% (5793/21452)   Checking out files:  28% (6007/21452)   Checking out files:  29% (6222/21452)   Checking out files:  30% (6436/21452)   Checking out files:  31% (6651/21452)   Checking out files:  32% (6865/21452)   Checking out files:  33% (7080/21452)   Checking out files:  34% (7294/21452)   Checking out files:  35% (7509/21452)   Checking out files:  36% (7723/21452)   Checking out files:  37% (7938/21452)   Checking out files:  38% (8152/21452)   Checking out files:  39% (8367/21452)   Checking out files:  40% (8581/21452)   Checking out files:  41% (8796/21452)   Checking out files:  42% (9010/21452)   Checking out files:  43% (9225/21452)   Checking out files:  44% (9439/21452)   Checking out files:  44% (9557/21452)   Checking out files:  45% (9654/21452)   Checking out files:  46% (9868/21452)   Checking out files:  47% (10083/21452)   Checking out files:  48% (10297/21452)   Checking out files:  49% (10512/21452)   Checking out files:  50% (10726/21452)   Checking out files:  51% (10941/21452)   Checking out files:  52% (11156/21452)   Checking out files:  53% (11370/21452)   Checking out files:  54% (11585/21452)   Checking out files:  55% (11799/21452)   Checking out files:  56% (12014/21452)   Checking out files:  57% (12228/21452)   Checking out files:  58% (12443/21452)   Checking out files:  59% (12657/21452)   Checking out files:  60% (12872/21452)   Checking out files:  60% (13038/21452)   Checking out files:  61% (13086/21452)   Checking out files:  62% (13301/21452)   Checking out files:  63% (13515/21452)   Checking out files:  64% (13730/21452)   Checking out files:  65% (13944/21452)   Checking out files:  66% (14159/21452)   Checking out files:  67% (14373/21452)   Checking out files:  68% (14588/21452)   Checking out files:  69% (14802/21452)   Checking out files:  70% (15017/21452)   Checking out files:  71% (15231/21452)   Checking out files:  72% (15446/21452)   Checking out files:  73% (15660/21452)   Checking out files:  74% (15875/21452)   Checking out files:  74% (15884/21452)   Checking out files:  75% (16089/21452)   Checking out files:  76% (16304/21452)   Checking out files:  77% (16519/21452)   Checking out files:  78% (16733/21452)   Checking out files:  79% (16948/21452)   Checking out files:  80% (17162/21452)   Checking out files:  81% (17377/21452)   Checking out files:  82% (17591/21452)   Checking out files:  83% (17806/21452)   Checking out files:  84% (18020/21452)   Checking out files:  85% (18235/21452)   Checking out files:  86% (18449/21452)   Checking out files:  87% (18664/21452)   Checking out files:  88% (18878/21452)   Checking out files:  89% (19093/21452)   Checking out files:  90% (19307/21452)   Checking out files:  91% (19522/21452)   Checking out files:  91% (19637/21452)   Checking out files:  92% (19736/21452)   Checking out files:  93% (19951/21452)   Checking out files:  94% (20165/21452)   Checking out files:  95% (20380/21452)   Checking out files:  96% (20594/21452)   Checking out files:  97% (20809/21452)   Checking out files:  98% (21023/21452)   Checking out files:  99% (21238/21452)   Checking out files: 100% (21452/21452)   Checking out files: 100% (21452/21452), done.
-$ cd /var/www/vAMSYS/releases/20150205200459
-$ git submodule update --init --recursive
-cd /var/www/vAMSYS/releases/20150205200459
-git submodule update --init --recursive
-
-
-/usr/local/bin/composer
-$ cd /var/www/vAMSYS/releases/20150205200459
-$ /usr/local/bin/composer install --no-interaction --no-dev --prefer-dist
-cd /var/www/vAMSYS/releases/20150205200459
-/usr/local/bin/composer install --no-interaction --no-dev --prefer-dist
-Loading composer repositories with package information
-Installing dependencies from lock file
-Warning: The lock file is not up to date with the latest changes in composer.json. You may be getting outdated dependencies. Run update to update them.
-  - Installing guzzlehttp/streams (2.1.0)
-    Loading from cache
-
-  - Installing jakub-onderka/php-console-color (0.1)
-    Loading from cache
-
-  - Installing vlucas/phpdotenv (v1.1.0)
-    Loading from cache
-
-  - Installing symfony/var-dumper (v2.6.3)
-    Loading from cache
-
-  - Installing symfony/translation (v2.6.3)
-    Loading from cache
-
-  - Installing symfony/security-core (v2.6.3)
-    Loading from cache
-
-  - Installing symfony/routing (v2.6.3)
-    Loading from cache
-
-  - Installing symfony/process (v2.6.3)
-    Loading from cache
-
-  - Installing symfony/http-foundation (v2.6.3)
-    Loading from cache
-
-  - Installing symfony/event-dispatcher (v2.6.3)
-    Loading from cache
-
-  - Installing psr/log (1.0.0)
-    Loading from cache
-
-  - Installing symfony/debug (v2.6.3)
-    Loading from cache
-
-  - Installing symfony/http-kernel (v2.6.3)
-    Loading from cache
-
-  - Installing symfony/finder (v2.6.3)
-    Loading from cache
-
-  - Installing symfony/console (v2.6.3)
-    Loading from cache
-
-  - Installing swiftmailer/swiftmailer (v5.3.1)
-    Loading from cache
-
-  - Installing nikic/php-parser (v1.1.0)
-    Loading from cache
-
-  - Installing jakub-onderka/php-console-highlighter (v0.3.1)
-    Loading from cache
-
-  - Installing dnoegel/php-xdg-base-dir (0.1)
-    Loading from cache
-
-  - Installing psy/psysh (v0.3.3)
-    Loading from cache
-
-  - Installing nesbot/carbon (1.13.0)
-    Loading from cache
-
-  - Installing mtdowling/cron-expression (v1.0.4)
-    Loading from cache
-
-  - Installing monolog/monolog (1.12.0)
-    Loading from cache
-
-  - Installing league/flysystem (1.0.1)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing jeremeamia/superclosure (2.0.0)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing ircmaxell/password-compat (v1.0.4)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing doctrine/inflector (v1.0.1)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing danielstjules/stringy (1.8.1)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing symfony/filesystem (v2.6.3)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing classpreloader/classpreloader (1.2.0)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing laravel/framework (5.0.x-dev bb313e0)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing symfony/yaml (v2.6.3)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing symfony/dependency-injection (v2.6.3)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing symfony/config (v2.6.3)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing guzzlehttp/guzzle (4.2.3)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing neoxygen/neoclient (dev-master d6b61f4)
-    Downloading: connection...    Downloading: 100%
-
-  - Installing predis/predis (v1.0.1)
-    Downloading: connection...    Downloading: 100%
-
-Generating autoload files
-Generating optimized class loader
-Compiling common classes
-Compiling views
-/usr/bin/npm
-$ cd /var/www/vAMSYS/releases/20150205200459
-$ /usr/bin/npm install
-cd /var/www/vAMSYS/releases/20150205200459
-/usr/bin/npm install
-npm WARN package.json @ No repository field.
-npm WARN package.json gulp-filelog@0.4.1 No README data
-
-> node-sass@2.0.0-beta install /var/www/vAMSYS/releases/20150205200459/node_modules/node-sass
-> node scripts/install.js
-
-sh: 1: node: not found
-npm ERR! weird error 127
-npm WARN This failure might be due to the use of legacy binary "node"
-npm WARN For further explanations, please read
-/usr/share/doc/nodejs/README.Debian
- 
-npm ERR! not ok code 0
-/usr/local/bin/bower
-$ cd /var/www/vAMSYS/releases/20150205200459
-$ /usr/local/bin/bower install --allow-root
-cd /var/www/vAMSYS/releases/20150205200459
-/usr/local/bin/bower install --allow-root
-/usr/bin/env: node: No such file or directory
-$ cd /var/www/vAMSYS/releases/20150205200459
-$ chmod -R 755 /var/www/vAMSYS/releases/20150205200459/
-$ chmod -R g+s /var/www/vAMSYS/releases/20150205200459/
-$ chown -R www-data:www-data /var/www/vAMSYS/releases/20150205200459/
-cd /var/www/vAMSYS/releases/20150205200459
-chmod -R 755 /var/www/vAMSYS/releases/20150205200459/
-chmod -R g+s /var/www/vAMSYS/releases/20150205200459/
-chown -R www-data:www-data /var/www/vAMSYS/releases/20150205200459/
-
-$ ln -s /var/www/vAMSYS/shared/.env /var/www/vAMSYS/releases/20150205200459/.env-temp
-$ mv -Tf /var/www/vAMSYS/releases/20150205200459/.env-temp /var/www/vAMSYS/releases/20150205200459/.env
-ln -s /var/www/vAMSYS/shared/.env /var/www/vAMSYS/releases/20150205200459/.env-temp
-mv -Tf /var/www/vAMSYS/releases/20150205200459/.env-temp /var/www/vAMSYS/releases/20150205200459/.env
-
-$ ln -s /var/www/vAMSYS/releases/20150205200459 /var/www/vAMSYS/current-temp
-$ mv -Tf /var/www/vAMSYS/current-temp /var/www/vAMSYS/current
-ln -s /var/www/vAMSYS/releases/20150205200459 /var/www/vAMSYS/current-temp
-mv -Tf /var/www/vAMSYS/current-temp /var/www/vAMSYS/current
-
-|=> No releases to prune from the server

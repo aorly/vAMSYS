@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "5.0.*@dev",
+		"laravel/framework": "~5.0",
 	  	"predis/predis": "~1.0",
 		"guzzlehttp/guzzle": "4.*",
 	  	"neoxygen/neoclient": "2.1.*@dev",
