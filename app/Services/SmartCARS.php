@@ -10,15 +10,14 @@ class SmartCARS implements \vAMSYS\Contracts\SmartCARS
   public function clearOldSessions()
   {
     $timestamp = time() - 2592000;
-    SmartCARS_Session::where('timestamp', '<', $timestamp)->delete();
+    SmartCARS_Session::where('created_at', '<', date("Y-m-d H:i:s", $timestamp))->delete();
   }
 
   public function writeSessionId($pilotId, $sessionId)
   {
     $session = new SmartCARS_Session();
-    $session->dbid = $pilotId;
+    $session->pilot_id = $pilotId;
     $session->sessionid = $sessionId;
-    $session->timestamp = time();
     $session->save();
   }
 

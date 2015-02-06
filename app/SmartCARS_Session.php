@@ -9,6 +9,5 @@ use Illuminate\Database\Eloquent\Model;
 class SmartCARS_Session extends Model {
 
   protected $table = 'smartCARS_sessions';
-  public $timestamps = false;
 
 }

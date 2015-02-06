@@ -124,9 +124,9 @@ class smartCARSController extends Controller {
 	private function handleAutomaticLogin($request)
 	{
 		$this->smartCARSService->clearOldSessions();
-		$session = SmartCARS_Session::where('dbid', '=', $request->input('pilotid'))->where('sessionid', '=', $request->input('oldsessionid'))->first();
+		$session = SmartCARS_Session::where('pilot_id', '=', $request->input('pilotid'))->where('sessionid', '=', $request->input('oldsessionid'))->first();
 		if ($session){
-			$pilot = Pilot::find($session->dbid);
+			$pilot = Pilot::find($session->pilot_id);
 			if ($pilot){
 				$ret = [
 					'dbid' 				=> $pilot->id,
@@ -171,9 +171,9 @@ class smartCARSController extends Controller {
 
 	private function handleVerifySession($request)
 	{
-		$session = SmartCARS_Session::where('dbid', '=', $request->input('pilotid'))->where('sessionid', '=', $request->input('oldsessionid'))->first();
+		$session = SmartCARS_Session::where('pilot_id', '=', $request->input('pilotid'))->where('sessionid', '=', $request->input('oldsessionid'))->first();
 		if ($session) {
-			$pilot = Pilot::find($session->dbid);
+			$pilot = Pilot::find($session->pilot_id);
 			if ($pilot) {
 				$ret    = [
 					'firstname' => $pilot->user->first_name,
