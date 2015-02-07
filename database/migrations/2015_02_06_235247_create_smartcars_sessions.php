@@ -16,7 +16,7 @@ class CreateSmartcarsSessions extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('pilot_id')->unsigned();
-			$table->foreign('pilot_id')->references('id')->on('pilotd');
+			$table->foreign('pilot_id')->references('id')->on('pilots');
 			$table->string('sessionid');
 			$table->timestamps();
 		});
