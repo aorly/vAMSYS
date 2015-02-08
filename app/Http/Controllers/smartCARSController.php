@@ -68,7 +68,7 @@ class smartCARSController extends Controller {
 			case "deletebidflight":
 				echo $this->handleDeleteBid($request);
 				break;
-			case "searchpireps":
+			case "searchflights":
 				echo $this->handleSearchFlight($request);
 				break;
 
@@ -404,7 +404,7 @@ class smartCARSController extends Controller {
 		foreach($availableRoutes as $route) {
 			if ($request->input('arrivalicao') !== NULL && $route->departureAirport->icao != $request->input('arrivalicao'))
 				continue;
-			
+
 			$routesList[] = [
 				"routeid" => $route->id,
 				"code" => '',
