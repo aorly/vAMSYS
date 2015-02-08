@@ -16,7 +16,7 @@ class AddAircraftParameters extends Migration {
 		{
 			$table->integer('passengers')->unsigned();
 			$table->integer('cargo')->unsigned();
-			$table->integer('rank_id')->unsigned();
+			$table->integer('rank_id')->unsigned()->nullable()->default(null);
 			$table->foreign('rank_id')->references('id')->on('ranks');
 		});
 	}

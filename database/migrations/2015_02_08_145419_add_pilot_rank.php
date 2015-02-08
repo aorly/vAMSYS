@@ -14,7 +14,7 @@ class AddPilotRank extends Migration {
 	{
 		Schema::table('pilots', function(Blueprint $table)
 		{
-			$table->integer('rank_id')->unsigned();
+			$table->integer('rank_id')->unsigned()->nullable()->default(null);
 			$table->foreign('rank_id')->references('id')->on('ranks');
 		});
 	}
