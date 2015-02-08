@@ -12,7 +12,7 @@ class SmartCARS_Session extends Model {
 
   public function pilot()
   {
-    $this->belongsTo('vAMSYS\Pilot');
+    return $this->belongsTo('vAMSYS\Pilot');
   }
 
 }
