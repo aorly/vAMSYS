@@ -366,9 +366,9 @@ class smartCARSController extends Controller
         "route"            => $booking->route->route,
         "cruisingaltitude" => "", // todo implement cruising alt
         "aircraft"         => $booking->aircraft->id,
-        "duration"         => "", // todo wtf
-        "departuretime"    => "", // todo wtf
-        "arrivaltime"      => "", // todo wtf
+        "duration"         => 0,
+        "departuretime"    => 0,
+        "arrivaltime"      => 0,
         "load"             => '',
         "daysofweek"       => '',
       ];
@@ -434,9 +434,9 @@ class smartCARSController extends Controller
         "route"            => $route->route,
         "cruisingaltitude" => '',
         "aircraft"         => 'TBA',
-        "flighttime"       => '',
-        "departuretime"    => '',
-        "arrivaltime"      => '',
+        "flighttime"       => 0,
+        "departuretime"    => 0,
+        "arrivaltime"      => 0,
         "daysofweek"       => '',
       ];
     }
