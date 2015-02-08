@@ -5,7 +5,7 @@ use League\Period\Period;
 use vAMSYS\Booking;
 use vAMSYS\Contracts\SmartCARS;
 use vAMSYS\Pilot;
-use vAMSYS\Repositories\RoutesRepository;
+use vAMSYS\Route;
 use vAMSYS\SmartCARS_Session;
 
 /**
