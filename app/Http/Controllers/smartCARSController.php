@@ -87,8 +87,8 @@ class smartCARSController extends Controller {
 						'firstname' 	=> $pilot->user->first_name,
 						'lastname' 		=> $pilot->user->last_name,
 						'email' 			=> $pilot->user->email,
-						'ranklevel' 	=> $pilot->rank->level, // todo implement ranks
-						'rankstring' 	=> $pilot->rank->name, // todo implement ranks
+						'ranklevel' 	=> $pilot->rank->level,
+						'rankstring' 	=> $pilot->rank->name,
 					];
 					$this->smartCARSService->writeSessionId($pilot->id, $request->input('sessionid'));
 					$result = $this->smartCARSService->sanitizeResult($ret);
@@ -212,9 +212,9 @@ class smartCARSController extends Controller {
 		}
 
 		$ret = [
-			"totalhours" => ($totalHours / 3600),
+			"totalhours" => round($totalHours / 3600, 2),
 			"totalflights" => $pirepCount,
-			"averagelandingrate" => round(array_sum($landingRates) / count($landingRates)),
+			"averagelandingrate" => (count($landingRates) > 0)? round(array_sum($landingRates) / count($landingRates)) : "N/A",
 			"totalpireps" => $pirepCount,
 		];
 		$result = $this->smartCARSService->sanitizeResult($ret);
