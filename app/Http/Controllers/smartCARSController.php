@@ -172,21 +172,18 @@ class smartCARSController extends Controller {
 
 	private function handleVerifySession($request)
 	{
-		$session = SmartCARS_Session::where('pilot_id', '=', $request->input('pilotid'))->where('sessionid', '=', $request->input('sessionid'))->first();
+		$session = SmartCARS_Session::where('pilot_id', '=', $request->input('dbid'))->where('sessionid', '=', $request->input('sessionid'))->first();
 		if ($session) {
-			$pilot = Pilot::find($session->pilot_id);
-			if ($pilot) {
-				$ret    = [
-					'firstname' => $pilot->user->first_name,
-					'lastname'  => $pilot->user->last_name,
-				];
-				$result = $this->smartCARSService->sanitizeResult($ret);
-				return implode(",", [
-					$request->input('sessionid'),
-					$result['firstname'],
-					$result['lastname'],
-				]);
-			}
+			$ret    = [
+				'firstname' => $session->pilot->user->first_name,
+				'lastname'  => $session->pilot->user->last_name,
+			];
+			$result = $this->smartCARSService->sanitizeResult($ret);
+			return implode(",", [
+				$request->input('sessionid'),
+				$result['firstname'],
+				$result['lastname'],
+			]);
 		}
 		return "AUTH_FAILED";
 	}
