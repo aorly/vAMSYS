@@ -249,7 +249,7 @@ class smartCARSController extends Controller {
 				'name'      => $airport->name,
 				'latitude'  => $airport->latitude,
 				'longitude' => $airport->longitude,
-				'country'   => $airport->region->country->name,
+				'country'   => $airport->region->country->code,
 			];
 		}
 
@@ -332,25 +332,25 @@ class smartCARSController extends Controller {
 		$format['daysofweek'] = 'daysofweek';
 
 		if (count($pilot->bookings) == 0)
-			return "";
+			return "NONE";
 
 		foreach($pilot->bookings as $booking){
 			$bookedFlights[] = [
 				"bidid" => $booking->id,
 				"routeid" => $booking->route->id,
-				"code" => "C1234", // todo wtf is this
-				"flightnumber" => "NO001", // todo implement flight numbers
-				"type" => "P",
+				"code" => "", // todo wtf is this
+				"flightnumber" => "RYR001", // todo implement flight numbers
+				"type" => "CHTR",
 				"departureicao" => $booking->route->departureAirport->icao,
 				"arrivalicao" => $booking->route->arrivalAirport->icao,
 				"route" => $booking->route->route,
-				"cruisingaltitude" => "FL123", // todo implement cruising alt
-				"aircraft" => $booking->aircraft->registration,
-				"duration" => 0, // todo wtf
-				"departuretime" => 0, // todo wtf
-				"arrivaltime" => 0, // todo wtf
-				"load" => 'randomlocked',
-				"daysofweek" => '0123456',
+				"cruisingaltitude" => "", // todo implement cruising alt
+				"aircraft" => $booking->aircraft->icao,
+				"duration" => "", // todo wtf
+				"departuretime" => "", // todo wtf
+				"arrivaltime" => "", // todo wtf
+				"load" => '',
+				"daysofweek" => '',
 			];
 		}
 
