@@ -60,6 +60,9 @@ class smartCARSController extends Controller {
 			case "getaircraft":
 				echo $this->handleAircraft($request);
 				break;
+			case "getbidflights":
+				echo $this->handleBidFlights($request);
+				break;
 
 			default:
 				echo("Script OK, Frame Version: vAMSYS-080215, Interface Version: ".$airlineICAO."-080215");
@@ -305,5 +308,64 @@ class smartCARSController extends Controller {
 		}
 
 		return $return;
+	}
+
+	private function handleBidFlights($request)
+	{
+		$pilot = Pilot::find($request->input('dbid'));
+
+		$format = [];
+		$format['bidid'] = 'bidid';
+		$format['routeid'] = 'routeid';
+		$format['code'] = 'code';
+		$format['flightnumber'] = 'flightnumber';
+		$format['type'] = 'type';
+		$format['departureicao'] = 'departureicao';
+		$format['arrivalicao'] = 'arrivalicao';
+		$format['route'] = 'route';
+		$format['cruisingaltitude'] = 'cruisingaltitude';
+		$format['aircraft'] = 'aircraft';
+		$format['duration'] = 'duration';
+		$format['departuretime'] = 'departuretime';
+		$format['arrivaltime'] = 'arrivaltime';
+		$format['load'] = 'load';
+		$format['daysofweek'] = 'daysofweek';
+
+		if (count($pilot->bookings) == 0)
+			return "";
+
+		foreach($pilot->bookings as $booking){
+			$bookedFlights[] = [
+				"bidid" => $booking->id,
+				"routeid" => $booking->route->id,
+				"code" => "1234", // todo wtf is this
+				"flightnumber" => "NO001", // todo implement flight numbers
+				"type" => "event",
+				"departureicao" => $booking->route->departureAirport->icao,
+				"arrivalicao" => $booking->route->arrivalAirport->icao,
+				"route" => $booking->route->route,
+				"cruisingaltitude" => "FL123", // todo implement cruising alt
+				"aircraft" => $booking->aircraft->id,
+				"duration" => 0, // todo wtf
+				"departuretime" => "Pilot's Discretion", // todo wtf
+				"arrivaltime" => "Pilot's Discretion", // todo wtf
+				"load" => 'randomlocked',
+				"daysofweek" => 0123456,
+			];
+		}
+
+		$return = '';
+		$runcount = 0;
+		foreach($bookedFlights as $schedule) {
+			if ($runcount != 0)
+				echo(";");
+			$schedule = str_replace(";", "", $schedule);
+			$schedule = str_replace(",", "", $schedule);
+			$return .= ($schedule[$format['bidid']] . "|" . $schedule[$format['routeid']] . "|" . $schedule[$format['code']] . "|" . $schedule[$format['flightnumber']] . "|" . $schedule[$format['departureicao']] . "|" . $schedule[$format['arrivalicao']] . "|" . $schedule[$format['route']] . "|" . $schedule[$format['cruisingaltitude']] . "|" . $schedule[$format['aircraft']] . "|" . $schedule[$format['duration']] . "|" . $schedule[$format['departuretime']] . "|" . $schedule[$format['arrivaltime']] . "|" . $schedule[$format['load']] . "|" . $schedule[$format['type']] . "|" . $schedule[$format['daysofweek']]);
+			$runcount++;
+		}
+
+		return $return;
+
 	}
 }

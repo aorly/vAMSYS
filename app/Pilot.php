@@ -46,4 +46,9 @@ class Pilot extends Model {
     return $this->belongsTo('vAMSYS\Rank');
   }
 
+  public function bookings()
+  {
+    return $this->hasMany('vAMSYS\Booking');
+  }
+
 }
