@@ -418,7 +418,7 @@ class smartCARSController extends Controller
       $routesList[] = [
         "routeid"          => $route->id,
         "code"             => '',
-        "flightnumber"     => '',
+        "flightnumber"     => 'FR1234',
         "departureicao"    => $route->departureAirport->icao,
         "arrivalicao"      => $route->arrivalAirport->icao,
         "route"            => $route->route,
