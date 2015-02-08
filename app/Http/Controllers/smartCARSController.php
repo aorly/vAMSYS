@@ -345,7 +345,7 @@ class smartCARSController extends Controller {
 				"arrivalicao" => $booking->route->arrivalAirport->icao,
 				"route" => $booking->route->route,
 				"cruisingaltitude" => "FL123", // todo implement cruising alt
-				"aircraft" => $booking->aircraft->id,
+				"aircraft" => $booking->aircraft->registration,
 				"duration" => 0, // todo wtf
 				"departuretime" => 0, // todo wtf
 				"arrivaltime" => 0, // todo wtf
