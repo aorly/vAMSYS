@@ -10,4 +10,9 @@ class SmartCARS_Session extends Model {
 
   protected $table = 'smartCARS_sessions';
 
+  public function pilot()
+  {
+    $this->belongsTo('vAMSYS\Pilot');
+  }
+
 }
