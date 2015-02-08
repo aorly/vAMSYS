@@ -338,19 +338,19 @@ class smartCARSController extends Controller {
 			$bookedFlights[] = [
 				"bidid" => $booking->id,
 				"routeid" => $booking->route->id,
-				"code" => "1234", // todo wtf is this
+				"code" => "C1234", // todo wtf is this
 				"flightnumber" => "NO001", // todo implement flight numbers
-				"type" => "event",
+				"type" => "P",
 				"departureicao" => $booking->route->departureAirport->icao,
 				"arrivalicao" => $booking->route->arrivalAirport->icao,
 				"route" => $booking->route->route,
 				"cruisingaltitude" => "FL123", // todo implement cruising alt
 				"aircraft" => $booking->aircraft->id,
 				"duration" => 0, // todo wtf
-				"departuretime" => "Pilot's Discretion", // todo wtf
-				"arrivaltime" => "Pilot's Discretion", // todo wtf
+				"departuretime" => 0, // todo wtf
+				"arrivaltime" => 0, // todo wtf
 				"load" => 'randomlocked',
-				"daysofweek" => 0123456,
+				"daysofweek" => '0123456',
 			];
 		}
 
