@@ -442,5 +442,7 @@ class smartCARSController extends Controller
       $runcount++;
     }
 
+    return $return;
+
   }
 }
