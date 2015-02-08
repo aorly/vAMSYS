@@ -257,7 +257,7 @@ class smartCARSController extends Controller {
 		$runcount = 0;
 		foreach($airportsList as $apt) {
 			if($runcount != 0)
-				$return .= (";");
+				$return .= ";";
 			$apt = str_replace(";","",$apt);
 			$apt = str_replace("|","",$apt);
 			$return .= $apt[$format['id']] . "|" . strtoupper($apt[$format['icao']]) . "|" . $apt[$format['name']] . "|" . $apt[$format['latitude']] . "|" . $apt[$format['longitude']] . "|" . $apt[$format['country']];
@@ -345,7 +345,7 @@ class smartCARSController extends Controller {
 				"arrivalicao" => $booking->route->arrivalAirport->icao,
 				"route" => $booking->route->route,
 				"cruisingaltitude" => "", // todo implement cruising alt
-				"aircraft" => $booking->aircraft->icao,
+				"aircraft" => $booking->aircraft->type,
 				"duration" => "", // todo wtf
 				"departuretime" => "", // todo wtf
 				"arrivaltime" => "", // todo wtf
