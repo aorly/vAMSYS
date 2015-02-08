@@ -141,7 +141,7 @@ class smartCARSController extends Controller {
 				];
 				$this->smartCARSService->writeSessionId($pilot->id, $request->input('sessionid'));
 				$result = $this->smartCARSService->sanitizeResult($ret);
-				if (Input::get('new') == 'true') {
+				if ($request->input('new') == 'true') {
 					return implode(",", [
 						$result['dbid'],
 						$result['code'],
