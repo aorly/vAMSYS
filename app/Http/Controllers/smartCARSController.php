@@ -422,7 +422,7 @@ class smartCARSController extends Controller
     $routesList = [];
 
     foreach ($availableRoutes as $route) {
-      if ($request->has('arrivalicao') && $route->departureAirport->icao != $request->input('arrivalicao'))
+      if ($request->has('arrivalicao') && $route->arrivalAirport->icao != $request->input('arrivalicao'))
         continue;
 
       $routesList[] = [
