@@ -1,6 +1,7 @@
 <?php namespace vAMSYS\Http\Controllers;
 
 use Illuminate\Http\Request;
+use League\Period\Period;
 use vAMSYS\Contracts\SmartCARS;
 use vAMSYS\Pilot;
 use vAMSYS\SmartCARS_Session;
@@ -61,7 +62,7 @@ class smartCARSController extends Controller {
 				break;
 
 			default:
-				echo("Script OK, Frame Version: vAMSYS-050215, Interface Version: ".$airlineICAO."-050215");
+				echo("Script OK, Frame Version: vAMSYS-080215, Interface Version: ".$airlineICAO."-080215");
 		}
 
 		// Prevent further output
@@ -124,7 +125,7 @@ class smartCARSController extends Controller {
 	private function handleAutomaticLogin($request)
 	{
 		$this->smartCARSService->clearOldSessions();
-		$session = SmartCARS_Session::where('pilot_id', '=', $request->input('pilotid'))->where('sessionid', '=', $request->input('oldsessionid'))->first();
+		$session = SmartCARS_Session::where('pilot_id', '=', $request->input('dbid'))->where('sessionid', '=', $request->input('sessionid'))->first();
 		if ($session){
 			$pilot = Pilot::find($session->pilot_id);
 			if ($pilot){
@@ -135,8 +136,8 @@ class smartCARSController extends Controller {
 					'firstname' 	=> $pilot->user->first_name,
 					'lastname' 		=> $pilot->user->last_name,
 					'email' 			=> $pilot->user->email,
-					'ranklevel' 	=> 1, // todo implement ranks
-					'rankstring' 	=> 'Pilot', // todo implement ranks
+					'ranklevel' 	=> $pilot->rank->level,
+					'rankstring' 	=> $pilot->rank->name,
 				];
 				$this->smartCARSService->writeSessionId($pilot->id, $request->input('sessionid'));
 				$result = $this->smartCARSService->sanitizeResult($ret);
@@ -171,7 +172,7 @@ class smartCARSController extends Controller {
 
 	private function handleVerifySession($request)
 	{
-		$session = SmartCARS_Session::where('pilot_id', '=', $request->input('pilotid'))->where('sessionid', '=', $request->input('oldsessionid'))->first();
+		$session = SmartCARS_Session::where('pilot_id', '=', $request->input('pilotid'))->where('sessionid', '=', $request->input('sessionid'))->first();
 		if ($session) {
 			$pilot = Pilot::find($session->pilot_id);
 			if ($pilot) {
@@ -192,12 +193,29 @@ class smartCARSController extends Controller {
 
 	private function handlePilotCentreData($request)
 	{
-		// todo implement pilot centre data
+		$pilot = Pilot::find($request->input('dbid'));
+		$pireps = $pilot->pireps;
+
+		$pirepCount = 0;
+		$totalHours = 0;
+		$landingRates = [];
+
+		foreach ($pireps as $pirep){
+			$pirepCount++;
+
+			// Calculate Total Hours
+			$flightTime = new Period($pirep->departure_time, $pirep->landing_time);
+			$totalHours += $flightTime->getDuration(true);
+
+			// Calculate Average Landing Rate
+			$landingRates[] = $pirep->landing_rate;
+		}
+
 		$ret = [
-			"totalhours" => 100,
-			"totalflights" => 10,
-			"averagelandingrate" => 150,
-			"totalpireps" => 10,
+			"totalhours" => ($totalHours / 3600),
+			"totalflights" => $pirepCount,
+			"averagelandingrate" => round(array_sum($landingRates) / count($landingRates)),
+			"totalpireps" => $pirepCount,
 		];
 		$result = $this->smartCARSService->sanitizeResult($ret);
 		return implode(",", [
@@ -210,11 +228,10 @@ class smartCARSController extends Controller {
 
 	private function handleAirports($request)
 	{
-		// todo remove default when dbid actually comes in.
-		$pilot = Pilot::find($request->input('dbid', 2));
+		$pilot = Pilot::find($request->input('dbid'));
 		$airports = $pilot->airline->airports;
 
-		// This was quit complex, so the original code has been preserved somewhat.
+		// This was quite complex, so the original code has been preserved somewhat.
 
 		$format = [];
 		$format['id'] = 'id';
@@ -252,11 +269,10 @@ class smartCARSController extends Controller {
 
 	private function handleAircraft($request)
 	{
-		// todo remove default when dbid actually comes in.
-		$pilot = Pilot::find($request->input('dbid', 2));
+		$pilot = Pilot::find($request->input('dbid'));
 		$aircraft = $pilot->airline->aircraft;
 
-		// This was quit complex, so the original code has been preserved somewhat.
+		// This was quite complex, so the original code has been preserved somewhat.
 
 		$format = [];
 		$format['id'] = 'id';
@@ -274,9 +290,9 @@ class smartCARSController extends Controller {
 				'fullname' => $singleAircraft->type.' '.$singleAircraft->registration,
 				'icao' => $singleAircraft->type,
 				'registration' => $singleAircraft->registration,
-				'maxpassengers' => 300, // todo implement max passengers
-				'maxcargo' => 10000, // todo implement max cargo
-				'requiredranklevel' => 1, // todo implement required rank
+				'maxpassengers' => $singleAircraft->passengers,
+				'maxcargo' => $singleAircraft->cargo,
+				'requiredranklevel' => $singleAircraft->rank->level,
 			];
 		}
 

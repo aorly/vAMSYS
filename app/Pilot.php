@@ -36,4 +36,14 @@ class Pilot extends Model {
     return $this->belongsTo('vAMSYS\Airport', 'location_id');
   }
 
+  public function pireps()
+  {
+    return $this->hasMany('vAMSYS\Pirep');
+  }
+
+  public function rank()
+  {
+    return $this->belongsTo('vAMSYS\Rank');
+  }
+
 }

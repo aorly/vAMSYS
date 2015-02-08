@@ -26,4 +26,9 @@ class Aircraft extends Model {
     return $this->belongsTo('vAMSYS\Airline');
   }
 
+  public function rank()
+  {
+    return $this->belongsTo('vAMSYS\Rank');
+  }
+
 }

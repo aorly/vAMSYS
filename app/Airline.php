@@ -36,4 +36,9 @@ class Airline extends Model {
     return $this->hasMany('vAMSYS\Aircraft');
   }
 
+  public function ranks()
+  {
+    return $this->hasMany('vAMSYS\Rank');
+  }
+
 }

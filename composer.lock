@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fff2eb617b7d859305757dfd2e7c5e4b",
+    "hash": "ac2bfada4aa6fbd73cf604a68120e45e",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -733,6 +733,64 @@
                 "storage"
             ],
             "time": "2015-01-23 09:43:34"
+        },
+        {
+            "name": "league/period",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/period.git",
+                "reference": "5cd66b4e1c4e530f11030d2045a949e71af3afbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/period/zipball/5cd66b4e1c4e530f11030d2045a949e71af3afbd",
+                "reference": "5cd66b4e1c4e530f11030d2045a949e71af3afbd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "replace": {
+                "bakame/period": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Period\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A time range immutable value object",
+            "keywords": [
+                "date",
+                "dateinterval",
+                "dateperiod",
+                "datetime",
+                "interval",
+                "range",
+                "time"
+            ],
+            "time": "2014-12-18 08:23:19"
         },
         {
             "name": "monolog/monolog",
