@@ -306,6 +306,16 @@ class smartCARSController extends Controller
       ];
     }
 
+    $aircraftList[] = [
+      'id'                => "TBA",
+      'fullname'          => "To Be Allocated",
+      'icao'              => "TBA",
+      'registration'      => "After Booking",
+      'maxpassengers'     => 9999,
+      'maxcargo'          => 9999999999,
+      'requiredranklevel' => 0,
+    ];
+
     $return   = '';
     $runcount = 0;
     foreach ($aircraftList as $ac) {
@@ -349,7 +359,7 @@ class smartCARSController extends Controller
         "bidid"            => $booking->id,
         "routeid"          => $booking->route->id,
         "code"             => "", // todo wtf is this
-        "flightnumber"     => $booking->callsign, // todo implement flight numbers
+        "flightnumber"     => $booking->callsign,
         "type"             => "CHTR",
         "departureicao"    => $booking->route->departureAirport->icao,
         "arrivalicao"      => $booking->route->arrivalAirport->icao,
@@ -423,7 +433,7 @@ class smartCARSController extends Controller
         "arrivalicao"      => $route->arrivalAirport->icao,
         "route"            => $route->route,
         "cruisingaltitude" => '',
-        "aircraft"         => '',
+        "aircraft"         => 'TBA',
         "flighttime"       => '',
         "departuretime"    => '',
         "arrivaltime"      => '',
