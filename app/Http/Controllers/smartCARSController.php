@@ -2,8 +2,10 @@
 
 use Illuminate\Http\Request;
 use League\Period\Period;
+use vAMSYS\Booking;
 use vAMSYS\Contracts\SmartCARS;
 use vAMSYS\Pilot;
+use vAMSYS\Repositories\RoutesRepository;
 use vAMSYS\SmartCARS_Session;
 
 /**
@@ -63,6 +65,13 @@ class smartCARSController extends Controller {
 			case "getbidflights":
 				echo $this->handleBidFlights($request);
 				break;
+			case "deletebidflight":
+				echo $this->handleDeleteBid($request);
+				break;
+			case "searchpireps":
+				echo $this->handleSearchFlight($request);
+				break;
+
 
 			default:
 				echo("Script OK, Frame Version: vAMSYS-080215, Interface Version: ".$airlineICAO."-080215");
@@ -339,7 +348,7 @@ class smartCARSController extends Controller {
 				"bidid" => $booking->id,
 				"routeid" => $booking->route->id,
 				"code" => "", // todo wtf is this
-				"flightnumber" => "RYR001", // todo implement flight numbers
+				"flightnumber" => $booking->callsign, // todo implement flight numbers
 				"type" => "CHTR",
 				"departureicao" => $booking->route->departureAirport->icao,
 				"arrivalicao" => $booking->route->arrivalAirport->icao,
@@ -352,6 +361,7 @@ class smartCARSController extends Controller {
 				"load" => '',
 				"daysofweek" => '',
 			];
+			break; // Only do first one!
 		}
 
 		$return = '';
@@ -366,6 +376,61 @@ class smartCARSController extends Controller {
 		}
 
 		return $return;
+
+	}
+
+	private function handleDeleteBid($request)
+	{
+		if ($this->handleVerifySession($request) == 'AUTH_FAILED')
+			return "AUTH_FAILED";
+
+		Booking::find($request->input('bidid'))->delete();
+		return "FLIGHT_DELETED";
+	}
+
+	private function handleSearchFlight($request)
+	{
+		$pilot = Pilot::find($request->input('dbid'));
+		$currentLocation = $pilot->location;
+		$lastBooking = Booking::where('pilot_id', '=', $pilot->id)->orderBy('created_at', 'desc')->first();
+		if (count($lastBooking) == 1){
+			$currentLocation = $lastBooking->route->arrivalAirport;
+		}
+
+		$availableRoutes = RoutesRepository::getRoutesFrom($currentLocation);
+
+		$routesList = [];
+
+		foreach($availableRoutes as $route) {
+			if ($request->input('arrivalicao') !== NULL && $route->departureAirport->icao != $request->input('arrivalicao'))
+				continue;
+			
+			$routesList[] = [
+				"routeid" => $route->id,
+				"code" => '',
+				"flightnumber" => '',
+				"departureicao" => $route->departureAirport->icao,
+				"arrivalicao" => $route->arrivalAirport->icao,
+				"route" => $route->route,
+				"cruisingaltitude" => '',
+				"aircraft" => '',
+				"flighttime" => '',
+				"departuretime" => '',
+				"arrivaltime" => '',
+				"daysofweek" => '',
+			];
+		}
+
+		$return = '';
+		$runcount = 0;
+		foreach ($routesList as $singleRoute){
+			if ($runcount != 0)
+				$return .= ";";
+			$singleRoute = str_replace(";", "", $singleRoute);
+			$singleRoute = str_replace(",", "", $singleRoute);
+			$return .= $singleRoute['routeid'] . "|" . $singleRoute['code'] . "|" . $singleRoute['flightnumber'] . "|" . $singleRoute['departureicao'] . "|" . $singleRoute['arrivalicao'] . "|" . $singleRoute['route'] . "|" . $singleRoute['cruisingaltitude'] . "|" . $singleRoute['aircraft'] . "|" . $singleRoute['flighttime'] . "|" . $singleRoute['departuretime'] . "|" . $singleRoute['arrivaltime'] . "|" . $singleRoute['daysofweek'];
+			$runcount++;
+		}
 
 	}
 }
