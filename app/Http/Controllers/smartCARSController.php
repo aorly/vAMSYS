@@ -125,7 +125,7 @@ class smartCARSController extends Controller {
 	private function handleAutomaticLogin($request)
 	{
 		$this->smartCARSService->clearOldSessions();
-		$session = SmartCARS_Session::where('pilot_id', '=', $request->input('dbid'))->where('sessionid', '=', $request->input('sessionid'))->first();
+		$session = SmartCARS_Session::where('pilot_id', '=', $request->input('dbid'))->where('sessionid', '=', $request->input('oldsessionid'))->first();
 		if ($session){
 			$pilot = Pilot::find($session->pilot_id);
 			if ($pilot){
