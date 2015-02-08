@@ -287,7 +287,7 @@ class smartCARSController extends Controller {
 		foreach ($aircraft as $singleAircraft) {
 			$aircraftList[] = [
 				'id' => $singleAircraft->id,
-				'fullname' => $singleAircraft->type.' '.$singleAircraft->registration,
+				'fullname' => $singleAircraft->full_name,
 				'icao' => $singleAircraft->type,
 				'registration' => $singleAircraft->registration,
 				'maxpassengers' => $singleAircraft->passengers,
