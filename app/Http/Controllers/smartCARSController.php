@@ -87,8 +87,8 @@ class smartCARSController extends Controller {
 						'firstname' 	=> $pilot->user->first_name,
 						'lastname' 		=> $pilot->user->last_name,
 						'email' 			=> $pilot->user->email,
-						'ranklevel' 	=> 1, // todo implement ranks
-						'rankstring' 	=> 'Pilot', // todo implement ranks
+						'ranklevel' 	=> $pilot->rank->level, // todo implement ranks
+						'rankstring' 	=> $pilot->rank->name, // todo implement ranks
 					];
 					$this->smartCARSService->writeSessionId($pilot->id, $request->input('sessionid'));
 					$result = $this->smartCARSService->sanitizeResult($ret);
