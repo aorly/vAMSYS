@@ -16,17 +16,18 @@ use vAMSYS\Airport;
 use vAMSYS\Country;
 use vAMSYS\Region;
 
+// Special cases for smartCARS
+Route::group(['domain' => 'acars.vamsys.io'], function()
+{
+  Route::any('/{airlineICAO}/smartCARS/frame.php', 'smartCARSController@main');
+});
+
 Route::get('/', function () {
   return redirect('/dashboard');
 });
 
-/*
- * Route Model Binding Routes (Overrides)
- */
 Route::get('/flights/cancel/{booking}', 'FlightsController@getCancel');
 Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
-
-Route::any('/acars/smartcars/{airlineICAO}/frame.php', 'smartCARSController@main');
 
 Route::controllers([
   'auth'      => 'Auth\AuthController',

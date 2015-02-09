@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use vAMSYS\Airline;
 
 class RouteServiceProvider extends ServiceProvider {
 

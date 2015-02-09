@@ -25,7 +25,7 @@
 </div>
 <div class="logo">
     <a href="/">
-        <img src="//placehold.it/400x150.png&text=Airline+Logo+Here" alt=""/>
+        <img src="//placehold.it/400x150.png&text={{ urlencode($airline->name) }}" alt=""/>
     </a>
 </div>
 <div class="content">

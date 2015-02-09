@@ -395,7 +395,7 @@ class smartCARSController extends Controller
     if ($this->handleVerifySession($request) == 'AUTH_FAILED')
       return "AUTH_FAILED";
 
-    Booking::find($request->input('bidid'))->delete();
+    Booking::find($request->input('bidid'))->delete(); // todo: delete later routes!
     return "FLIGHT_DELETED";
   }
 
@@ -434,7 +434,7 @@ class smartCARSController extends Controller
         "route"            => $route->route,
         "cruisingaltitude" => '',
         "aircraft"         => 'TBA',
-        "flighttime"       => 0,
+        "flighttime"       => "Unknown",
         "departuretime"    => 0,
         "arrivaltime"      => 0,
         "daysofweek"       => '',

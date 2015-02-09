@@ -16,7 +16,9 @@ class GlobalComposer {
    */
   public function compose(View $view)
   {
-    $view->with('airline', Airline::find(Session::get('airlineId')));
+    if (Session::has('airlineId'))
+      $view->with('airline', Airline::find(Session::get('airlineId')));
+    
     if (Request::user()) {
       $view->with('user', Request::user());
       $view->with('pilot', PilotRepository::getCurrentPilot());
