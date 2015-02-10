@@ -464,13 +464,13 @@ class smartCARSController extends Controller
 
   private function handlePositionReport($request)
   {
-    Log::info('Position Report', array('request' => $request));
+    Log::info('Position Report', array('request' => $request->all()));
     return "SUCCESS";
   }
 
   private function handleFilePirep($request)
   {
-    Log::info('PIREP Filed', array('request' => $request));
+    Log::info('PIREP Filed', array('request' => $request->all()));
     return "SUCCESS";
   }
 }
