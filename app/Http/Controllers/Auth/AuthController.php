@@ -94,7 +94,6 @@ class AuthController extends Controller {
 
 		// Could not login with this email
 		return $this->loginError($email);
-
 	}
 
 	/**

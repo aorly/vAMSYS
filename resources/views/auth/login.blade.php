@@ -55,7 +55,8 @@
                    placeholder="Password" name="password"/>
         </div>
         <div class="form-actions">
-            <input type="hidden" name="_token" value="<?=csrf_token();?>">
+            <input type="hidden" name="_token" value="{{ csrf_token(); }}">
+            <input type="hidden" name="airline-id" value="{{ $airline->id }}">
             <button type="submit" class="btn btn-success uppercase">Login</button>
             <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
         </div>

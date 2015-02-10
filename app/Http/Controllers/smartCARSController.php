@@ -1,6 +1,7 @@
 <?php namespace vAMSYS\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use League\Period\Period;
 use vAMSYS\Booking;
 use vAMSYS\Contracts\SmartCARS;
@@ -72,7 +73,12 @@ class smartCARSController extends Controller
       case "searchflights":
         echo $this->handleSearchFlight($request);
         break;
-
+      case "positionreport":
+        echo $this->handlePositionReport($request);
+        break;
+      case "filepirep":
+        echo $this->handleFilePirep($request);
+        break;
 
       default:
         echo("Script OK, Frame Version: vAMSYS-080215, Interface Version: " . $airlineICAO . "-080215");
@@ -454,5 +460,17 @@ class smartCARSController extends Controller
 
     return $return;
 
+  }
+
+  private function handlePositionReport($request)
+  {
+    Log::info('Position Report', array('request' => $request));
+    return "SUCCESS";
+  }
+
+  private function handleFilePirep($request)
+  {
+    Log::info('PIREP Filed', array('request' => $request));
+    return "SUCCESS";
   }
 }
