@@ -1,9 +1,8 @@
 <?php namespace vAMSYS;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Pirep extends Model {
+class PositionReport extends Model {
 
   use SoftDeletes;
 
@@ -12,16 +11,11 @@ class Pirep extends Model {
    *
    * @var string
    */
-  protected $table = 'pireps';
+  protected $table = 'position_reports';
 
   public function booking()
   {
     return $this->belongsTo('vAMSYS\Booking');
-  }
-
-  public function positionReports()
-  {
-    return $this->hasManyThrough('vAMSYS\PositionReport', 'vAMSYS\Booking');
   }
 
 }

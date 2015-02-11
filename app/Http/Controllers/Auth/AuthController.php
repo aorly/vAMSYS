@@ -42,21 +42,21 @@ class AuthController extends Controller {
 		]);
 
 		$login = $request->input('login');
-		$this->redirectTo = "/auth/airlines";
 
 		if (!filter_var($login, FILTER_VALIDATE_EMAIL)){
 			// It's not an email address - try and find the user from our Pilots!
 			if ($pilot = Pilot::where('username', '=', $login)->first()){
 				// Login with this user's email address!
-				$this->redirectTo = "/";
 				$login = $pilot->user->email;
 				Session::put('airlineId', $pilot->airline->id);
+				$this->doEmailLogin($login, $request->input('password'), $request->has('remember'));
 			} else {
 				return $this->loginError($login);
 			}
 		}
-		// We have an email address -> login and redirect to airline chooser (if necessary)
-		return $this->doEmailLogin($login, $request->input('password'), $request->has('remember'));
+
+		// We have an email address -> this is not supported!
+		return $this->loginError($login);
 	}
 
 	public function getAirlines(Request $request, $airlineId = false){
@@ -88,8 +88,7 @@ class AuthController extends Controller {
 	protected function doEmailLogin($email, $password, $remember = false){
 		if ($this->auth->attempt(['email' => $email, 'password' => $password], $remember))
 		{
-			Log::info($this->redirectTo);
-			return redirect($this->redirectTo);
+			return redirect('/');
 		}
 
 		// Could not login with this email
