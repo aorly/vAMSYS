@@ -20,7 +20,6 @@ class CreatePositionReportsTable extends Migration {
 			$table->integer('altitude');
 			$table->integer('magnetic_heading');
 			$table->integer('true_heading');
-			$table->integer('altitude');
 			$table->decimal('latitude', 15, 12);
 			$table->decimal('longitude', 15, 12);
 			$table->integer('groundspeed');
