@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <h1 class="next-flight">CALL516N <small>using <strong>{{ $currentBooking->aircraft->registration }}</strong></small></h1>
+                    <h1 class="next-flight">{{ $currentBooking->callsign }} <small>using <strong>{{ $currentBooking->aircraft->registration }}</strong></small></h1>
                     <h3 class="next-flight"><strong>
                             {{ $currentBooking->route->departureAirport->name }}
                         </strong> to <strong>

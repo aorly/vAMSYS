@@ -1,6 +1,7 @@
 <?php namespace vAMSYS\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use vAMSYS\Airline;
 
 class AppServiceProvider extends ServiceProvider {
 
@@ -25,6 +26,8 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+		Airline::setStripeKey(env('STRIPE_KEY'));
+
 		$this->app->bind(
 			'Illuminate\Contracts\Auth\Registrar',
 			'vAMSYS\Services\Registrar'
@@ -38,6 +41,11 @@ class AppServiceProvider extends ServiceProvider {
 		$this->app->bind(
 			'vAMSYS\Contracts\SmartCARS',
 			'vAMSYS\Services\SmartCARS'
+		);
+
+		$this->app->bind(
+			'vAMSYS\Contracts\Callsign',
+			'vAMSYS\Services\Callsign'
 		);
 	}
 

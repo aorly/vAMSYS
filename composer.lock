@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f585789542c08fde72cc78560c1f1542",
+    "hash": "3e5183236763afe68ed9e4b2c51770fe",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -68,16 +68,16 @@
         },
         {
             "name": "danielstjules/stringy",
-            "version": "1.8.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielstjules/Stringy.git",
-                "reference": "6a7b0391b2baf0bfdca3ec0c8d33ff379c2835ad"
+                "reference": "3cf18e9e424a6dedc38b7eb7ef580edb0929461b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/6a7b0391b2baf0bfdca3ec0c8d33ff379c2835ad",
-                "reference": "6a7b0391b2baf0bfdca3ec0c8d33ff379c2835ad",
+                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/3cf18e9e424a6dedc38b7eb7ef580edb0929461b",
+                "reference": "3cf18e9e424a6dedc38b7eb7ef580edb0929461b",
                 "shasum": ""
             },
             "require": {
@@ -120,7 +120,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2015-01-08 15:21:43"
+            "time": "2015-02-10 06:19:18"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -341,6 +341,553 @@
             "time": "2014-08-17 21:15:53"
         },
         {
+            "name": "hoa/compiler",
+            "version": "2.14.12.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Compiler.git",
+                "reference": "d58eddfb88ddaf5effc66677f590a17dc1108d26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Compiler/zipball/d58eddfb88ddaf5effc66677f590a17dc1108d26",
+                "reference": "d58eddfb88ddaf5effc66677f590a17dc1108d26",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/core": "~2.0",
+                "hoa/file": "~0.0",
+                "hoa/iterator": "~1.0",
+                "hoa/math": "~0.0",
+                "hoa/regex": "~0.0",
+                "hoa/visitor": "~1.0"
+            },
+            "require-dev": {
+                "hoa/json": "~1.0",
+                "hoa/test": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Compiler\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Compiler library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "algebraic",
+                "ast",
+                "compiler",
+                "context-free",
+                "coverage",
+                "exhaustive",
+                "grammar",
+                "isotropic",
+                "language",
+                "lexer",
+                "library",
+                "ll1",
+                "llk",
+                "parser",
+                "pp",
+                "random",
+                "regular",
+                "rule",
+                "sampler",
+                "syntax",
+                "token",
+                "trace",
+                "uniform"
+            ],
+            "time": "2014-12-09 12:40:43"
+        },
+        {
+            "name": "hoa/core",
+            "version": "2.15.01.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Core.git",
+                "reference": "edf4d00e68963bbcd6f7ab8f1aa7d8b80e35d7fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Core/zipball/edf4d00e68963bbcd6f7ab8f1aa7d8b80e35d7fc",
+                "reference": "edf4d00e68963bbcd6f7ab8f1aa7d8b80e35d7fc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-spl": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "hoa/test": "~1.0"
+            },
+            "suggest": {
+                "ext-mbstring": "ext/mbstring must be present (or a third implementation).",
+                "hoa/console": "To use the `hoa` script.",
+                "hoa/dispatcher": "To use the `hoa` script.",
+                "hoa/router": "To use the `hoa` script."
+            },
+            "bin": [
+                "Bin/hoa"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Core\\": "."
+                },
+                "files": [
+                    "Core.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Core library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "consistency",
+                "core",
+                "data",
+                "event",
+                "library",
+                "listener",
+                "parameter",
+                "protocol"
+            ],
+            "time": "2015-01-23 17:52:18"
+        },
+        {
+            "name": "hoa/file",
+            "version": "0.14.12.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/File.git",
+                "reference": "cdcc830fec4f2a08afd272e1912c260c53398bec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/File/zipball/cdcc830fec4f2a08afd272e1912c260c53398bec",
+                "reference": "cdcc830fec4f2a08afd272e1912c260c53398bec",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/core": "~2.0",
+                "hoa/iterator": "~1.0",
+                "hoa/stream": "~0.0"
+            },
+            "require-dev": {
+                "hoa/test": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\File\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\File library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "Socket",
+                "directory",
+                "file",
+                "finder",
+                "library",
+                "link",
+                "temporary"
+            ],
+            "time": "2014-12-09 12:48:14"
+        },
+        {
+            "name": "hoa/iterator",
+            "version": "1.14.12.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Iterator.git",
+                "reference": "d1f7001ba09f32f295cf24a4478160128030b40e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Iterator/zipball/d1f7001ba09f32f295cf24a4478160128030b40e",
+                "reference": "d1f7001ba09f32f295cf24a4478160128030b40e",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/core": "~2.0"
+            },
+            "require-dev": {
+                "hoa/test": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Iterator\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Iterator library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "iterator",
+                "library"
+            ],
+            "time": "2014-12-09 12:52:31"
+        },
+        {
+            "name": "hoa/math",
+            "version": "0.14.12.22",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Math.git",
+                "reference": "8837945add319b5b1ee0a9d3cdaf2de62973f6c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Math/zipball/8837945add319b5b1ee0a9d3cdaf2de62973f6c1",
+                "reference": "8837945add319b5b1ee0a9d3cdaf2de62973f6c1",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/compiler": "~2.0",
+                "hoa/core": "~2.0",
+                "hoa/iterator": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Math\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Math library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "arrangement",
+                "combination",
+                "combinatorics",
+                "counting",
+                "library",
+                "math",
+                "permutation",
+                "sampler",
+                "set"
+            ],
+            "time": "2014-12-22 07:54:44"
+        },
+        {
+            "name": "hoa/regex",
+            "version": "0.14.12.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Regex.git",
+                "reference": "8a0596339a4ada3982312d1cd0bac8ecda7322d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Regex/zipball/8a0596339a4ada3982312d1cd0bac8ecda7322d3",
+                "reference": "8a0596339a4ada3982312d1cd0bac8ecda7322d3",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/core": "~2.0",
+                "hoa/math": "~0.0",
+                "hoa/string": "~2.0",
+                "hoa/visitor": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Regex\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Regex library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "compiler",
+                "library",
+                "regex"
+            ],
+            "time": "2014-12-10 07:52:28"
+        },
+        {
+            "name": "hoa/stream",
+            "version": "0.14.12.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Stream.git",
+                "reference": "b72466589f167685535782592aaf336851c8732a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Stream/zipball/b72466589f167685535782592aaf336851c8732a",
+                "reference": "b72466589f167685535782592aaf336851c8732a",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/core": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Stream\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Stream library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "Context",
+                "bucket",
+                "composite",
+                "filter",
+                "in",
+                "library",
+                "out",
+                "protocol",
+                "stream",
+                "wrapper"
+            ],
+            "time": "2014-12-09 17:48:09"
+        },
+        {
+            "name": "hoa/string",
+            "version": "2.14.12.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/String.git",
+                "reference": "a1ff879f19ad7e95b06d9a3437e4c9415a7f1011"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/String/zipball/a1ff879f19ad7e95b06d9a3437e4c9415a7f1011",
+                "reference": "a1ff879f19ad7e95b06d9a3437e4c9415a7f1011",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "hoa/core": "~2.0"
+            },
+            "suggest": {
+                "ext-intl": "To get a better Hoa\\String::toAscii() and Hoa\\String::compareTo()."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\String\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\String library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "library",
+                "search",
+                "string",
+                "unicode"
+            ],
+            "time": "2014-12-24 07:44:59"
+        },
+        {
+            "name": "hoa/visitor",
+            "version": "1.14.12.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Visitor.git",
+                "reference": "f0bea4fa4298a2777d53ba820698995157b32bc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Visitor/zipball/f0bea4fa4298a2777d53ba820698995157b32bc3",
+                "reference": "f0bea4fa4298a2777d53ba820698995157b32bc3",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/core": "~2.0"
+            },
+            "require-dev": {
+                "hoa/test": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Visitor\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Visitor library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "library",
+                "structure",
+                "visit",
+                "visitor"
+            ],
+            "time": "2014-12-10 07:57:26"
+        },
+        {
             "name": "ircmaxell/password-compat",
             "version": "v1.0.4",
             "source": {
@@ -527,17 +1074,74 @@
             "time": "2015-01-26 23:07:39"
         },
         {
-            "name": "laravel/framework",
-            "version": "v5.0.2",
+            "name": "laravel/cashier",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "30391aa20874c30725f653bea1ea5b895a5217cf"
+                "url": "https://github.com/laravel/cashier.git",
+                "reference": "1a682422c134eb9e2cd03f25e317821e14b7f045"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/30391aa20874c30725f653bea1ea5b895a5217cf",
-                "reference": "30391aa20874c30725f653bea1ea5b895a5217cf",
+                "url": "https://api.github.com/repos/laravel/cashier/zipball/1a682422c134eb9e2cd03f25e317821e14b7f045",
+                "reference": "1a682422c134eb9e2cd03f25e317821e14b7f045",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "~5.0",
+                "illuminate/support": "~5.0",
+                "nesbot/carbon": "~1.0",
+                "php": ">=5.4.0",
+                "stripe/stripe-php": "~1.9",
+                "symfony/http-kernel": "~2.3"
+            },
+            "require-dev": {
+                "illuminate/routing": "~5.0",
+                "illuminate/view": "~5.0",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Laravel\\Cashier\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "Laravel Cashier provides an expressive, fluent interface to Stripe's subscription billing services.",
+            "keywords": [
+                "billing",
+                "laravel",
+                "stripe"
+            ],
+            "time": "2015-01-27 02:16:42"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v5.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "b5eafda7dba3d1367a63095b83a068a73d32d97f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b5eafda7dba3d1367a63095b83a068a73d32d97f",
+                "reference": "b5eafda7dba3d1367a63095b83a068a73d32d97f",
                 "shasum": ""
             },
             "require": {
@@ -649,7 +1253,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-02-06 23:14:12"
+            "time": "2015-02-11 20:37:48"
         },
         {
             "name": "league/flysystem",
@@ -967,12 +1571,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neoclient.git",
-                "reference": "d6b61f4db9a16cbe3b11232ca5b195a1c82442e4"
+                "reference": "b692426ec47661681bfdcb68c9996d5584ccd1bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/d6b61f4db9a16cbe3b11232ca5b195a1c82442e4",
-                "reference": "d6b61f4db9a16cbe3b11232ca5b195a1c82442e4",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/b692426ec47661681bfdcb68c9996d5584ccd1bd",
+                "reference": "b692426ec47661681bfdcb68c9996d5584ccd1bd",
                 "shasum": ""
             },
             "require": {
@@ -1021,7 +1625,7 @@
                 "high-availibility",
                 "neo4j"
             ],
-            "time": "2015-01-21 14:46:51"
+            "time": "2015-02-11 20:03:36"
         },
         {
             "name": "nesbot/carbon",
@@ -1271,6 +1875,54 @@
                 "shell"
             ],
             "time": "2015-01-20 21:18:03"
+        },
+        {
+            "name": "stripe/stripe-php",
+            "version": "v1.18.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "022c3f21ec1e4141b46738bd5e7ab730d04f78cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/022c3f21ec1e4141b46738bd5e7ab730d04f78cc",
+                "reference": "022c3f21ec1e4141b46738bd5e7ab730d04f78cc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.2"
+            },
+            "require-dev": {
+                "simpletest/simpletest": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/Stripe/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "time": "2015-01-22 05:01:46"
         },
         {
             "name": "swiftmailer/swiftmailer",

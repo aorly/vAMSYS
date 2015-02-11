@@ -80,6 +80,37 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="portlet box blue-hoki">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-wallet"></i>Payments
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        @if ($airline->subscribed())
+                            You are subscribed to the {{ $airline->stripe_plan }} plan!
+                        @else
+                        <form action="/staff/postPayment" method="POST">
+                            <script
+                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="pk_test_X2RqYbzkhXlB8bj5sD5xpT8Q"
+                                    data-name="vAMSYS Demo"
+                                    data-description="250 Pilot Plan (£5.00 a month)"
+                                    data-amount="500"
+                                    data-label="250 Pilot Plan"
+                                    data-email="{{ $pilot->user->email }}"
+                                    data-panel-label="Subscribe -"
+                                    data-currency="GBP">
+                            </script>
+                        </form>
+                            @endif
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @stop

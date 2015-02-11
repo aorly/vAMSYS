@@ -1,6 +1,7 @@
 <?php namespace vAMSYS\Http\Controllers;
 
 use vAMSYS\Booking;
+use vAMSYS\Commands\ProcessBooking;
 use vAMSYS\Repositories\PilotRepository;
 use vAMSYS\Route;
 
@@ -49,6 +50,11 @@ class FlightsController extends Controller {
 		$booking->route()->associate($route);
 		$booking->aircraft_id = 1; // todo select aircraft
 		$booking->save();
+
+		$this->dispatch(
+			new ProcessBooking($booking)
+		);
+
 		return redirect('/flights');
 	}
 

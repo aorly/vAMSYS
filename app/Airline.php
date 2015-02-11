@@ -2,14 +2,16 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Cashier\Billable;
+use Laravel\Cashier\Contracts\Billable as BillableContract;
 
 /**
  * Class Airline
  * @package vAMSYS
  */
-class Airline extends Model {
+class Airline extends Model implements BillableContract {
 
-  use SoftDeletes;
+  use Billable, SoftDeletes;
 
   /**
    * The database table used by the model.
@@ -17,6 +19,8 @@ class Airline extends Model {
    * @var string
    */
   protected $table = 'airlines';
+
+  protected $dates = ['trial_ends_at', 'subscription_ends_at'];
 
   /**
    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

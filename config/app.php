@@ -146,6 +146,7 @@ return [
 		'vAMSYS\Providers\RouteServiceProvider',
 		'vAMSYS\Providers\ComposerServiceProvider',
 		'vAMSYS\Providers\BladeServiceProvider',
+		'Laravel\Cashier\CashierServiceProvider',
 
 	],
 

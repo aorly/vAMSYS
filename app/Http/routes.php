@@ -37,3 +37,5 @@ Route::controllers([
   'dashboard' => 'DashboardController',
   'flights'   => 'FlightsController'
 ]);
+
+Route::post('/stripe/webhook', 'Laravel\Cashier\WebhookController@handleWebhook');
