@@ -13,7 +13,7 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass(['app.scss', 'pages/login.scss', 'pages/error.scss', 'pages/flights.scss', 'pages/staff.scss'])
+    mix.sass(['app.scss', 'pages/*'])
         // Theme JS
         .copy(
             "resources/assets/js/metronic/global/metronic.js",
@@ -143,13 +143,8 @@ elixir(function(mix) {
 
         // Version Files
         .version([
-            "css/app.css",
-            "css/login.css",
-            "css/error.css",
-            "css/flights.css",
-            "css/staff.css",
-            "js/all.js",
-            "js/login.js"
+            "css/*.css",
+            "js/*.js"
         ])
 
 });

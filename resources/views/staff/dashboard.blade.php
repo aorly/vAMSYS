@@ -123,7 +123,7 @@
         <div class="row">
             <div class="col-lg-2 col-md-2">
             <div class="tiles">
-                <div class="tile bg-blue">
+                <div class="tile bg-blue dashboard-nav">
                     <div class="corner">
                     </div>
                     <div class="check">
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tile bg-blue">
+                <div class="tile bg-blue dashboard-nav">
                     <div class="tile-body">
                         <i class="fa fa-bar-chart-o"></i>
                     </div>
@@ -149,7 +149,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tile bg-blue">
+                <div class="tile bg-blue dashboard-nav">
                     <div class="tile-body">
                         <i class="fa fa-briefcase"></i>
                     </div>
@@ -159,7 +159,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tile bg-blue">
+                <div class="tile bg-blue dashboard-nav">
                     <div class="tile-body">
                         <i class="fa fa-plane"></i>
                     </div>
