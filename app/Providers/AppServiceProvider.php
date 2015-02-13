@@ -1,6 +1,7 @@
 <?php namespace vAMSYS\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Stripe;
 use vAMSYS\Airline;
 
 class AppServiceProvider extends ServiceProvider {
@@ -27,6 +28,7 @@ class AppServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		Airline::setStripeKey(env('STRIPE_KEY'));
+		Stripe::setApiKey(env('STRIPE_KEY'));
 
 		$this->app->bind(
 			'Illuminate\Contracts\Auth\Registrar',

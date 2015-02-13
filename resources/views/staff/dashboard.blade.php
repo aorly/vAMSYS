@@ -1,5 +1,9 @@
 @extends('layouts.metronic')
 
+@section('pagecss')
+    <link rel="stylesheet" href="{{ elixir("css/staff.css") }}">
+@stop
+
 @section('content')
 <div class="page-content-wrapper">
     <div class="page-content">
@@ -7,50 +11,50 @@
             Staff Centre <small>manage your airline empire!</small>
         </h3>
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                 <div class="dashboard-stat blue-madison">
                     <div class="visual">
                         <i class="fa fa-comments"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            100
+                            {{ $airline->pilots->count() }}
                         </div>
                         <div class="desc">
                             Pilots
                         </div>
                     </div>
-                    <a class="more" href="#">
+                    <a class="more" href="/staff/pilots">
                         Pilots Management <i class="m-icon-swapright m-icon-white"></i>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                 <div class="dashboard-stat red-intense">
                     <div class="visual">
                         <i class="fa fa-bar-chart-o"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            1,000
+                            {{ $airline->airports->count() }}
                         </div>
                         <div class="desc">
                             Airports
                         </div>
                     </div>
-                    <a class="more" href="#">
+                    <a class="more" href="/staff/airports">
                         Airports Management <i class="m-icon-swapright m-icon-white"></i>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                 <div class="dashboard-stat green-haze">
                     <div class="visual">
                         <i class="fa fa-shopping-cart"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            5,000
+                            {{ $airline->routes->count() }}
                         </div>
                         <div class="desc">
                             Routes
@@ -61,14 +65,14 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                 <div class="dashboard-stat purple-wisteria">
                     <div class="visual">
                         <i class="fa fa-shopping-cart"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            10,000
+                            {{ $airlinePirepsCount }}
                         </div>
                         <div class="desc">
                             PIREPs
@@ -79,34 +83,116 @@
                     </a>
                 </div>
             </div>
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                <div class="dashboard-stat purple-wisteria">
+                    <div class="visual">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            {{ $airline->aircraft->count() }}
+                        </div>
+                        <div class="desc">
+                            PIREPs
+                        </div>
+                    </div>
+                    <a class="more" href="#">
+                        Aircraft Management <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                <div class="dashboard-stat purple-wisteria">
+                    <div class="visual">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            XX
+                        </div>
+                        <div class="desc">
+                            Something Else
+                        </div>
+                    </div>
+                    <a class="more" href="#">
+                        Some More Management <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <div class="portlet box blue-hoki">
+            <div class="col-lg-2 col-md-2">
+            <div class="tiles">
+                <div class="tile bg-blue">
+                    <div class="corner">
+                    </div>
+                    <div class="check">
+                    </div>
+                    <div class="tile-body">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <div class="tile-object">
+                        <div class="name">
+                            Airline Settings
+                        </div>
+                    </div>
+                </div>
+                <div class="tile bg-blue">
+                    <div class="tile-body">
+                        <i class="fa fa-bar-chart-o"></i>
+                    </div>
+                    <div class="tile-object">
+                        <div class="name">
+                            Statistics
+                        </div>
+                        <div class="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="tile bg-blue">
+                    <div class="tile-body">
+                        <i class="fa fa-briefcase"></i>
+                    </div>
+                    <div class="tile-object">
+                        <div class="name">
+                            Other Things
+                        </div>
+                    </div>
+                </div>
+                <div class="tile bg-blue">
+                    <div class="tile-body">
+                        <i class="fa fa-plane"></i>
+                    </div>
+                    <div class="tile-object">
+                        <div class="name">
+                            More Things
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+            <div class="col-lg-10 col-md-10">
+                <div class="portlet box blue">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-wallet"></i>Payments
+                            <i class="fa fa-gift"></i>Flights Map
+                        </div>
+                        <div class="tools">
+                            <a href="javascript:;" class="collapse" data-original-title="" title="">
+                            </a>
+                            <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title="">
+                            </a>
+                            <a href="javascript:;" class="reload" data-original-title="" title="">
+                            </a>
                         </div>
                     </div>
                     <div class="portlet-body">
-                        @if ($airline->subscribed())
-                            You are subscribed to the {{ $airline->stripe_plan }} plan!
-                        @else
-                        <form action="/staff/postPayment" method="POST">
-                            <script
-                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                    data-key="pk_test_X2RqYbzkhXlB8bj5sD5xpT8Q"
-                                    data-name="vAMSYS Demo"
-                                    data-description="250 Pilot Plan (£5.00 a month)"
-                                    data-amount="500"
-                                    data-label="250 Pilot Plan"
-                                    data-email="{{ $pilot->user->email }}"
-                                    data-panel-label="Subscribe -"
-                                    data-currency="GBP">
-                            </script>
-                        </form>
-                            @endif
-
+                        <p>
+                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                        </p>
+                        <p>
+                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                        </p>
                     </div>
                 </div>
             </div>

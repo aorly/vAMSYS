@@ -33,6 +33,8 @@ Route::controllers([
   'auth'      => 'Auth\AuthController',
   'password'  => 'Auth\PasswordController',
   'admin'     => 'Admin\AdminController',
+  'staff/pilots'     => 'Staff\PilotsController',
+  'staff/airports'     => 'Staff\AirportsController',
   'staff'     => 'Staff\StaffController',
   'dashboard' => 'DashboardController',
   'flights'   => 'FlightsController'

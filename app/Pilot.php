@@ -38,7 +38,7 @@ class Pilot extends Model {
 
   public function pireps()
   {
-    return $this->hasMany('vAMSYS\Pirep');
+    return $this->hasManyThrough('vAMSYS\Pirep', 'vAMSYS\Booking');
   }
 
   public function rank()

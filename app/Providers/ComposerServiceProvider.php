@@ -16,6 +16,7 @@ class ComposerServiceProvider extends ServiceProvider {
     $view->composer('auth.login', 'vAMSYS\Http\ViewComposers\LoginComposer');
     $view->composer('flights.home', 'vAMSYS\Http\ViewComposers\FlightsComposer');
     $view->composer('flights.book', 'vAMSYS\Http\ViewComposers\FlightsBookComposer');
+    $view->composer('staff.*', 'vAMSYS\Http\ViewComposers\StaffComposer');
   }
 
   public function register()

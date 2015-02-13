@@ -45,4 +45,14 @@ class Airline extends Model implements BillableContract {
     return $this->hasMany('vAMSYS\Rank');
   }
 
+  public function routes()
+  {
+    return $this->hasMany('vAMSYS\Route');
+  }
+
+  public function pireps()
+  {
+    return $this->hasManyThrough('vAMSYS\Pirep', 'vAMSYS\Pilot');
+  }
+
 }
