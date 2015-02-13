@@ -1,3 +1,4 @@
+process.env.DISABLE_NOTIFIER = true;
 var elixir = require('laravel-elixir');
 
 /*
@@ -12,7 +13,7 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass(['app.scss', 'pages/login.scss', 'pages/error.scss', 'pages/flights.scss'])
+    mix.sass(['app.scss', 'pages/login.scss', 'pages/error.scss', 'pages/flights.scss', 'pages/staff.scss'])
         // Theme JS
         .copy(
             "resources/assets/js/metronic/global/metronic.js",
@@ -146,6 +147,7 @@ elixir(function(mix) {
             "css/login.css",
             "css/error.css",
             "css/flights.css",
+            "css/staff.css",
             "js/all.js",
             "js/login.js"
         ])

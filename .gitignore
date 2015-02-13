@@ -2,3 +2,8 @@
 .env
 
 storage/logs
+public/build/css
+public/build/js
+public/build/rev-manifest.json
+public/css
+public/js
