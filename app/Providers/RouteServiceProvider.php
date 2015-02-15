@@ -28,6 +28,10 @@ class RouteServiceProvider extends ServiceProvider {
 		$router->model('booking', 'vAMSYS\Booking');
 		$router->model('airport', 'vAMSYS\Airport');
 		$router->model('route', 'vAMSYS\Route');
+		$router->bind('airlineICAO', function($value)
+		{
+			return Airline::where('url', $value)->first();
+		});
 	}
 
 	/**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use vAMSYS\Airline;
 use vAMSYS\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use vAMSYS\Pilot;
@@ -29,6 +30,11 @@ class AuthController extends Controller {
 		$this->registrar = $registrar;
 
 		$this->middleware('guest', ['except' => ['getLogout', 'getAirlines']]);
+	}
+
+	public function getLogin(Airline $airlineICAO)
+	{
+		return view('auth.login', ["airline" => $airlineICAO]);
 	}
 
 	/**
@@ -57,26 +63,6 @@ class AuthController extends Controller {
 
 		// We have an email address -> this is not supported!
 		return $this->loginError($login);
-	}
-
-	public function getAirlines(Request $request, $airlineId = false){
-		if ($airlineId){
-			// Check the user actually can login to this airline...
-			if ($pilot = Pilot::where('user_id', '=', $request->user()->id)->where('airline_id', '=', $airlineId)->first()) {
-				Session::put('airlineId', $pilot->airline->id);
-				return redirect('/');
-			}
-		}
-
-		// Display a list of the airlines for the current user if needed...
-		$pilots = Pilot::where('user_id', '=', $request->user()->id)->get();
-		if (count($pilots) == 1) {
-			// Set the session to this airline id
-			Session::put('airlineId', $pilots[0]->airline->id);
-			return redirect('/');
-		}
-		Session::forget('airlineId');
-		return view('auth.airlines')->with(['user' => $request->user()]);
 	}
 
 	/**

@@ -20,10 +20,6 @@ elixir(function(mix) {
             "public/js/metronic.js"
         )
         .copy(
-            "resources/assets/js/metronic/layout/quick-sidebar.js",
-            "public/js/quick-sidebar.js"
-        )
-        .copy(
             "resources/assets/js/metronic/layout/layout.js",
             "public/js/layout.js"
         )
@@ -42,103 +38,88 @@ elixir(function(mix) {
         )
         // Bower Dependencies
         // Bootstrap JS
-        .publish(
+        .copy(
             "bootstrap-sass-official/assets/javascripts/bootstrap.min.js",
             "public/js/vendor/bootstrap.js"
         )
         // Modernizr
-        .publish(
+        .copy(
             "modernizr/modernizr.min.js",
             "public/js/vendor/modernizr.js"
         )
         // jQuery
-        .publish(
+        .copy(
             "jquery/dist/jquery.min.js",
             "public/js/vendor/jquery.js"
         )
         // jQuery Migrate
-        .publish(
+        .copy(
             "jquery-migrate/jquery-migrate.min.js",
             "public/js/vendor/jquery-migrate.js"
         )
         // jQuery UI
-        .publish(
+        .copy(
             "jquery-ui/jquery-ui.min.js",
             "public/js/vendor/jquery-ui.js"
         )
         // blockUI
-        .publish(
+        .copy(
             "blockui/jquery.blockUI.js",
             "public/js/vendor/blockUI.js"
         )
         // excanvas
-        .publish(
+        .copy(
             "excanvas/excanvas.js",
             "public/js/vendor/excanvas.js"
         )
         // respond
-        .publish(
+        .copy(
             "respond/dest/respond.min.js",
             "public/js/vendor/respond.js"
         )
         // jQuery Cookie
-        .publish(
+        .copy(
             "jquery.cookie/jquery.cookie.js",
             "public/js/vendor/jquery.cookie.js"
         )
         // jQuery Uniform
-        .publish(
+        .copy(
             "jquery.uniform/jquery.uniform.min.js",
             "public/js/vendor/jquery.uniform.js"
         )
         // jQuery Validate
-        .publish(
+        .copy(
             "jquery.validate/dist/jquery.validate.min.js",
             "public/js/vendor/jquery.validate.js"
         )
         // Bootstrap Hover Dropdown Validate
-        .publish(
+        .copy(
             "boostrap-hover-dropdown/bootstrap-hover-dropdown.min.js",
             "public/js/vendor/bootstrap-hover-dropdown.js"
         )
         // jQuery Slimscroll
-        .publish(
+        .copy(
             "jquery-slimscroll/jquery.slimscroll.min.js",
             "public/js/vendor/jquery.slimscroll.js"
         )
         // Bootstrap Switch
-        .publish(
+        .copy(
             "bootstrap-switch/dist/js/bootstrap-switch.min.js",
             "public/js/vendor/bootstrap-switch.js"
         )
         // JSTree
-        .publish(
+        .copy(
             "jstree/dist/jstree.min.js",
             "public/js/vendor/jstree.js"
         )
-        .publish(
+        .copy(
             "jstree/dist/themes/default/",
             "public/css/vendor/jstree/"
         )
         // Create "Common" JS file
         .scripts([
-            "js/vendor/jquery.js",
-            "js/vendor/jquery-migrate.js",
-            "js/vendor/jquery-ui.js",
-            "js/vendor/bootstrap.js",
-            "js/vendor/blockUI.js",
-            "js/vendor/jquery.cokie.js",
-            "js/vendor/jquery.uniform.js",
-            "js/vendor/jquery.validate.js",
-            "js/vendor/jquery.slimscroll.js",
-            "js/vendor/bootstrap-hover-dropdown.js",
-            "js/vendor/bootstrap-switch.js",
-            "js/vendor/gmaps.js",
-            "js/vendor/jstree.js",
-            "js/metronic.js",
-            "js/layout.js",
-            // "js/quick-sidebar.js",
-            "js/app.js"
+            "js/vendor/*",
+            "js/*",
         ])
 
         // Version Files

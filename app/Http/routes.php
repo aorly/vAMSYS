@@ -11,33 +11,34 @@
 |
 */
 
-use Symfony\Component\HttpFoundation\File\File;
-use vAMSYS\Airport;
-use vAMSYS\Country;
-use vAMSYS\Region;
-
 // Special cases for smartCARS
-Route::group(['domain' => 'acars.vamsys.io'], function()
-{
-  Route::any('/{airlineICAO}/smartCARS/frame.php', 'smartCARSController@main');
+Route::group(['domain' => 'smartcars' . env('APP_DOMAIN')], function () {
+  Route::any('/{airlineICAO}/frame.php', 'smartCARSController@main');
 });
 
-Route::get('/', function () {
-  return redirect('/dashboard');
+// Admin routes
+Route::group(['domain' => 'admin' . env('APP_DOMAIN')], function () {
+  Route::controller('/', 'Admin\AdminController');
 });
 
-Route::get('/flights/cancel/{booking}', 'FlightsController@getCancel');
-Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
+// Airline routes
+Route::group(['domain' => '{airlineICAO}' . env('APP_DOMAIN')], function () {
+  Route::get('/', function () {
+    return redirect('/dashboard');
+  });
 
-Route::controllers([
-  'auth'      => 'Auth\AuthController',
-  'password'  => 'Auth\PasswordController',
-  'admin'     => 'Admin\AdminController',
-  'staff/pilots'     => 'Staff\PilotsController',
-  'staff/airports'     => 'Staff\AirportsController',
-  'staff'     => 'Staff\StaffController',
-  'dashboard' => 'DashboardController',
-  'flights'   => 'FlightsController'
-]);
+  Route::get('/flights/cancel/{booking}', 'FlightsController@getCancel');
+  Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
 
-Route::post('/stripe/webhook', 'Laravel\Cashier\WebhookController@handleWebhook');
+  Route::controllers([
+    'auth'           => 'Auth\AuthController',
+    'password'       => 'Auth\PasswordController',
+    'staff/pilots'   => 'Staff\PilotsController',
+    'staff/airports' => 'Staff\AirportsController',
+    'staff'          => 'Staff\StaffController',
+    'dashboard'      => 'DashboardController',
+    'flights'        => 'FlightsController'
+  ]);
+
+  Route::post('/stripe/webhook', 'Laravel\Cashier\WebhookController@handleWebhook');
+});

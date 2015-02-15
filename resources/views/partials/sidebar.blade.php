@@ -34,17 +34,6 @@
                 </a>
             </li>
             @endif
-            @if (vAMSYS\Repositories\UserRepository::hasRole('admin', $user))
-            <li class="heading">
-                <h3 class="uppercase">vAMSYS Admin</h3>
-            </li>
-            <li>
-                <a href="/admin">
-                    <i class="icon-magic-wand"></i>
-                    <span class="title">Admin Centre</span>
-                </a>
-            </li>
-            @endif
         </ul>
         <!-- END SIDEBAR MENU -->
     </div>

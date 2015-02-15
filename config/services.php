@@ -15,23 +15,8 @@ return [
 	*/
 
 	'mailgun' => [
-		'domain' => 'vamsys.io',
-		'secret' => 'key-a9d7f81730d53987744b18db412c1fd1',
-	],
-
-	'mandrill' => [
-		'secret' => '',
-	],
-
-	'ses' => [
-		'key' => '',
-		'secret' => '',
-		'region' => 'us-east-1',
-	],
-
-	'stripe' => [
-		'model'  => 'User',
-		'secret' => '',
+		'domain' => env('MAILGUN_DOMAIN'),
+		'secret' => env('MAILGUN_KEY'),
 	],
 
 ];
