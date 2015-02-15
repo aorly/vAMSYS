@@ -32,9 +32,9 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => ['getLogout', 'getAirlines']]);
 	}
 
-	public function getLogin(Airline $airlineICAO)
+	public function getLogin(Airline $airline)
 	{
-		return view('auth.login', ["airline" => $airlineICAO]);
+		return view('auth.login', ["airline" => $airline]);
 	}
 
 	/**

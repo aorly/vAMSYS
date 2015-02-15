@@ -1,5 +1,7 @@
 <?php namespace vAMSYS\Http\Controllers;
 
+use vAMSYS\Airline;
+
 class DashboardController extends Controller {
 
 	/**
@@ -15,7 +17,7 @@ class DashboardController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function getIndex()
+	public function getIndex(Airline $airline)
 	{
 		return view('dashboard');
 	}

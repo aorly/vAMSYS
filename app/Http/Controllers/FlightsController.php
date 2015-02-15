@@ -1,5 +1,6 @@
 <?php namespace vAMSYS\Http\Controllers;
 
+use vAMSYS\Airline;
 use vAMSYS\Booking;
 use vAMSYS\Commands\ProcessBooking;
 use vAMSYS\Repositories\PilotRepository;
@@ -20,14 +21,14 @@ class FlightsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function getIndex()
+	public function getIndex(Airline $airline)
 	{
 		if (PilotRepository::countBookedFlights() == 0)
 			return view('flights.book');
 		return view('flights.home');
 	}
 
-	public function getCancel(Booking $booking)
+	public function getCancel(Airline $airline, Booking $booking)
 	{
 		$pilot = PilotRepository::getCurrentPilot();
 		if ($booking->pilot->id != $pilot->id)
@@ -37,12 +38,12 @@ class FlightsController extends Controller {
 		return redirect('/flights');
 	}
 
-	public function getBook()
+	public function getBook(Airline $airline)
 	{
 		return view('flights.book');
 	}
 
-	public function getDoBook(Route $route)
+	public function getDoBook(Airline $airline, Route $route)
 	{
 		// todo: VALIDATE!
 		$booking = new Booking();
