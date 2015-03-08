@@ -1,6 +1,7 @@
 <?php namespace vAMSYS\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use League\Period\Period;
 use vAMSYS\Booking;
@@ -569,7 +570,7 @@ class smartCARSController extends Controller
 
         $pilot = SmartCARS_Session::where('pilot_id', '=', $request->input('dbid'))->where('sessionid', '=', $request->input('sessionid'))->first()->pilot;
 
-        event(new PirepWasFiled($pirep, $pilot));
+        Event::fire(new PirepWasFiled($pirep, $pilot));
 
         return "SUCCESS";
   }
