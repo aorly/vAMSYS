@@ -15,7 +15,6 @@ class Kernel extends ConsoleKernel {
 		'vAMSYS\Console\Commands\ImportCountries',
 		'vAMSYS\Console\Commands\ImportRegions',
 		'vAMSYS\Console\Commands\ImportAirports',
-        'vAMSYS\Console\Commands\ImportAIRAC',
 	];
 
 	/**
