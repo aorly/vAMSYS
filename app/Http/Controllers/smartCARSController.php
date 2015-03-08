@@ -44,6 +44,8 @@ class smartCARSController extends Controller
         // The smartCARS Client basically sends a huge bunch of GET parameters (and occasionally POST).
         // These need to be interpreted to find out what it wants.
 
+        Log::info('smartCARS Request Recieved', ['airline' => $airlineICAO, 'request' => $request]);
+
         // Format the sent username
         if ($request->has('userid'))
             $this->userid = $airlineICAO . str_pad($request->input('userid'), 4, 0, STR_PAD_LEFT);
@@ -500,7 +502,7 @@ class smartCARSController extends Controller
         if ($this->handleVerifySession($request) == 'AUTH_FAILED')
             return "AUTH_FAILED";
 
-        Log::info('POSREP Recieved', ['request' => $request]);
+        Log::info('POSREP Recieved');
 
         $positionReport = new PositionReport();
         $positionReport->booking_id = (int)$request->input('bidid');
@@ -551,7 +553,7 @@ class smartCARSController extends Controller
         if ($this->handleVerifySession($request) == 'AUTH_FAILED')
             return "AUTH_FAILED";
 
-        Log::info('PIREP Recieved', ['request' => $request]);
+        Log::info('PIREP Recieved');
 
         // Save the PIREP and dispatch the event
         $pirep = new Pirep();
