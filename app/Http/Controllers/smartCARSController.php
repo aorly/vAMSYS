@@ -44,7 +44,7 @@ class smartCARSController extends Controller
         // The smartCARS Client basically sends a huge bunch of GET parameters (and occasionally POST).
         // These need to be interpreted to find out what it wants.
 
-        Log::info('smartCARS Request Recieved', ['airline' => $airlineICAO, 'request' => $request]);
+        Log::info('smartCARS Request Recieved', ['airline' => $airlineICAO, 'request' => $request->attributes]);
 
         // Format the sent username
         if ($request->has('userid'))
@@ -375,7 +375,7 @@ class smartCARSController extends Controller
                 "departureicao" => $booking->route->departureAirport->icao,
                 "arrivalicao" => $booking->route->arrivalAirport->icao,
                 "route" => $booking->route->route,
-                "cruisingaltitude" => "", // todo implement cruising alt
+                "cruisingaltitude" => 38000, // todo implement cruising alt
                 "aircraft" => $booking->aircraft->id,
                 "duration" => 0,
                 "departuretime" => 0,
@@ -443,7 +443,7 @@ class smartCARSController extends Controller
                 "departureicao" => $route->departureAirport->icao,
                 "arrivalicao" => $route->arrivalAirport->icao,
                 "route" => $route->route,
-                "cruisingaltitude" => '',
+                "cruisingaltitude" => 38000,
                 "aircraft" => 'TBA',
                 "flighttime" => "Unknown",
                 "departuretime" => 0,
