@@ -1,6 +1,7 @@
 <?php namespace vAMSYS;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PositionReport extends Model {
 
