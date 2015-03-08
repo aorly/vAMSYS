@@ -500,6 +500,8 @@ class smartCARSController extends Controller
         if ($this->handleVerifySession($request) == 'AUTH_FAILED')
             return "AUTH_FAILED";
 
+        Log::info('POSREP Recieved', ['request' => $request]);
+
         $positionReport = new PositionReport();
         $positionReport->booking_id = (int)$request->input('bidid');
         $positionReport->altitude = (int)$request->input('altitude');
@@ -549,6 +551,8 @@ class smartCARSController extends Controller
         if ($this->handleVerifySession($request) == 'AUTH_FAILED')
             return "AUTH_FAILED";
 
+        Log::info('PIREP Recieved', ['request' => $request]);
+
         // Save the PIREP and dispatch the event
         $pirep = new Pirep();
         $pirep->provided_route = $request->input('route');
@@ -564,6 +568,6 @@ class smartCARSController extends Controller
 
         event(new PirepWasFiled($pirep, $pilot));
 
-    return "SUCCESS";
+        return "SUCCESS";
   }
 }
