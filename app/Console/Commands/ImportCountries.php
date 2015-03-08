@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\HttpFoundation\File\File;
 use vAMSYS\Country;
 
-class ImportCountriesCommand extends Command {
+class ImportCountries extends Command {
 
 	/**
 	 * The console command name.

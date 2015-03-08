@@ -33,4 +33,9 @@ class Booking extends Model {
     return $this->belongsTo('vAMSYS\Route');
   }
 
+  public function pirep()
+  {
+      return $this->hasOne('vAMSYS\Pirep');
+  }
+
 }

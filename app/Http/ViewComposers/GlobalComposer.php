@@ -16,6 +16,10 @@ class GlobalComposer {
    */
   public function compose(View $view)
   {
+    // Are we connecting from a known URL?
+    if($airline = Airline::where('url', '=', Request::getHttpHost())->first())
+      Session::put('airlineId', $airline->id);
+
     if (Session::has('airlineId'))
       $view->with('airline', Airline::find(Session::get('airlineId')));
 

@@ -9,21 +9,21 @@ use vAMSYS\Airport;
 use vAMSYS\Country;
 use vAMSYS\Region;
 
-class ImportAirportsCommand extends Command {
+class ImportAIRAC extends Command {
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-	protected $name = 'vamsys:import:airports';
+	protected $name = 'vamsys:import:airac';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Import airports from provided OurAirports CSV';
+	protected $description = 'Import AIRAC from provided file';
 
 	/**
 	 * Create a new command instance.
@@ -32,6 +32,7 @@ class ImportAirportsCommand extends Command {
 	 */
 	public function __construct()
 	{
+        dd('WIP');
 		parent::__construct();
 	}
 
@@ -77,7 +78,7 @@ class ImportAirportsCommand extends Command {
 	protected function getArguments()
 	{
 		return [
-			['file', InputArgument::REQUIRED, 'The OurAirports airports.csv file', null],
+			['file', InputArgument::REQUIRED, 'The AIRAC file', null],
 		];
 	}
 

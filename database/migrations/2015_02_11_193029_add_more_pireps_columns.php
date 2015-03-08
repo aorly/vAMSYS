@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPirepsColumns extends Migration {
+class AddMorePirepsColumns extends Migration {
 
 	/**
 	 * Run the migrations.

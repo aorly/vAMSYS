@@ -17,7 +17,6 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
           type="text/css"/>
     <link rel="stylesheet" href="{{ elixir("css/app.css") }}">
-    <link rel="stylesheet" href="{{ elixir("css/login.css") }}">
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body class="login">
@@ -25,7 +24,11 @@
 </div>
 <div class="logo">
     <a href="/">
+        @if (isset($airline))
         <img src="//placehold.it/400x150.png&text={{ urlencode($airline->name) }}" alt=""/>
+        @else
+            <img src="//placehold.it/400x150.png&text=vAMSYS" alt=""/>
+        @endif
     </a>
 </div>
 <div class="content">
@@ -56,7 +59,6 @@
         </div>
         <div class="form-actions">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="airline-id" value="{{ $airline->id }}">
             <button type="submit" class="btn btn-success uppercase">Login</button>
             <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
         </div>
@@ -85,8 +87,8 @@
 <script src="/js/vendor/respond.min.js"></script>
 <script src="/js/vendor/excanvas.js"></script>
 <![endif]-->
-<script src="{{ elixir("js/all.js") }}" type="text/javascript"></script>
-<script src="{{ elixir("js/login.js") }}" type="text/javascript"></script>
+<script src="{{ elixir("js/combined.js") }}" type="text/javascript"></script>
+<script src="vendor/js/metronic/layout/pages/login.js" type="text/javascript"></script>
 <script>
     jQuery(document).ready(function () {
         Metronic.init(); // init metronic core components

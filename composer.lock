@@ -342,16 +342,16 @@
         },
         {
             "name": "hoa/compiler",
-            "version": "2.14.12.10",
+            "version": "2.15.02.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Compiler.git",
-                "reference": "d58eddfb88ddaf5effc66677f590a17dc1108d26"
+                "reference": "366ccd14d612fdc172e4ad5bae7bf24eb0d25caa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Compiler/zipball/d58eddfb88ddaf5effc66677f590a17dc1108d26",
-                "reference": "d58eddfb88ddaf5effc66677f590a17dc1108d26",
+                "url": "https://api.github.com/repos/hoaproject/Compiler/zipball/366ccd14d612fdc172e4ad5bae7bf24eb0d25caa",
+                "reference": "366ccd14d612fdc172e4ad5bae7bf24eb0d25caa",
                 "shasum": ""
             },
             "require": {
@@ -418,20 +418,20 @@
                 "trace",
                 "uniform"
             ],
-            "time": "2014-12-09 12:40:43"
+            "time": "2015-02-17 08:38:15"
         },
         {
             "name": "hoa/core",
-            "version": "2.15.01.24",
+            "version": "2.15.02.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Core.git",
-                "reference": "edf4d00e68963bbcd6f7ab8f1aa7d8b80e35d7fc"
+                "reference": "047c541048940dddc47a4b0634cec7a850c44630"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Core/zipball/edf4d00e68963bbcd6f7ab8f1aa7d8b80e35d7fc",
-                "reference": "edf4d00e68963bbcd6f7ab8f1aa7d8b80e35d7fc",
+                "url": "https://api.github.com/repos/hoaproject/Core/zipball/047c541048940dddc47a4b0634cec7a850c44630",
+                "reference": "047c541048940dddc47a4b0634cec7a850c44630",
                 "shasum": ""
             },
             "require": {
@@ -490,20 +490,20 @@
                 "parameter",
                 "protocol"
             ],
-            "time": "2015-01-23 17:52:18"
+            "time": "2015-02-18 16:24:51"
         },
         {
             "name": "hoa/file",
-            "version": "0.14.12.10",
+            "version": "0.15.02.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/File.git",
-                "reference": "cdcc830fec4f2a08afd272e1912c260c53398bec"
+                "reference": "320224c0f01f04327d13255df3ae2b720b870b71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/File/zipball/cdcc830fec4f2a08afd272e1912c260c53398bec",
-                "reference": "cdcc830fec4f2a08afd272e1912c260c53398bec",
+                "url": "https://api.github.com/repos/hoaproject/File/zipball/320224c0f01f04327d13255df3ae2b720b870b71",
+                "reference": "320224c0f01f04327d13255df3ae2b720b870b71",
                 "shasum": ""
             },
             "require": {
@@ -550,20 +550,20 @@
                 "link",
                 "temporary"
             ],
-            "time": "2014-12-09 12:48:14"
+            "time": "2015-02-19 08:02:12"
         },
         {
             "name": "hoa/iterator",
-            "version": "1.14.12.10",
+            "version": "1.15.02.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Iterator.git",
-                "reference": "d1f7001ba09f32f295cf24a4478160128030b40e"
+                "reference": "c330d48bcfb0d848497c3f5bad19f1cda20a5234"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Iterator/zipball/d1f7001ba09f32f295cf24a4478160128030b40e",
-                "reference": "d1f7001ba09f32f295cf24a4478160128030b40e",
+                "url": "https://api.github.com/repos/hoaproject/Iterator/zipball/c330d48bcfb0d848497c3f5bad19f1cda20a5234",
+                "reference": "c330d48bcfb0d848497c3f5bad19f1cda20a5234",
                 "shasum": ""
             },
             "require": {
@@ -603,7 +603,7 @@
                 "iterator",
                 "library"
             ],
-            "time": "2014-12-09 12:52:31"
+            "time": "2015-02-20 08:40:28"
         },
         {
             "name": "hoa/math",
@@ -778,21 +778,24 @@
         },
         {
             "name": "hoa/string",
-            "version": "2.14.12.24",
+            "version": "2.15.02.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/String.git",
-                "reference": "a1ff879f19ad7e95b06d9a3437e4c9415a7f1011"
+                "reference": "85c9d1e5992445671b5699d42382342d50c008ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/String/zipball/a1ff879f19ad7e95b06d9a3437e4c9415a7f1011",
-                "reference": "a1ff879f19ad7e95b06d9a3437e4c9415a7f1011",
+                "url": "https://api.github.com/repos/hoaproject/String/zipball/85c9d1e5992445671b5699d42382342d50c008ee",
+                "reference": "85c9d1e5992445671b5699d42382342d50c008ee",
                 "shasum": ""
             },
             "require": {
                 "ext-iconv": "*",
                 "hoa/core": "~2.0"
+            },
+            "require-dev": {
+                "hoa/test": "~1.0"
             },
             "suggest": {
                 "ext-intl": "To get a better Hoa\\String::toAscii() and Hoa\\String::compareTo()."
@@ -830,7 +833,7 @@
                 "string",
                 "unicode"
             ],
-            "time": "2014-12-24 07:44:59"
+            "time": "2015-02-19 08:18:08"
         },
         {
             "name": "hoa/visitor",
@@ -1075,16 +1078,16 @@
         },
         {
             "name": "laravel/cashier",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/cashier.git",
-                "reference": "1a682422c134eb9e2cd03f25e317821e14b7f045"
+                "reference": "1afb3d74906b42e8006bd13f6643c6b43498c279"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/cashier/zipball/1a682422c134eb9e2cd03f25e317821e14b7f045",
-                "reference": "1a682422c134eb9e2cd03f25e317821e14b7f045",
+                "url": "https://api.github.com/repos/laravel/cashier/zipball/1afb3d74906b42e8006bd13f6643c6b43498c279",
+                "reference": "1afb3d74906b42e8006bd13f6643c6b43498c279",
                 "shasum": ""
             },
             "require": {
@@ -1128,20 +1131,20 @@
                 "laravel",
                 "stripe"
             ],
-            "time": "2015-01-27 02:16:42"
+            "time": "2015-02-17 22:29:24"
         },
         {
             "name": "laravel/framework",
-            "version": "v5.0.4",
+            "version": "v5.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b5eafda7dba3d1367a63095b83a068a73d32d97f"
+                "reference": "43637b796f1ac0b1a960984231251ff04b438006"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b5eafda7dba3d1367a63095b83a068a73d32d97f",
-                "reference": "b5eafda7dba3d1367a63095b83a068a73d32d97f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/43637b796f1ac0b1a960984231251ff04b438006",
+                "reference": "43637b796f1ac0b1a960984231251ff04b438006",
                 "shasum": ""
             },
             "require": {
@@ -1253,7 +1256,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-02-11 20:37:48"
+            "time": "2015-02-20 16:22:21"
         },
         {
             "name": "league/flysystem",
@@ -1571,12 +1574,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neoxygen/neo4j-neoclient.git",
-                "reference": "b692426ec47661681bfdcb68c9996d5584ccd1bd"
+                "reference": "3cacfb256dac48e3fb8cfe3ac31ef97eace4eb19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/b692426ec47661681bfdcb68c9996d5584ccd1bd",
-                "reference": "b692426ec47661681bfdcb68c9996d5584ccd1bd",
+                "url": "https://api.github.com/repos/neoxygen/neo4j-neoclient/zipball/3cacfb256dac48e3fb8cfe3ac31ef97eace4eb19",
+                "reference": "3cacfb256dac48e3fb8cfe3ac31ef97eace4eb19",
                 "shasum": ""
             },
             "require": {
@@ -1625,7 +1628,7 @@
                 "high-availibility",
                 "neo4j"
             ],
-            "time": "2015-02-11 20:03:36"
+            "time": "2015-02-13 20:37:32"
         },
         {
             "name": "nesbot/carbon",
@@ -1808,16 +1811,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.3.3",
+            "version": "v0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "0355cecab0591c83fed019a9572c510b0da29174"
+                "reference": "2ce0e8f3020fd292c2ad2a496c5d83939823f642"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/0355cecab0591c83fed019a9572c510b0da29174",
-                "reference": "0355cecab0591c83fed019a9572c510b0da29174",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/2ce0e8f3020fd292c2ad2a496c5d83939823f642",
+                "reference": "2ce0e8f3020fd292c2ad2a496c5d83939823f642",
                 "shasum": ""
             },
             "require": {
@@ -1867,14 +1870,14 @@
                 }
             ],
             "description": "An interactive shell for modern PHP.",
-            "homepage": "https://github.com/bobthecow/psysh",
+            "homepage": "http://psysh.org",
             "keywords": [
                 "REPL",
                 "console",
                 "interactive",
                 "shell"
             ],
-            "time": "2015-01-20 21:18:03"
+            "time": "2015-02-12 19:35:52"
         },
         {
             "name": "stripe/stripe-php",

@@ -12,9 +12,10 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected $commands = [
 		'vAMSYS\Console\Commands\Inspire',
-		'vAMSYS\Console\Commands\ImportCountriesCommand',
-		'vAMSYS\Console\Commands\ImportRegionsCommand',
-		'vAMSYS\Console\Commands\ImportAirportsCommand'
+		'vAMSYS\Console\Commands\ImportCountries',
+		'vAMSYS\Console\Commands\ImportRegions',
+		'vAMSYS\Console\Commands\ImportAirports',
+        'vAMSYS\Console\Commands\ImportAIRAC',
 	];
 
 	/**

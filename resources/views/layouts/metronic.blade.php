@@ -15,7 +15,6 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
           type="text/css"/>
     <link rel="stylesheet" href="{{ elixir("css/app.css") }}">
-    <link rel="stylesheet" href="{{ elixir("css/login.css") }}">
     @yield('pagecss')
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
@@ -415,7 +414,7 @@
 <script src="/js/vendor/excanvas.js"></script>
 <![endif]-->
 <script src="//maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-<script src="{{ elixir("js/all.js") }}" type="text/javascript"></script>
+<script src="{{ elixir("js/combined.js") }}" type="text/javascript"></script>
 <script>
     jQuery(document).ready(function() {
         Metronic.init(); // init metronic core components

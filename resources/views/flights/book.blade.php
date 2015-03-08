@@ -1,9 +1,5 @@
 @extends('layouts.metronic')
 
-@section('pagecss')
-    <link rel="stylesheet" href="{{ elixir("css/flights.css") }}">
-@stop
-
 @section('content')
 <div class="page-content-wrapper">
     <div class="page-content">

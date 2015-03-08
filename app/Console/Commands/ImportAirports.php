@@ -5,24 +5,25 @@ use SplFileObject;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\HttpFoundation\File\File;
+use vAMSYS\Airport;
 use vAMSYS\Country;
 use vAMSYS\Region;
 
-class ImportRegionsCommand extends Command {
+class ImportAirports extends Command {
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-	protected $name = 'vamsys:import:regions';
+	protected $name = 'vamsys:import:airports';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Import regions from provided OurAirports CSV';
+	protected $description = 'Import airports from provided OurAirports CSV';
 
 	/**
 	 * Create a new command instance.
@@ -43,26 +44,29 @@ class ImportRegionsCommand extends Command {
 	{
 		// Parse the CSV file and insert rows
 		$this->info('Loading CSV...');
-		$regionsFile = new File($this->argument('file'));
-		$regionsFile = $regionsFile->openFile();
-		$regionsFile->setFlags(SplFileObject::READ_CSV);
+		$airportsFile = new File($this->argument('file'));
+		$airportsFile = $airportsFile->openFile();
+		$airportsFile->setFlags(SplFileObject::READ_CSV);
 
 		$this->info('Beginning Import...');
 		$i = 0;
-		foreach($regionsFile as $region){
+		foreach($airportsFile as $airport){
 			$i++;
 			if ($i % 10 == 0){
 				$this->comment('Imported '.$i.'...');
 			}
-			if (isset($region[1]) && $i > 1) {
-				$insertRegion            	= new Region();
-				$insertRegion->code      	= $region[1];
-				$insertRegion->name      	= $region[3];
-				$insertRegion->country_id = Country::where('code', '=', $region[5])->first()->id;
-				$insertRegion->save();
+			if (isset($airport[1]) && $i > 1) {
+				$insertAirport            = new Airport();
+				$insertAirport->icao      = $airport[1];
+				$insertAirport->iata      = $airport[13];
+				$insertAirport->name 			= $airport[3];
+				$insertAirport->latitude 	= $airport[4];
+				$insertAirport->longitude = $airport[5];
+				$insertAirport->region_id = Region::where('code', '=', $airport[9])->first()->id;
+				$insertAirport->save();
 			}
 		}
-		$this->info('Import Complete! '.$i.' Regions Imported.');
+		$this->info('Import Complete! '.$i.' Airports Imported.');
 	}
 
 	/**
@@ -73,7 +77,7 @@ class ImportRegionsCommand extends Command {
 	protected function getArguments()
 	{
 		return [
-			['file', InputArgument::REQUIRED, 'The OurAirports regions.csv file', null],
+			['file', InputArgument::REQUIRED, 'The OurAirports airports.csv file', null],
 		];
 	}
 

@@ -11,9 +11,12 @@ class EventServiceProvider extends ServiceProvider {
 	 * @var array
 	 */
 	protected $listen = [
-		'event.name' => [
-			'EventListener',
+		'vAMSYS\Events\PirepWasFiled' => [
+			'vAMSYS\Handlers\Events\Pireps\Process',
 		],
+        'vAMSYS\Events\PirepWasProcessed' => [
+            'vAMSYS\Handlers\Events\Emails\PirepProcessed',
+        ],
 	];
 
 	/**
@@ -25,8 +28,6 @@ class EventServiceProvider extends ServiceProvider {
 	public function boot(DispatcherContract $events)
 	{
 		parent::boot($events);
-
-		//
 	}
 
 }

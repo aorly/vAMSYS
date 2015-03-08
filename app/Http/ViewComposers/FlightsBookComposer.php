@@ -17,7 +17,8 @@ class FlightsBookComposer {
   {
     $pilot = PilotRepository::getCurrentPilot();
     $currentLocation = $pilot->location;
-    $lastBooking = Booking::where('pilot_id', '=', $pilot->id)->orderBy('created_at', 'desc')->first();
+    $lastBooking = Booking::has('pirep', '<', 1)->where('pilot_id', '=', $pilot->id)->orderBy('created_at', 'desc')
+            ->first();
     if (count($lastBooking) == 1){
       $currentLocation = $lastBooking->route->arrivalAirport;
     }

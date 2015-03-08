@@ -3,6 +3,7 @@
 use vAMSYS\Airline;
 use vAMSYS\Booking;
 use vAMSYS\Commands\ProcessBooking;
+use vAMSYS\Contracts\Callsign;
 use vAMSYS\Repositories\PilotRepository;
 use vAMSYS\Route;
 
@@ -38,23 +39,28 @@ class FlightsController extends Controller {
 		return redirect('/flights');
 	}
 
-	public function getBook(Airline $airline)
+	public function getBook()
 	{
 		return view('flights.book');
 	}
 
-	public function getDoBook(Airline $airline, Route $route)
+	public function getDoBook(Callsign $callsign, Route $route)
 	{
 		// todo: VALIDATE!
 		$booking = new Booking();
 		$booking->pilot()->associate(PilotRepository::getCurrentPilot());
 		$booking->route()->associate($route);
 		$booking->aircraft_id = 1; // todo select aircraft
-		$booking->save();
 
-		$this->dispatch(
-			new ProcessBooking($booking)
-		);
+        $callsignRules = $booking->route->callsign_rules;
+        if ($callsignRules === NULL) // Use Airline Rules
+            $callsignRules = $booking->pilot->airline->callsign_rules;
+
+        if ($callsignRules === NULL) // Revert to Default Rules (PREFIX + 2 DIGITS + 1 ALPHANUMERIC + 1 ALPHA)
+            $callsignRules = "[0-9]{2}[A-Z0-9]{1}[A-Z]{1}";
+
+        $booking->callsign = $callsign->generate($booking->pilot->airline->prefix, $callsignRules);
+		$booking->save();
 
 		return redirect('/flights');
 	}

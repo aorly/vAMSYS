@@ -21,24 +21,19 @@ Route::group(['domain' => 'admin' . env('APP_DOMAIN')], function () {
   Route::controller('/', 'Admin\AdminController');
 });
 
-// Airline routes
-Route::group(['domain' => '{airlineICAO}' . env('APP_DOMAIN')], function () {
-  Route::get('/', function () {
+Route::get('/', function () {
     return redirect('/dashboard');
-  });
-
-  Route::get('/flights/cancel/{booking}', 'FlightsController@getCancel');
-  Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
-
-  Route::controllers([
-    'auth'           => 'Auth\AuthController',
-    'password'       => 'Auth\PasswordController',
-    'staff/pilots'   => 'Staff\PilotsController',
-    'staff/airports' => 'Staff\AirportsController',
-    'staff'          => 'Staff\StaffController',
-    'dashboard'      => 'DashboardController',
-    'flights'        => 'FlightsController'
-  ]);
-
-  Route::post('/stripe/webhook', 'Laravel\Cashier\WebhookController@handleWebhook');
 });
+
+Route::get('/flights/cancel/{booking}', 'FlightsController@getCancel');
+Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
+
+Route::controllers([
+'auth'           => 'Auth\AuthController',
+'password'       => 'Auth\PasswordController',
+'staff/pilots'   => 'Staff\PilotsController',
+'staff/airports' => 'Staff\AirportsController',
+'staff'          => 'Staff\StaffController',
+'dashboard'      => 'DashboardController',
+'flights'        => 'FlightsController'
+]);

@@ -18,6 +18,6 @@ class PilotRepository {
 
   public static function countBookedFlights()
   {
-    return count(Booking::where('pilot_id', '=', self::getCurrentPilot()->id)->get()->toArray());
+    return count(Booking::has('pirep', '<', 1)->where('pilot_id', '=', self::getCurrentPilot()->id)->get()->toArray());
   }
 }

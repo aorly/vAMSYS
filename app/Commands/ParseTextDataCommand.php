@@ -44,9 +44,6 @@ class ParseTextDataCommand extends Command implements SelfHandling, ShouldBeQueu
 				case "ATS":
 					$outputs[$type] = json_encode($this->parseATS($path));
 					break;
-				case "Regions":
-					$outputs[$type] = json_encode($this->parseATS($path));
-					break;
 			}
 		}
 
