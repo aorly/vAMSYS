@@ -44,7 +44,8 @@ class smartCARSController extends Controller
         // The smartCARS Client basically sends a huge bunch of GET parameters (and occasionally POST).
         // These need to be interpreted to find out what it wants.
 
-        Log::info('smartCARS Request Recieved', ['airline' => $airlineICAO, 'request' => $request->request]);
+        Log::info('smartCARS Request Recieved', ['airline' => $airlineICAO, 'request' => $request->request, 'query'
+        => $request->query]);
 
         // Format the sent username
         if ($request->has('userid'))
