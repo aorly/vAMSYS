@@ -26,7 +26,6 @@ class AddMorePirepsColumns extends Migration {
 
 			$table->integer('fuel_used');
 			$table->integer('load');
-			$table->string('flight_time');
 		});
 	}
 
@@ -51,7 +50,6 @@ class AddMorePirepsColumns extends Migration {
 
 			$table->dropColumn('fuel_used');
 			$table->dropColumn('load');
-			$table->dropColumn('flight_time');
 		});
 	}
 

@@ -23,6 +23,12 @@
                     <span class="title">{{ Lang::choice('sidebar.flightBooking', vAMSYS\Repositories\PilotRepository::countBookedFlights()) }}</span>
                 </a>
             </li>
+            <li>
+                <a href="/pireps">
+                    <i class="icon-plane"></i>
+                    <span class="title">View PIREPs</span>
+                </a>
+            </li>
             @if (vAMSYS\Repositories\UserRepository::hasRole($airline->prefix.'-staff', $user))
             <li class="heading">
                 <h3 class="uppercase">Staff</h3>

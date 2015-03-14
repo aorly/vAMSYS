@@ -17,8 +17,10 @@ class AddEvenMorePirepsColumns extends Migration {
             $table->longText('log');
 			$table->text('provided_route');
             $table->text('comments');
-            $table->enum('status', ['new', 'processing', 'failed', 'processed'])->default('new');
+            $table->enum('status', ['new', 'processing', 'failed', 'processed', 'scoring', 'complete'])
+                ->default('new');
             $table->dateTime('processed_time');
+            $table->dateTime('scored_time');
 		});
 	}
 
@@ -36,6 +38,7 @@ class AddEvenMorePirepsColumns extends Migration {
             $table->dropColumn('comments');
             $table->dropColumn('status');
             $table->dropColumn('processed_time');
+            $table->dropColumn('scored_time');
 		});
 	}
 

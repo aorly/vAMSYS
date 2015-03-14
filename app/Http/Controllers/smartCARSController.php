@@ -469,42 +469,10 @@ class smartCARSController extends Controller
 
     }
 
-    /*
-     {
-      "request": {
-          "route": "CIRCUITS",
-          "action": "positionreport",
-          "dbid": "3",
-          "sessionid": "8BtSs7LAKXyOY6eE6v3JZjUKAWshuT8zL7iLwmY1RiRQYqyQU19S32A4nFn0GmKc",
-          "code": "",
-          "flightnumber": "RYRTEST",
-          "routeid": "4",
-          "bidid": "6",
-          "departureicao": "EIDW",
-          "arrivalicao": "EIDW",
-          "aircraft": "EI-ABC",
-          "altitude": "1140",
-          "magneticheading": "76",
-          "trueheading": "72",
-          "latitude": "53.413018235782",
-          "longitude": "-6.33512218056819",
-          "groundspeed": "145",
-          "distanceremaining": "2",
-          "phase": "8",
-          "departuretime": "19:45:51",
-          "timeremaining": "0:01",
-          "arrivaltime": "19:51:00",
-          "onlinenetwork": "Offline"
-      }
-      }
-     */
-
     private function handlePositionReport($request)
     {
         if ($this->handleVerifySession($request) == 'AUTH_FAILED')
             return "AUTH_FAILED";
-
-        Log::info('POSREP Recieved');
 
         $positionReport = new PositionReport();
         $positionReport->booking_id = (int)$request->input('bidid');
@@ -526,36 +494,10 @@ class smartCARSController extends Controller
         return "SUCCESS";
     }
 
-    /*
-  {
-      "request": {
-          "route": "CIRCUITS",
-          "comments": "",
-          "log": "smartCARS version 2.0.50.0, 2015/2/10 UTC[07:44:59 PM] Preflight started, flying offline[07:44:59 PM] Flying Boeing 737-8ASNGX Ryanair Winglets[07:44:59 PM] Engine 1 is on[07:44:59 PM] Engine 2 is on[07:45:11 PM] Flaps set to position 1[07:45:18 PM] Flaps set to position 2[07:45:22 PM] Flaps set to position 3[07:45:26 PM] Flaps set to position 4[07:45:30 PM] Flaps set to position 5[07:45:32 PM] Flaps set to position 6[07:45:36 PM] Flaps set to position 7[07:45:40 PM] Flaps set to position 8[07:45:51 PM] Pushing back with 10883 lb of fuel[07:45:51 PM] Taxiing to runway[07:45:56 PM] Taking off[07:46:08 PM] Climbing, pitch: 6, roll: 0, 138 kts[07:46:13 PM] Gear lever raised at 418 ft at 153 kts[07:46:23 PM] Flaps set to position 7 at 1053 ft at 157 kts[07:46:28 PM] Flaps set to position 6 at 1328 ft at 160 kts[07:46:31 PM] Flaps set to position 5 at 1530 ft at 161 kts[07:46:34 PM] Flaps set to position 4 at 1641 ft at 161 kts[07:46:37 PM] Flaps set to position 3 at 1780 ft at 162 kts[07:46:41 PM] Flaps set to position 2 at 1907 ft at 163 kts[07:46:45 PM] Flaps set to position 1 at 1993 ft at 164 kts[07:46:52 PM] Flaps set to position 0 at 2004 ft at 166 kts[07:46:54 PM] Cruising at 1500ft, pitch: 5, 171 kts[07:46:57 PM] Descending[07:46:57 PM] Approaching[07:46:57 PM] Final approach, 171 kts[07:48:27 PM] Go around conditions met[07:48:41 PM] Standard final approach conditions met[07:49:25 PM] Gear lever lowered at 1266 ft at 168 kts[07:49:29 PM] Flaps set to position 7 at 1215 ft at 165 kts[07:49:46 PM] Go around conditions met[07:49:47 PM] Flaps set to position 3 at 1238 ft at 156 kts[07:49:51 PM] Flaps set to position 4 at 1335 ft at 156 kts[07:49:54 PM] Flaps set to position 5 at 1401 ft at 156 kts[07:49:57 PM] Flaps set to position 6 at 1445 ft at 157 kts[07:50:00 PM] Flaps set to position 7 at 1545 ft at 156 kts[07:50:05 PM] Flaps set to position 8 at 1722 ft at 157 kts[07:50:11 PM] Standard final approach conditions met[07:51:56 PM] Touched down at -93 fpm, gear lever: down, pitch: 3, roll: -1, 114 kts[07:52:08 PM] Landed in 1643 ft, fuel: 10076 lb, weight: 101376 lb[07:52:08 PM] Taxiing to gate[07:52:11 PM] The flight may now be ended[07:52:11 PM] Taxi time was less than 15 seconds[07:52:11 PM] Arrived, flight duration: 00:05[07:52:16 PM] Engine 2 is off[07:52:17 PM] Engine 1 is off",
-          "action": "filepirep",
-          "dbid": "3",
-          "sessionid": "8BtSs7LAKXyOY6eE6v3JZjUKAWshuT8zL7iLwmY1RiRQYqyQU19S32A4nFn0GmKc",
-          "code": "",
-          "flightnumber": "RYRTEST",
-          "departureicao": "EIDW",
-          "arrivalicao": "EIDW",
-          "aircraft": "1",
-          "routeid": "4",
-          "bidid": "6",
-          "landingrate": "-93",
-          "fuelused": "808",
-          "load": "0",
-          "flighttime": "00.05"
-      }
-      }
-     */
-
     private function handleFilePirep($request)
     {
         if ($this->handleVerifySession($request) == 'AUTH_FAILED')
             return "AUTH_FAILED";
-
-        Log::info('PIREP Recieved');
 
         // Save the PIREP and dispatch the event
         $pirep = new Pirep();
@@ -566,6 +508,7 @@ class smartCARSController extends Controller
         $pirep->landing_rate = $request->input('landingrate');
         $pirep->fuel_used = $request->input('fuelused');
         $pirep->load = $request->input('load');
+        $pirep->acars = 1;
         $pirep->save();
 
         $pilot = SmartCARS_Session::where('pilot_id', '=', $request->input('dbid'))->where('sessionid', '=', $request->input('sessionid'))->first()->pilot;

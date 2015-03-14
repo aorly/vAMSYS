@@ -49,6 +49,11 @@ class AppServiceProvider extends ServiceProvider {
 			'vAMSYS\Contracts\Callsign',
 			'vAMSYS\Services\Callsign'
 		);
+
+        $this->app->bind(
+            'vAMSYS\Contracts\PirepParser',
+            'vAMSYS\Services\PirepParser'
+        );
 	}
 
 }

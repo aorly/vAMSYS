@@ -29,11 +29,12 @@ Route::get('/flights/cancel/{booking}', 'FlightsController@getCancel');
 Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
 
 Route::controllers([
-'auth'           => 'Auth\AuthController',
-'password'       => 'Auth\PasswordController',
-'staff/pilots'   => 'Staff\PilotsController',
-'staff/airports' => 'Staff\AirportsController',
-'staff'          => 'Staff\StaffController',
-'dashboard'      => 'DashboardController',
-'flights'        => 'FlightsController'
+    'auth'           => 'Auth\AuthController',
+    'password'       => 'Auth\PasswordController',
+    'staff/pilots'   => 'Staff\PilotsController',
+    'staff/airports' => 'Staff\AirportsController',
+    'staff'          => 'Staff\StaffController',
+    'dashboard'      => 'DashboardController',
+    'flights'        => 'FlightsController',
+    'pireps'         => 'PirepsController'
 ]);

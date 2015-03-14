@@ -1,10 +1,10 @@
 <?php namespace vAMSYS\Handlers\Events\Emails;
 
-use vAMSYS\Events\PirepWasProcessed;
-
 use Illuminate\Contracts\Queue\ShouldBeQueued;
+use vAMSYS\Events\PirepLineNotMatched;
+use vAMSYS\Events\PirepWasScored;
 
-class PirepProcessed implements ShouldBeQueued {
+class LineNotMotched implements ShouldBeQueued {
 
 	/**
 	 * Handle the event.
@@ -12,7 +12,7 @@ class PirepProcessed implements ShouldBeQueued {
 	 * @param  PirepWasProcessed  $event
 	 * @return void
 	 */
-	public function handle(PirepWasProcessed $event)
+	public function handle(PirepLineNotMatched $event)
 	{
 		// Email the user
         echo "emailing ".$event->pirep->booking->pilot->user->email.PHP_EOL;
