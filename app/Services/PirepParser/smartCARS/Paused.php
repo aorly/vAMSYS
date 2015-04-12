@@ -3,17 +3,17 @@
 use vAMSYS\Pirep;
 use vAMSYS\Services\PirepParser\Parser;
 
-class Overspeed implements Parser {
+class Paused implements Parser {
 
     public static function parse($timestamp, $line, $matches, Pirep $pirep)
     {
         $pirepData = $pirep->pirep_data;
-        $overspeed = ["timestamp" => $timestamp];
+        $pause = ["timestamp" => $timestamp];
 
-        if (!array_key_exists('overspeeds', $pirepData))
-            $pirep->pirep_data = array_merge($pirepData, ['overspeeds' => []]);
+        if (!array_key_exists('pauses', $pirepData))
+            $pirep->pirep_data = array_merge($pirepData, ['pauses' => []]);
 
-        $pirepData['overspeeds'][] = $overspeed;
+        $pirepData['pauses'][] = $pause;
 
         $pirep->pirep_data = $pirepData;
 

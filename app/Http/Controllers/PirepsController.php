@@ -1,7 +1,7 @@
 <?php namespace vAMSYS\Http\Controllers;
 
 use Illuminate\Support\Facades\Event;
-use vAMSYS\Events\PirepWasProcessed;
+use vAMSYS\Events\PirepWasFiled;
 use vAMSYS\Repositories\PilotRepository;
 
 class PirepsController extends Controller {
@@ -17,8 +17,8 @@ class PirepsController extends Controller {
 	public function getIndex()
 	{
         // Test!
-        $pirep = PilotRepository::getCurrentPilot()->pireps[0];
-        Event::fire(new PirepWasProcessed($pirep));
+        $pirep = PilotRepository::getCurrentPilot()->pireps[1];
+        Event::fire(new PirepWasFiled($pirep, PilotRepository::getCurrentPilot()));
 	}
 
 }

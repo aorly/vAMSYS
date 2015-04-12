@@ -48,18 +48,23 @@ class PirepScorer implements PirepScorerContract
                 $pirep->pirep_data = $pirepData;
 
                 $scorer = json_decode($e->getMessage());
-                $totalpoints += $scorer->points;
 
-                $pirepData = $pirep->pirep_data;
-                if (!array_key_exists('scores', $pirepData))
-                    $pirepData['scores'] = [];
+                if ($scorer->points !== 0) {
+                    $totalpoints += $scorer->points;
 
-                $pirepData['scores'][ltrim($scorer->name.' '.$rule['name'])] = $scorer->points;
-                $pirep->pirep_data = $pirepData;
+                    $pirepData = $pirep->pirep_data;
+                    if (!array_key_exists('scores', $pirepData))
+                        $pirepData['scores'] = [];
+
+                    $pirepData['scores'][ltrim($scorer->name . ' ' . $rule['name'])] = $scorer->points;
+                    $pirep->pirep_data = $pirepData;
+                }
 
                 dump(self::FUNCTION_PREFIX . $rule['scorer'] . ' scores '.$scorer->points.', and failed the PIREP');
             }
         }
+        dump("Final Score: ".$totalpoints);
+        dump($pirep->pirep_data);
         dd($pirep);
     }
 }

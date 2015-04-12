@@ -148,6 +148,8 @@ return [
 		'vAMSYS\Providers\BladeServiceProvider',
 		'Laravel\Cashier\CashierServiceProvider',
 
+        'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
+
 	],
 
 	/*
@@ -195,6 +197,7 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+        'Bugsnag'   => 'Bugsnag\BugsnagLaravel\BugsnagFacade',
 
 	],
 

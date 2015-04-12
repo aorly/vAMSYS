@@ -4,7 +4,7 @@ use Illuminate\Contracts\Queue\ShouldBeQueued;
 use vAMSYS\Events\PirepLineNotMatched;
 use vAMSYS\Events\PirepWasScored;
 
-class LineNotMotched implements ShouldBeQueued {
+class LineNotMatched implements ShouldBeQueued {
 
 	/**
 	 * Handle the event.
@@ -15,7 +15,7 @@ class LineNotMotched implements ShouldBeQueued {
 	public function handle(PirepLineNotMatched $event)
 	{
 		// Email the user
-        echo "emailing ".$event->pirep->booking->pilot->user->email.PHP_EOL;
+        echo "Line Not Matched: ".$event->line.'<br />'.PHP_EOL;
 	}
 
 }

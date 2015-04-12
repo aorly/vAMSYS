@@ -7,7 +7,9 @@ class AircraftName implements Parser {
 
     public static function parse($timestamp, $line, $matches, Pirep $pirep)
     {
-        $pirep->pirep_data = array_merge($pirep->pirep_data, ['aircraft' => $matches[1]]);
+        $pirepData = $pirep->pirep_data;
+        $pirepData['aircraft'] = $matches[1];
+        $pirep->pirep_data = $pirepData;
         return $pirep;
     }
 }

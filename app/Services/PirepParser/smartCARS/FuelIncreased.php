@@ -8,7 +8,8 @@ class FuelIncreased implements Parser {
     public static function parse($timestamp, $line, $matches, Pirep $pirep)
     {
         $pirepData = $pirep->pirep_data;
-        $fuelChange = ["timestamp" => $timestamp, "change" => "increased", "from" => $matches[2], "to" => $matches[1]];
+        $fuelChange = ["timestamp" => $timestamp, "change" => "increased", "from" => $matches[3], "to" =>
+            $matches[1], "from_unit" => $matches[4], "to_unit" => $matches[2]];
 
         if (!array_key_exists('fuel_changes', $pirepData))
             $pirep->pirep_data = array_merge($pirepData, ['fuel_changes' => []]);
