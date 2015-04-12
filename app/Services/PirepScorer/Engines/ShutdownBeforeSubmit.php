@@ -8,7 +8,7 @@ use vAMSYS\Services\PirepScorer\Scorer;
 
 class ShutdownBeforeSubmit implements Scorer {
 
-    public static function score(Pirep $pirep, $rule)
+    public static function score(Pirep &$pirep, $rule)
     {
         // Were engines switched off before submission?
         $submissionTime = new Carbon($pirep->pirep_end_time);

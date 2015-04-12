@@ -7,7 +7,7 @@ use vAMSYS\Services\PirepScorer\Scorer;
 
 class AwayFromDestination implements Scorer {
 
-    public static function score(Pirep $pirep, $rule)
+    public static function score(Pirep &$pirep, $rule)
     {
         // Did the pilot land away from the destination airport?
         $pirepData = $pirep->pirep_data;

@@ -8,7 +8,7 @@ use vAMSYS\Services\PirepScorer\Scorer;
 
 class NotRetractedBeforeParking implements Scorer {
 
-    public static function score(Pirep $pirep, $rule)
+    public static function score(Pirep &$pirep, $rule)
     {
         // Were flaps set to the minimum level before parking?
         $parkingTime = new Carbon($pirep->on_blocks_time);

@@ -7,6 +7,7 @@ use vAMSYS\Events\PirepWasFiled;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldBeQueued;
 use vAMSYS\Events\PirepWasProcessed;
+use vAMSYS\Events\PirepWasScored;
 use vAMSYS\Services\PirepScorer;
 
 class Score implements ShouldBeQueued {
@@ -23,8 +24,6 @@ class Score implements ShouldBeQueued {
         $event->pirep->status = "scoring";
         $event->pirep->processed_time = date('Y-m-d H:i:s');
         $event->pirep->save();
-
-        $scoringRules = $event->pirep->booking->pilot->airline->scoring_rules;
 
         $event->pirep = PirepScorer::score($event->pirep);
 

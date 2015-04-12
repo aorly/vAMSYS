@@ -28,6 +28,7 @@ class RouteServiceProvider extends ServiceProvider {
 		$router->model('booking', 'vAMSYS\Booking');
 		$router->model('airport', 'vAMSYS\Airport');
 		$router->model('route', 'vAMSYS\Route');
+        $router->model('pirep', 'vAMSYS\Pirep');
 	}
 
 	/**

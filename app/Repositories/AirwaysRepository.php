@@ -12,7 +12,10 @@ class AirwaysRepository {
       ->addConnection('default',
         Config::get('database.neo4j.profiles.default.scheme'),
         Config::get('database.neo4j.profiles.default.host'),
-        (int)Config::get('database.neo4j.profiles.default.port'))
+        (int)Config::get('database.neo4j.profiles.default.port'),
+        true,
+          Config::get('database.neo4j.profiles.default.username'),
+          Config::get('database.neo4j.profiles.default.password'))
       ->setAutoFormatResponse(true)
       ->build();
   }

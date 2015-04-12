@@ -8,7 +8,7 @@ use vAMSYS\Services\PirepScorer\Scorer;
 
 class Number2First implements Scorer {
 
-    public static function score(Pirep $pirep, $rule)
+    public static function score(Pirep &$pirep, $rule)
     {
         // Was engine 2 started first?
         $data = $pirep->pirep_data;

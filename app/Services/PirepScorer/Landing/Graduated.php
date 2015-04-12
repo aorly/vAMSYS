@@ -7,7 +7,7 @@ use vAMSYS\Services\PirepScorer\Scorer;
 
 class Graduated implements Scorer {
 
-    public static function score(Pirep $pirep, $rule)
+    public static function score(Pirep &$pirep, $rule)
     {
         foreach ($rule['thresholds'] as $threshold){
             // Does the landing meet this threshold?

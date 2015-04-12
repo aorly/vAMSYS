@@ -50,7 +50,7 @@ class AuthController extends Controller {
 				// Login with this user's email address!
 				$login = $pilot->user->email;
 				Session::put('airlineId', $pilot->airline->id);
-				$this->doEmailLogin($login, $request->input('password'), $request->has('remember'));
+				return $this->doEmailLogin($login, $request->input('password'), $request->has('remember'));
 			} else {
 				return $this->loginError($login);
 			}

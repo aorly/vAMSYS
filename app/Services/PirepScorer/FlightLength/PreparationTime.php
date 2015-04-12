@@ -7,7 +7,7 @@ use vAMSYS\Services\PirepScorer\Scorer;
 
 class PreparationTime implements Scorer {
 
-    public static function score(Pirep $pirep, $rule)
+    public static function score(Pirep &$pirep, $rule)
     {
         $pirepStart = new Carbon($pirep->pirep_start_time);
         $offBlocks = new Carbon($pirep->off_blocks_time);

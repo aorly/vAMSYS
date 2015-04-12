@@ -8,7 +8,7 @@ use vAMSYS\Services\PirepScorer\Scorer;
 
 class OverspeedPerSecondWithBuffer implements Scorer {
 
-    public static function score(Pirep $pirep, $rule)
+    public static function score(Pirep &$pirep, $rule)
     {
         // Let's count the overspeeds!
         $pirepData = $pirep->pirep_data;

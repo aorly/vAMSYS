@@ -24,11 +24,7 @@
 </div>
 <div class="logo">
     <a href="/">
-        @if (isset($airline))
-        <img src="//placehold.it/400x150.png&text={{ urlencode($airline->name) }}" alt=""/>
-        @else
-            <img src="//placehold.it/400x150.png&text=vAMSYS" alt=""/>
-        @endif
+            <img src="/img/logo-subtitle.png" alt="vAMSYS" height="91" width="400" />
     </a>
 </div>
 <div class="content">
@@ -60,7 +56,7 @@
         <div class="form-actions">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <button type="submit" class="btn btn-success uppercase">Login</button>
-            <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+            <!--<a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>-->
         </div>
     </form>
 
@@ -87,8 +83,9 @@
 <script src="/js/vendor/respond.min.js"></script>
 <script src="/js/vendor/excanvas.js"></script>
 <![endif]-->
+<script src="//maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
 <script src="{{ elixir("js/combined.js") }}" type="text/javascript"></script>
-<script src="vendor/js/metronic/layout/pages/login.js" type="text/javascript"></script>
+<script src="/vendor/js/metronic/layout/pages/login.js" type="text/javascript"></script>
 <script>
     jQuery(document).ready(function () {
         Metronic.init(); // init metronic core components

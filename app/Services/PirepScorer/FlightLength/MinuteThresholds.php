@@ -7,7 +7,7 @@ use vAMSYS\Services\PirepScorer\Scorer;
 
 class MinuteThresholds implements Scorer {
 
-    public static function score(Pirep $pirep, $rule)
+    public static function score(Pirep &$pirep, $rule)
     {
         $flightStart = new Carbon($pirep->departure_time);
         $flightEnd = new Carbon($pirep->landing_time);

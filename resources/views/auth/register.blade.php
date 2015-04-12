@@ -8,7 +8,7 @@
 <!--<![endif]-->
 <head>
     <meta charset="utf-8"/>
-    <title>vAMSYS - Register Account</title>
+    <title>vAMSYS</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -17,7 +17,6 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
           type="text/css"/>
     <link rel="stylesheet" href="{{ elixir("css/app.css") }}">
-    <link rel="stylesheet" href="{{ elixir("css/login.css") }}">
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body class="login">
@@ -25,12 +24,13 @@
 </div>
 <div class="logo">
     <a href="/">
-        <img src="//placehold.it/400x150.png&text=Airline+Logo+Here" alt=""/>
+        <img src="/img/logo-subtitle.png" alt="vAMSYS" height="91" width="400" />
     </a>
 </div>
 <div class="content">
     <form class="login-form" action="/auth/register" method="post">
         <h3 class="form-title">Register Account</h3>
+        <center><h5 class="form-title">This will allow you to create a test account</h5></center>
 
         <div class="alert alert-danger display-hide">
             <button class="close" data-close="alert"></button>
@@ -85,8 +85,7 @@
 <script src="/js/vendor/respond.min.js"></script>
 <script src="/js/vendor/excanvas.js"></script>
 <![endif]-->
-<script src="{{ elixir("js/all.js") }}" type="text/javascript"></script>
-<script src="{{ elixir("js/login.js") }}" type="text/javascript"></script>
+<script src="{{ elixir("js/combined.js") }}" type="text/javascript"></script>
 <script>
     jQuery(document).ready(function () {
         Metronic.init(); // init metronic core components

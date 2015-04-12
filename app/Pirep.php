@@ -20,12 +20,12 @@ class Pirep extends Model {
 
     public function booking()
     {
-    return $this->belongsTo('vAMSYS\Booking');
+        return $this->belongsTo('vAMSYS\Booking');
     }
 
     public function positionReports()
     {
-    return $this->hasMany('vAMSYS\PositionReport', 'booking_id', 'booking_id');
+        return $this->hasMany('vAMSYS\PositionReport', 'booking_id', 'booking_id');
     }
 
 }

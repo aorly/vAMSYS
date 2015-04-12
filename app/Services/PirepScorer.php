@@ -20,7 +20,7 @@ class PirepScorer implements PirepScorerContract
         $totalpoints = $scoringRules['starting_points'];
         foreach($scoringRules['rules'] as $rule){
             try {
-                $scorer = call_user_func(self::FUNCTION_PREFIX . $rule['scorer'] . '::score', &$pirep, $rule);
+                $scorer = call_user_func_array(self::FUNCTION_PREFIX . $rule['scorer'] . '::score', [&$pirep, $rule]);
                 $totalpoints += $scorer['points'];
 
                 // Success!
@@ -30,8 +30,6 @@ class PirepScorer implements PirepScorerContract
 
                 $pirepData['scores'][ltrim($scorer['name'].' '.$rule['name'])] = $scorer['points'];
                 $pirep->pirep_data = $pirepData;
-
-                dump(self::FUNCTION_PREFIX . $rule['scorer'] . ' scores '.$scorer['points']);
             } catch (UnsuccessfulScoringException $e) {
                 // Rule could not be completed. Store on PIREP data for information
                 $pirepData = $pirep->pirep_data;
@@ -40,7 +38,6 @@ class PirepScorer implements PirepScorerContract
 
                 $pirepData['scoring_errors'][] = [$rule['scorer'] => $rule];
                 $pirep->pirep_data = $pirepData;
-                dump(self::FUNCTION_PREFIX . $rule['scorer'] . ' could not complete');
             } catch (PirepFailureException $e) {
                 // Pirep should be failed. Store on PIREP, apply points, continue processing!
                 $pirepData = $pirep->pirep_data;
@@ -59,12 +56,10 @@ class PirepScorer implements PirepScorerContract
                     $pirepData['scores'][ltrim($scorer->name . ' ' . $rule['name'])] = $scorer->points;
                     $pirep->pirep_data = $pirepData;
                 }
-
-                dump(self::FUNCTION_PREFIX . $rule['scorer'] . ' scores '.$scorer->points.', and failed the PIREP');
             }
         }
-        dump("Final Score: ".$totalpoints);
-        dump($pirep->pirep_data);
-        dd($pirep);
+
+        $pirep->points = $totalpoints;
+        return $pirep;
     }
 }

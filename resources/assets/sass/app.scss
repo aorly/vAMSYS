@@ -2,10 +2,10 @@
 @import "variables";
 
 // Bootstrap
-@import "bootstrap";
+@import "../../../vendor/bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 
 // Bootstrap Switch
-@import "boostrap-switch/dist/css/bootstrap3/bootstrap-switch.css";
+@import "../../vendor/css/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css";
 
 // Font Awesome
 @import "../../../vendor/bower_components/font-awesome/scss/font-awesome";

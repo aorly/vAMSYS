@@ -3,5 +3,5 @@
 use vAMSYS\Pirep;
 
 interface Scorer {
-    public static function score(Pirep $pirep, $rule);
+    public static function score(Pirep &$pirep, $rule);
 }

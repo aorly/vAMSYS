@@ -46,8 +46,6 @@ class Process implements ShouldBeQueued {
             $currentTime = $timeBits[0];
         }
 
-        dump($log);
-
         // Set PIREP times
         $event->pirep->pirep_start_time = $log[1][0];
         $event->pirep->pirep_end_time = $log[1][count($log[1])-1];
