@@ -11,6 +11,7 @@
                 <h1>Welcome to the vAMSYS Test Environment</h1>
                     <h3>Normally a lot more data would go here.</h3>
                     <h5>When things break - email us! <a href="mailto:bugs@vamsys.io">bugs@vamsys.io</a></h5>
+                    <h5><a href="https://tfdidesign.com/smartcars/app.php?action=download&airlineid=124&language=en-US">Click here to download smartCARS 2</a></h5>
                     </center>
             </div>
         </div>
