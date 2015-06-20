@@ -24,7 +24,7 @@ class PilotsController extends Controller {
     $pilot = new Pilot();
     $pilot->username = $request->input('username');
     $pilot->rank_id = 1;
-    $pilot->user = $user;
+    $pilot->user_id = $user->id;
     $pilot->airline_id = Session::get('airlineId');
     $pilot->location_id = 16515;
     $pilot->save();

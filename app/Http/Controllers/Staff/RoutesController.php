@@ -23,8 +23,8 @@ class RoutesController extends Controller {
     $to = Airport::where('icao', $request->input('to'))->first();
 
     $route = new \vAMSYS\Route();
-    $route->departureAirport = $from;
-    $route->arrivalAirport = $to;
+    $route->departure_id = $from->id;
+    $route->arrival_id = $to->id;
     $route->route = $request->input('route');
     $route->airline_id = Session::get('airlineId');
     $route->save();
