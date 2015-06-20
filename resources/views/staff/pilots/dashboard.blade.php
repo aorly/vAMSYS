@@ -80,7 +80,7 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="text" name="callsign" placeholder="Callsign" /><br />
                             <input type="text" name="email" placeholder="Email" /><br />
-                            <button type="submit" />
+                            <button type="submit">Add Pilot</button>
                         </form>
                     </div>
                 </div>

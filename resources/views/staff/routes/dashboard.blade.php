@@ -80,7 +80,7 @@
                             <input type="text" name="from" placeholder="From ICAO" /><br />
                             <input type="text" name="to" placeholder="To ICAO" /><br />
                             <input type="text" name="route" placeholder="Route" /><br />
-                            <button type="submit" />
+                            <button type="submit">Add Route</button>
                         </form>
                     </div>
                 </div>

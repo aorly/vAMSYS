@@ -79,7 +79,7 @@
                         <form action="/staff/airports/add" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="text" name="icao" placeholder="ICAO" /><br />
-                            <button type="submit" />
+                            <button type="submit">Add Airport</button>
                         </form>
                     </div>
                 </div></div>
