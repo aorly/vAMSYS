@@ -68,7 +68,21 @@
                     <div class="portlet-body">
                         <p>Here you can manage the Airports in your airline!</p>
                         <p>You need to add Airports to your airline before you can use them in Routes</p>
-                        </div></div></div>
+                        </div></div>
+                        <div class="portlet box green">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-cogs"></i>BETA - Quick Add Airport
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <form action="/staff/airports/add" method="POST">
+                            <?php echo csrf_field(); ?>
+                            <input type="text" name="icao" placeholder="ICAO" /><br />
+                            <button type="submit" />
+                        </form>
+                    </div>
+                </div></div>
         </div>
     </div>
 </div>

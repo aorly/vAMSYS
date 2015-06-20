@@ -4,7 +4,7 @@
 <div class="page-content-wrapper">
     <div class="page-content">
         <h3 class="page-title">
-            Airline Pilots <small>minions! everywhere!</small>
+            Airline Routes <small>at the junction, turn left</small>
         </h3>
         <div class="row">
             <div class="col-md-8">
@@ -12,7 +12,7 @@
                 <div class="portlet box blue">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-cogs"></i>Pilots
+                            <i class="fa fa-cogs"></i>Routes
                         </div>
                     </div>
                     <div class="portlet-body">
@@ -24,16 +24,16 @@
                                         #
                                     </th>
                                     <th>
-                                        Pilot ID
+                                        From
                                     </th>
                                     <th>
-                                        First Name
+                                        To
                                     </th>
                                     <th>
-                                        Last Name
+                                        Route
                                     </th>
                                     <th>
-                                        Rank
+                                        Callsign Rules
                                     </th>
                                     <th>
                                         Actions
@@ -41,14 +41,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($airline->pilots as $pilot)
+                                @foreach($airline->routes as $route)
                                     <tr>
-                                        <td>{{ $pilot->id }}</td>
-                                        <td>{{ $pilot->username }}</td>
-                                        <td>{{ $pilot->user->first_name }}</td>
-                                        <td>{{ $pilot->user->last_name }}</td>
-                                        <td>{{ $pilot->rank->name }}</td>
-                                        <td><a href="/staff/pilots/{{ $pilot->id }}/ban">Ban</a> - <a href="/staff/pilots/{{ $pilot->id }}/rank">Change Rank</a></td>
+                                        <td>{{ $route->id }}</td>
+                                        <td>{{ $route->departureAirport->name }} ({{ $route->departureAirport->icao }})</td>
+                                        <td>{{ $route->arrivalAirport->name }} ({{ $route->arrivalAirport->icao }})</td>
+                                        <td>{{ $route->route }}</td>
+                                        <td>{{ $route->callsign_rules }}</td>
+                                        <td></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -71,15 +71,15 @@
                 <div class="portlet box green">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-cogs"></i>BETA - Quick Add Pilot
+                            <i class="fa fa-cogs"></i>BETA - Quick Add Route
                         </div>
                     </div>
                     <div class="portlet-body">
-                        <small>The user MUST be registered first!</small>
-                        <form action="/staff/pilots/add" method="POST">
+                        <form action="/staff/routes/add" method="POST">
                             <?php echo csrf_field(); ?>
-                            <input type="text" name="callsign" placeholder="Callsign - RYR1234" /><br />
-                            <input type="text" name="email" placeholder="Email - email@provider.com" /><br />
+                            <input type="text" name="from" placeholder="From ICAO" /><br />
+                            <input type="text" name="to" placeholder="To ICAO" /><br />
+                            <input type="text" name="route" placeholder="Route"" /><br />
                             <button type="submit" />
                         </form>
                     </div>
