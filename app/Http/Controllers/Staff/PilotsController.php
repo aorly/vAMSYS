@@ -4,6 +4,7 @@ use vAMSYS\Http\Requests;
 use vAMSYS\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use vAMSYS\Pilot;
 
 class PilotsController extends Controller {
 
@@ -20,8 +21,13 @@ class PilotsController extends Controller {
   public function postAdd(Request $request)
   {
     $user = \vAMSYS\User::where('email', $request->input('email'))->first();
-    $airline = \vAMSYS\Airline::find(Session::get('airlineId'));
-    $airline->pilots()->save($user);
+    $pilot = new Pilot();
+    $pilot->username = $request->input('username');
+    $pilot->rank_id = 1;
+    $pilot->user = $user;
+    $pilot->airline_id = Session::get('airlineId');
+    $pilot->location_id = 16515;
+    $pilot->save();
 
     return view('staff.pilots.dashboard');
   }
