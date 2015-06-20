@@ -1,7 +1,6 @@
 <?php namespace vAMSYS\Exceptions;
 
 use Exception;
-use Bugsnag\BugsnagLaravel\BugsnagExceptionHandler as ExceptionHandler;
 
 class Handler extends ExceptionHandler {
 
