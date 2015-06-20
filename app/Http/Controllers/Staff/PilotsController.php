@@ -22,7 +22,7 @@ class PilotsController extends Controller {
   {
     $user = \vAMSYS\User::where('email', $request->input('email'))->first();
     $pilot = new Pilot();
-    $pilot->username = $request->input('username');
+    $pilot->username = $request->input('callsign');
     $pilot->rank_id = 1;
     $pilot->user_id = $user->id;
     $pilot->airline_id = Session::get('airlineId');
