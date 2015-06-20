@@ -17,7 +17,7 @@ class PirepsController extends Controller {
 
     public function getIndex()
     {
-        return view('pireps/list', ['pireps' => PilotRepository::getCurrentPilot()->pireps]);
+        return view('pireps/list', ['pireps' => PilotRepository::getCurrentPilotPireps()]);
     }
 
     public function getSinglePirep(Pirep $pirep)

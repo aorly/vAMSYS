@@ -15,6 +15,13 @@ class PilotRepository {
       ->where('airline_id', '=', Airline::find(Session::get('airlineId'))->id)
       ->first();
   }
+  public static function getCurrentPilotPireps()
+  {
+    return Pilot::where('user_id', '=', Request::user()->id)
+      ->where('airline_id', '=', Airline::find(Session::get('airlineId'))->id)
+      ->pireps()->withTrashed()
+      ->get();
+  }
 
   public static function countBookedFlights()
   {
