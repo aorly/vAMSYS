@@ -56,7 +56,7 @@
                             Routes
                         </div>
                     </div>
-                    <a class="more" href="#">
+                    <a class="more" href="/staff/routes">
                         Routes Management <i class="m-icon-swapright m-icon-white"></i>
                     </a>
                 </div>
