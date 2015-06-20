@@ -76,10 +76,10 @@
                     </div>
                     <div class="portlet-body">
                         <form action="/staff/routes/add" method="POST">
-                            <?php echo csrf_field(); ?>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="text" name="from" placeholder="From ICAO" /><br />
                             <input type="text" name="to" placeholder="To ICAO" /><br />
-                            <input type="text" name="route" placeholder="Route"" /><br />
+                            <input type="text" name="route" placeholder="Route" /><br />
                             <button type="submit" />
                         </form>
                     </div>

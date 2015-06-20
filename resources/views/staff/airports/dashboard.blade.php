@@ -77,7 +77,7 @@
                     </div>
                     <div class="portlet-body">
                         <form action="/staff/airports/add" method="POST">
-                            <?php echo csrf_field(); ?>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="text" name="icao" placeholder="ICAO" /><br />
                             <button type="submit" />
                         </form>

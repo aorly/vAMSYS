@@ -77,9 +77,9 @@
                     <div class="portlet-body">
                         <small>The user MUST be registered first!</small>
                         <form action="/staff/pilots/add" method="POST">
-                            <?php echo csrf_field(); ?>
-                            <input type="text" name="callsign" placeholder="Callsign - RYR1234" /><br />
-                            <input type="text" name="email" placeholder="Email - email@provider.com" /><br />
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="text" name="callsign" placeholder="Callsign" /><br />
+                            <input type="text" name="email" placeholder="Email" /><br />
                             <button type="submit" />
                         </form>
                     </div>
