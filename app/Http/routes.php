@@ -28,7 +28,7 @@ Route::get('/', function () {
 Route::get('/flights/cancel/{booking}', 'FlightsController@getCancel');
 Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
 
-Route::get('/pireps/{pirepTrashed}', 'PirepsController@getSinglePirep');
+Route::get('/pireps/{pirep}', 'PirepsController@getSinglePirep');
 
 Route::controllers([
     'auth'           => 'Auth\AuthController',

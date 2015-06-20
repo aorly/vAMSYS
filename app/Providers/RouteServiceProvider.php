@@ -29,9 +29,6 @@ class RouteServiceProvider extends ServiceProvider {
 		$router->model('airport', 'vAMSYS\Airport');
 		$router->model('route', 'vAMSYS\Route');
         $router->model('pirep', 'vAMSYS\Pirep');
-    $router->bind('pirepTrashed', function($value, $route){
-      return \vAMSYS\Pirep::withTrashed()->find($value);
-    });
 	}
 
 	/**
