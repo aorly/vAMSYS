@@ -16,7 +16,7 @@
           type="text/css"/>
     <link rel="stylesheet" href="{{ elixir("css/app.css") }}">
     @yield('pagecss')
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
 </head>
 <body class="page-header-fixed page-quick-sidebar-over-content">
 <!-- BEGIN HEADER -->
