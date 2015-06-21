@@ -62,7 +62,12 @@
                                             {{$pirep->points}}
                                         </td>
                                         <td>
-                                            <a href="/pireps/{{$pirep->id}}" class="btn btn-sm blue">View</a>
+                                            @if($pirep->status = 'processed')
+                                                <a href="/pireps/{{$pirep->id}}" class="btn btn-sm blue">View</a>
+                                            @else
+                                                PIREP Status: {{$pirep->status}}
+                                            @endif
+
                                         </td>
                                     </tr>
                                     @endforeach
