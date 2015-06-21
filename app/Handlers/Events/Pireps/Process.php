@@ -33,7 +33,7 @@ class Process implements ShouldBeQueued {
         }
 
         $pirepDate = new Carbon($logMeta[2], $logMeta[3]);
-        preg_match_all('/\[([0-9:]+ ?[AP]?M?)\] ?([^\[]+)/', $event->pirep->log, $log);
+        preg_match_all('/\[([0-9:]+ ?[APi]?\.?[nM]?\.?)\] ?([^\[]+)/', $event->pirep->log, $log);
         $currentTime = 0;
 
         // $log contains arrays of log lines.
