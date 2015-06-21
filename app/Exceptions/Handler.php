@@ -24,6 +24,8 @@ class Handler extends ExceptionHandler {
 	 */
 	public function report(Exception $e)
 	{
+    $client = new \Raygun4php\RaygunClient("S0JuaRT7pohcXrkvNS5JqQ==");
+    $client->SendException($e);
 		return parent::report($e);
 	}
 
