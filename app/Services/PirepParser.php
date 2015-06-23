@@ -33,7 +33,7 @@ class PirepParser implements PirepParserContract
                 if (is_callable(self::FUNCTION_PREFIX . $this->acars->name . '\\' . $regex->parser . '::parse'))
                     return call_user_func(self::FUNCTION_PREFIX . $this->acars->name . '\\' . $regex->parser .
                         '::parse', $timestamp, $line, $matches, $pirep);
-                throw new NoParserException();
+                throw new NoParserException($regex->parser);
             }
         }
         throw new UnmatchedPirepLineException();
