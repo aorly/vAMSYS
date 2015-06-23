@@ -17,7 +17,6 @@
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
 		  type="text/css"/>
 	<link rel="stylesheet" href="{{ elixir("css/app.css") }}">
-	<link rel="stylesheet" href="{{ elixir("css/error.css") }}">
 	<link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body class="login">
@@ -40,7 +39,7 @@
 <script src="/js/vendor/respond.min.js"></script>
 <script src="/js/vendor/excanvas.js"></script>
 <![endif]-->
-<script src="{{ elixir("js/all.js") }}" type="text/javascript"></script>
+<script src="{{ elixir("js/combined.js") }}" type="text/javascript"></script>
 <script>
 	jQuery(document).ready(function () {
 		Metronic.init(); // init metronic core components
