@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use vAMSYS\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use vAMSYS\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use vAMSYS\Pilot;
@@ -61,7 +62,7 @@ class AuthController extends Controller {
 	 * @return $this|\Illuminate\Http\RedirectResponse
    */
 	protected function doEmailLogin($email, $password, $remember = false){
-		if ($this->auth->attempt(['email' => $email, 'password' => $password], $remember))
+		if (Auth::attempt(['email' => $email, 'password' => $password], $remember))
 		{
 			return redirect('/');
 		}
