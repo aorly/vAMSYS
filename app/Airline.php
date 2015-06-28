@@ -56,7 +56,14 @@ class Airline extends Model implements BillableContract {
 
     public function pireps()
     {
-        return $this->hasManyThrough('vAMSYS\Pirep', 'vAMSYS\Pilot');
+        $airline = $this;
+        return Pirep::whereHas('booking', function($booking) use ($airline)
+        {
+          $booking->whereHas('pilot', function($pilot) use ($airline)
+          {
+            $pilot->where('airline', '=', $airline->id);
+          });
+        })->get();
     }
 
 }
