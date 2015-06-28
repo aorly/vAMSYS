@@ -26,13 +26,13 @@ class Process implements ShouldBeQueued {
 
         $event->pirep->pirep_data = [];
 
-        preg_match('/smartCARS version ([0-9\.]+), ([0-9\/\.]+) ([^\[]+)/', $event->pirep->log, $logMeta);
+        preg_match('/smartCARS version ([0-9\.]+), ([0-9]+)[\/\.\-]([0-9]+)[\/\.\-]([0-9]+) ([^\[]+)/', $event->pirep->log, $logMeta);
         // Check for UTC+X timezone! Convert to Etc/GMT+X
-        if (preg_match("/UTC(\\+|-)([0-9]{1,2})/", $logMeta[3], $matches)){
+        if (preg_match("/UTC(\\+|-)([0-9]{1,2})/", $logMeta[5], $matches)){
           $logMeta[3] = 'Etc/GMT'.$matches[1].$matches[2];
         }
 
-        $pirepDate = new Carbon($logMeta[2], $logMeta[3]);
+        $pirepDate = Carbon::createFromDate($logMeta[2], $logMeta[3], $logMeta[4], $logMeta[5]);
         preg_match_all('/\[([0-9:]+ ?[APi]?\.?[nM]?\.?)\] ?([^\[]+)/', $event->pirep->log, $log);
         $currentTime = 0;
 
