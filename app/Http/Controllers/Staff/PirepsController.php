@@ -2,13 +2,10 @@
 
 use Carbon\Carbon;
 use vAMSYS\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use vAMSYS\Airport;
-use Illuminate\Support\Facades\Session;
 use vAMSYS\Pirep;
 use vAMSYS\Services\Route;
 
-class RoutesController extends Controller {
+class PirepsController extends Controller {
 
   public function __construct()
   {
