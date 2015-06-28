@@ -30,6 +30,8 @@ Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
 
 Route::get('/pireps/{pirep}', 'PirepsController@getSinglePirep');
 
+Route::get('/staff/pireps/view/{pirep}', 'Staff\PirepsController@getView');
+
 Route::controllers([
     'auth'           => 'Auth\AuthController',
     'password'       => 'Auth\PasswordController',
