@@ -36,6 +36,7 @@ Route::controllers([
     'staff/pilots'   => 'Staff\PilotsController',
     'staff/airports' => 'Staff\AirportsController',
     'staff/routes'   => 'Staff\RoutesController',
+    'staff/pireps'   => 'Staff\PirepsController',
     'staff'          => 'Staff\StaffController',
     'dashboard'      => 'DashboardController',
     'flights'        => 'FlightsController',
