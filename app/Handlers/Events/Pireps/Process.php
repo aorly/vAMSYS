@@ -26,7 +26,7 @@ class Process implements ShouldBeQueued {
 
         $event->pirep->pirep_data = [];
 
-        preg_match('/smartCARS version ([0-9\.]+), ([0-9\/]+) ([^\[]+)/', $event->pirep->log, $logMeta);
+        preg_match('/smartCARS version ([0-9\.]+), ([0-9\/\.]+) ([^\[]+)/', $event->pirep->log, $logMeta);
         // Check for UTC+X timezone! Convert to Etc/GMT+X
         if (preg_match("/UTC(\\+|-)([0-9]{1,2})/", $logMeta[3], $matches)){
           $logMeta[3] = 'Etc/GMT'.$matches[1].$matches[2];
