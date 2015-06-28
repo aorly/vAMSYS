@@ -508,7 +508,7 @@ class smartCARSController extends Controller
         $pirep->landing_rate = $request->input('landingrate');
         $pirep->fuel_used = $request->input('fuelused');
         $pirep->load = $request->input('load');
-        $pirep->acars = 1;
+        $pirep->acars_id = 1;
         $pirep->save();
 
         $pilot = SmartCARS_Session::where('pilot_id', '=', $request->input('dbid'))->where('sessionid', '=', $request->input('sessionid'))->first()->pilot;
