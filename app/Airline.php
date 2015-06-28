@@ -61,7 +61,7 @@ class Airline extends Model implements BillableContract {
         {
           $booking->whereHas('pilot', function($pilot) use ($airline)
           {
-            $pilot->where('airline', '=', $airline->id);
+            $pilot->where('airline_id', '=', $airline->id);
           });
         })->get();
     }
