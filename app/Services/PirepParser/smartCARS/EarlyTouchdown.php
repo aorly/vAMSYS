@@ -17,6 +17,7 @@ class EarlyTouchdown implements Parser {
         $pirepData['early_touchdowns'][] = $earlyTouchdown;
 
         $pirep->pirep_data = $pirepData;
+        $pirep->landing_time = $timestamp;
 
         return $pirep;
     }
