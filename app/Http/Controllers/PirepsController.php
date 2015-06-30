@@ -17,7 +17,17 @@ class PirepsController extends Controller {
 
     public function getIndex()
     {
-        return view('pireps/list', ['pireps' => PilotRepository::getCurrentPilot()->pireps]);
+        $pireps = Pirep::fromPilot()->get();
+        $pireps->load([
+            'booking' => function ($query){
+                $query->withTrashed(); // Include "deleted" bookings
+            },
+            'booking.route' => function ($query){
+                $query->withTrashed(); // Include "deleted" routes
+            },
+            'booking.pilot.user'
+        ]);
+        return view('pireps/list', ['pireps' => $pireps]);
     }
 
     public function getSinglePirep(Pirep $pirep)

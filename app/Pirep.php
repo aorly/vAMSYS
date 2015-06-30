@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Session;
+use vAMSYS\Repositories\PilotRepository;
 
 class Pirep extends Model {
 
@@ -17,6 +19,27 @@ class Pirep extends Model {
     protected $casts = [
         'pirep_data' => 'array',
     ];
+
+    public function scopefromAirline($query, $airlineId = null)
+    {
+        if ($airlineId === null)
+            $airlineId = Session::get('airlineId');
+
+        $query->join('bookings', 'bookings.id', '=', 'pireps.booking_id')
+            ->join('pilots', 'pilots.id', '=', 'bookings.pilot_id')
+            ->join('airlines', 'airlines.id', '=', 'pilots.airline_id')
+            ->where('airlines.id', '=', $airlineId);
+    }
+
+    public function scopefromPilot($query, $pilotId = null)
+    {
+        if ($pilotId === null)
+            $pilotId = PilotRepository::getCurrentPilot()->id;
+
+        $query->join('bookings', 'bookings.id', '=', 'pireps.booking_id')
+            ->join('pilots', 'pilots.id', '=', 'bookings.pilot_id')
+            ->where('pilots.id', '=', $pilotId);
+    }
 
     public function booking()
     {

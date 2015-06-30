@@ -7,45 +7,56 @@ use vAMSYS\Services\Route;
 
 class PirepsController extends Controller {
 
-  public function __construct()
-  {
-    $this->middleware('airline-staff');
-  }
+    public function __construct()
+    {
+        $this->middleware('airline-staff');
+    }
 
-  public function getIndex()
-  {
-    return view('staff.pireps.dashboard');
-  }
-  
-  public function getView(Pirep $pirep){
-    // Calculate some data bits (keep it out of the view)
-    $extras = [];
+    public function getIndex()
+    {
+        $pireps = Pirep::fromAirline()->get();
+        $pireps->load([
+            'booking' => function ($query){
+                $query->withTrashed(); // Include "deleted" bookings
+            },
+            'booking.route' => function ($query){
+                $query->withTrashed(); // Include "deleted" routes
+            },
+            'booking.pilot.user'
+        ]);
 
-    // Airborne Time
-    $takeoff = new Carbon($pirep->departure_time);
-    $landing = new Carbon($pirep->landing_time);
-    $extras['airborneTime'] = $takeoff->diff($landing);
+        return view('staff.pireps.dashboard', ['pireps' => $pireps]);
+    }
 
-    // Blocks Time
-    $offBlocks = new Carbon($pirep->off_blocks_time);
-    $onBlocks = new Carbon($pirep->on_blocks_time);
-    $extras['blocksTime'] = $offBlocks->diff($onBlocks);
+    public function getView(Pirep $pirep){
+        // Calculate some data bits (keep it out of the view)
+        $extras = [];
 
-    // Total Time
-    $start = new Carbon($pirep->pirep_start_time);
-    $finish = new Carbon($pirep->pirep_end_time);
-    $extras['totalTime'] = $start->diff($finish);
+        // Airborne Time
+        $takeoff = new Carbon($pirep->departure_time);
+        $landing = new Carbon($pirep->landing_time);
+        $extras['airborneTime'] = $takeoff->diff($landing);
 
-    // Planned Route
-    $routeService = new Route();
-    $extras['routePoints'] = $routeService->getAllPointsForRoute($pirep->booking->route);
+        // Blocks Time
+        $offBlocks = new Carbon($pirep->off_blocks_time);
+        $onBlocks = new Carbon($pirep->on_blocks_time);
+        $extras['blocksTime'] = $offBlocks->diff($onBlocks);
 
-    // Format Text Log (ugly, I know!)
-    $extras['log'] = str_replace('[', '
-[', $pirep->log);
+        // Total Time
+        $start = new Carbon($pirep->pirep_start_time);
+        $finish = new Carbon($pirep->pirep_end_time);
+        $extras['totalTime'] = $start->diff($finish);
 
-    // Display the PIREP!
-    return view('pireps/single', ['pirep' => $pirep, 'extras' => $extras]);
-  }
+        // Planned Route
+        $routeService = new Route();
+        $extras['routePoints'] = $routeService->getAllPointsForRoute($pirep->booking->route);
+
+        // Format Text Log (ugly, I know!)
+        $extras['log'] = str_replace('[', '
+        [', $pirep->log);
+
+        // Display the PIREP!
+        return view('pireps/single', ['pirep' => $pirep, 'extras' => $extras]);
+    }
 
 }

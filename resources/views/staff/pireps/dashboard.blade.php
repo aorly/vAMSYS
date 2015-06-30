@@ -44,7 +44,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($airline->pireps() as $pirep)
+                                @foreach($pireps as $pirep)
                                     <tr>
                                         <td>{{ $pirep->id }}</td>
                                         <td>{{ $pirep->booking->pilot->user->first_name }} {{ $pirep->booking->pilot->user->last_name }} ({{ $pirep->booking->pilot->username }})</td>
