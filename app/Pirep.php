@@ -27,8 +27,7 @@ class Pirep extends Model {
 
         $query->join('bookings', 'bookings.id', '=', 'pireps.booking_id')
             ->join('pilots', 'pilots.id', '=', 'bookings.pilot_id')
-            ->join('airlines', 'airlines.id', '=', 'pilots.airline_id')
-            ->where('airlines.id', '=', $airlineId);
+            ->where('pilots.airline_id', '=', $airlineId);
     }
 
     public function scopefromPilot($query, $pilotId = null)
