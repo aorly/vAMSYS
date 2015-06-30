@@ -25,8 +25,6 @@ class PirepsController extends Controller {
             'booking.pilot.user'
         ]);
 
-        dd($pireps);
-
         return view('staff.pireps.dashboard', ['pireps' => $pireps]);
     }
 
