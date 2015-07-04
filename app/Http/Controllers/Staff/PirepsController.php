@@ -15,29 +15,11 @@ class PirepsController extends Controller {
     public function getIndex()
     {
         $pireps = Pirep::fromAirline()->get();
-        $pireps->load([
-            'booking' => function ($query){
-                $query->withTrashed(); // Include "deleted" bookings
-            },
-            'booking.route' => function ($query){
-                $query->withTrashed(); // Include "deleted" routes
-            },
-            'booking.pilot.user'
-        ]);
 
         return view('staff.pireps.dashboard', ['pireps' => $pireps]);
     }
 
     public function getView(Pirep $pirep){
-        $pirep->load([
-            'booking' => function ($query){
-                $query->withTrashed(); // Include "deleted" bookings
-            },
-            'booking.route' => function ($query){
-                $query->withTrashed(); // Include "deleted" routes
-            },
-            'booking.pilot.user'
-        ]);
         // Calculate some data bits (keep it out of the view)
         $extras = [];
 

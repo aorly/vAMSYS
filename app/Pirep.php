@@ -44,7 +44,7 @@ class Pirep extends Model {
 
     public function booking()
     {
-        return $this->belongsTo('vAMSYS\Booking');
+        return $this->belongsTo('vAMSYS\Booking')->withTrashed();
     }
 
     public function positionReports()

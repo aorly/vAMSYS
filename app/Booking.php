@@ -20,17 +20,17 @@ class Booking extends Model {
 
   public function pilot()
   {
-    return $this->belongsTo('vAMSYS\Pilot');
+    return $this->belongsTo('vAMSYS\Pilot')->withTrashed();
   }
 
   public function aircraft()
   {
-    return $this->belongsTo('vAMSYS\Aircraft');
+    return $this->belongsTo('vAMSYS\Aircraft')->withTrashed();
   }
 
   public function route()
   {
-    return $this->belongsTo('vAMSYS\Route');
+    return $this->belongsTo('vAMSYS\Route')->withTrashed();
   }
 
   public function pirep()
