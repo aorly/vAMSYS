@@ -17,7 +17,7 @@
                 <div class="portlet-body">
                     @if($pilot->location->id != $currentLocation->id)
                         <div class="alert alert-info">
-                            <div class="text-center"><strong>Important:</strong> You are booking a flight from your final planned destination, {{$currentLocation->name}}</div>
+                            <div class="text-center"><strong>Important:</strong> You are booking a flight from your final planned destination after all booked flights: {{$currentLocation->name}}</div>
                         </div>
                     @endif
                         <div id="destinations_tree" class="tree-demo">
@@ -153,19 +153,11 @@
                 "icon" : "fa fa-file icon-state-warning icon-lg"
             }
         },
-        "plugins": ["types", "search", "sort"]
+        "plugins": ["types", "search", "sort", "ui"]
     });
 
-    // handle link clicks in tree nodes(support target="_blank" as well)
-    $('#destinations_tree').on('select_node.jstree', function(e,data) {
-        var link = $('#' + data.selected).find('a');
-        if (link.attr("href") != "#" && link.attr("href") != "javascript:;" && link.attr("href") != "") {
-            if (link.attr("target") == "_blank") {
-                link.attr("href").target = "_blank";
-            }
-            document.location.href = link.attr("href");
-            return false;
-        }
+    $('#destinations_tree').on("select_node.jstree", function (e, data) {
+        $('#destinations_tree').jstree(true).toggle_node(data.node);
     });
 
     function showFlight(icao){

@@ -35,7 +35,11 @@ class FlightsController extends Controller {
 		if ($booking->pilot->id != $pilot->id)
 			return redirect('/flights');
 
-		$booking->delete();
+        $bookings = $pilot->bookings()->where('id', '>=', $booking->id)->get();
+
+        foreach($bookings as $booking)
+		    $booking->delete();
+
 		return redirect('/flights');
 	}
 

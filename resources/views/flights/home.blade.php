@@ -14,7 +14,7 @@
                         <i class="fa fa-arrow"></i>Next Flight
                     </div>
                     <div class="actions">
-                        <a href="/flights/cancel/{{ $currentBooking->id }}" class="btn btn-sm btn-danger">
+                        <a onClick="javascript:doDelete({{$currentBooking->id}})" class="btn btn-sm btn-danger">
                             <i class="fa fa-times-circle"></i> Cancel Booking </a>
                     </div>
                 </div>
@@ -125,6 +125,18 @@
 
 @section('pagejs')
 <script type="text/javascript">
+
+    function doDelete(bookingId) {
+        @if(count($upcomingBookings) > 0)
+            var confirm = window.confirm('This will cancel all of your booked flights. Are you sure?');
+            if (confirm){
+                window.location = "/flights/cancel/" + bookingId;
+            }
+        @else
+            window.location = "/flights/cancel/" + bookingId;
+        @endif
+    }
+
     var mapPolylines = function () {
         var map = new GMaps({
             div: '#gmap_flight_path',
