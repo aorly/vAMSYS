@@ -100,7 +100,7 @@
                                     {{ $booking->route->arrivalAirport->name }}
                                 </td>
                                 <td>
-
+                                    {{ $booking->callsign }}
                                 </td>
                                 <td>
                                     {{ $booking->aircraft->registration }}

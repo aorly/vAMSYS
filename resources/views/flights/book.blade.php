@@ -157,7 +157,12 @@
     });
 
     $('#destinations_tree').on("select_node.jstree", function (e, data) {
-        $('#destinations_tree').jstree(true).toggle_node(data.node);
+        if ($('#' + data.node.id).hasClass('jstree-leaf')){
+            window.location = data.node.a_attr.href;
+        } else {
+            $('#destinations_tree').jstree(true).toggle_node(data.node);
+        }
+
     });
 
     function showFlight(icao){
@@ -166,7 +171,8 @@
         });
         flightPaths[icao].setMap(map.map);
         // Update the Book Button
-        $('#bookButton').text("Book Flight to " + airports[icao].name);
+        var airportName = $('<textarea />').html(airports[icao].name).text();
+        $('#bookButton').text("Book Flight to " + airportName);
         $('#bookButton').switchClass('default disabled', 'green');
         $('#bookButton').attr("href", "/flights/book/"+airports[icao].routeId);
     }
