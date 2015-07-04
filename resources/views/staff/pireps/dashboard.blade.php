@@ -7,7 +7,7 @@
             PIREPs <small>your pilots have been busy!</small>
         </h3>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <!-- BEGIN SAMPLE TABLE PORTLET-->
                 <div class="portlet box blue">
                     <div class="portlet-title">
@@ -61,35 +61,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="portlet box blue">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class="fa fa-cogs"></i>Pilot Management
-                        </div>
-                    </div>
-                    <div class="portlet-body">
-                        <p>Here you can manage the Pilots in your airline!</p>
-                    </div>
-                </div>
-                <div class="portlet box green">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class="fa fa-cogs"></i>BETA - Quick Add Route
-                        </div>
-                    </div>
-                    <div class="portlet-body">
-                        <form action="/staff/routes/add" method="POST">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="text" name="from" placeholder="From ICAO" /><br />
-                            <input type="text" name="to" placeholder="To ICAO" /><br />
-                            <input type="text" name="route" placeholder="Route" /><br />
-                            <button type="submit">Add Route</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-                        
         </div>
     </div>
 </div>
