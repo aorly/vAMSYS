@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                <div class="dashboard-stat purple-wisteria">
+                <div class="dashboard-stat blue-sharp">
                     <div class="visual">
                         <i class="fa fa-shopping-cart"></i>
                     </div>
@@ -89,7 +89,7 @@
                             {{ $airline->aircraft->count() }}
                         </div>
                         <div class="desc">
-                            PIREPs
+                            Aircraft
                         </div>
                     </div>
                     <a class="more" href="#">
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                <div class="dashboard-stat purple-wisteria">
+                <div class="dashboard-stat red-sunglo">
                     <div class="visual">
                         <i class="fa fa-shopping-cart"></i>
                     </div>

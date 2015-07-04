@@ -11,7 +11,7 @@ class Route implements RouteContract
   public function parse(RouteModel $route)
   {
     // Explode the route into parts
-    $routeParts = explode(" ", $route->route);
+    $routeParts = explode(" ", ltrim(rtrim($route->route)));
     // Iterate and create sections
     $i        = 1;
     $sections = [];

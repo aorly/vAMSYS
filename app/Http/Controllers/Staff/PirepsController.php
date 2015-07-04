@@ -29,6 +29,15 @@ class PirepsController extends Controller {
     }
 
     public function getView(Pirep $pirep){
+        $pirep->load([
+            'booking' => function ($query){
+                $query->withTrashed(); // Include "deleted" bookings
+            },
+            'booking.route' => function ($query){
+                $query->withTrashed(); // Include "deleted" routes
+            },
+            'booking.pilot.user'
+        ]);
         // Calculate some data bits (keep it out of the view)
         $extras = [];
 
