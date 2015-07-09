@@ -6,6 +6,27 @@
             <h3 class="page-title">
                 {{$pirep->booking->callsign}} <small>{{$pirep->booking->route->departureAirport->name}} to {{$pirep->booking->route->arrivalAirport->name}}</small>
             </h3>
+            @if($staffBar)
+                @if($pirep->status == 'failed')
+                    <div class="alert alert-block alert-danger fade in">
+                        <h4 class="alert-heading">PIREP Review</h4>
+                        <p>This PIREP has failed automatic scoring, and requires a manual review by a staff member.</p>
+                        <p><strong>Failure Reason(s): </strong>
+                            @foreach($pirep->pirep_data['scores'] as $score)
+                                @if($score['failure'] === true)
+                                    {{$score['name']}}
+                                @endif
+                            @endforeach
+                        </p>
+                        <p>
+                            <a class="btn green" href="/staff/pireps/accept/{{$pirep->id}}">
+                                Accept </a>
+                            <a class="btn red" href="/staff/pireps/reject/{{$pirep->id}}">
+                                Reject </a>
+                        </p>
+                    </div>
+                @endif
+            @endif
             <div class="row">
                 <div class="col-md-4">
                     <div class="portlet box green">
@@ -100,8 +121,8 @@
                         <div class="portlet-body">
                             <ul class="list-unstyled">
                                 <li><strong>Starting Points: </strong>100</li>
-                                @foreach($pirep->pirep_data['scores'] as $scoreName => $points)
-                                    <li><strong>{{$scoreName}}: </strong><span style="color:@if($points < 0) #990000 @else #009900 @endif">{{$points}}</span></li>
+                                @foreach($pirep->pirep_data['scores'] as $score)
+                                    <li><strong>{{$score['name']}}: </strong><span style="color:@if($score['points'] < 0 || $score['failure']) #990000 @else #009900 @endif">{{$score['points']}}</span></li>
                                 @endforeach
                                 <br /><li><strong>Total Points: </strong> {{$pirep->points}}</li>
                             </ul>

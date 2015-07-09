@@ -24,6 +24,6 @@ class NotRetractedBeforeParking implements Scorer {
         }
 
         // Nothing matched!
-        return ['name' => $rule['name'], "points" => $rule['points']];
+        return ['name' => '', "points" => $rule['points']];
     }
 }

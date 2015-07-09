@@ -15,8 +15,9 @@ class PirepsController extends Controller {
     public function getIndex()
     {
         $pireps = Pirep::fromAirline()->get();
+        $failedPireps = Pirep::fromAirline()->where('status', '=', 'failed')->get();
 
-        return view('staff.pireps.dashboard', ['pireps' => $pireps]);
+        return view('staff.pireps.dashboard', ['pireps' => $pireps, 'failedPireps' => $failedPireps]);
     }
 
     public function getView(Pirep $pirep){
@@ -47,7 +48,21 @@ class PirepsController extends Controller {
         [', $pirep->log);
 
         // Display the PIREP!
-        return view('pireps/single', ['pirep' => $pirep, 'extras' => $extras]);
+        return view('pireps/single', ['pirep' => $pirep, 'extras' => $extras, 'staffBar' => true]);
+    }
+
+    public function getAccept(Pirep $pirep){
+        $pirep->status = 'accepted';
+        $pirep->save();
+
+        return redirect('/staff/pireps');
+    }
+
+    public function getReject(Pirep $pirep){
+        $pirep->status = 'rejected';
+        $pirep->save();
+
+        return redirect('/staff/pireps');
     }
 
 }

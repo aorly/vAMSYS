@@ -13,6 +13,8 @@ class EventServiceProvider extends ServiceProvider {
 	protected $listen = [
 		'vAMSYS\Events\PirepWasFiled' => [
 			'vAMSYS\Handlers\Events\Pireps\Process',
+			'vAMSYS\Handlers\Events\Pilots\MoveToDestination',
+			'vAMSYS\Handlers\Events\Bookings\DeleteBooking',
 		],
         'vAMSYS\Events\PirepWasProcessed' => [
             'vAMSYS\Handlers\Events\Pireps\Score',
@@ -23,6 +25,9 @@ class EventServiceProvider extends ServiceProvider {
         'vAMSYS\Events\PirepLineNotMatched' => [
             'vAMSYS\Handlers\Events\Emails\LineNotMatched',
         ],
+		'vAMSYS\Events\PirepHasFailed' => [
+			'vAMSYS\Handlers\Events\Emails\PirepFailed',
+		],
 	];
 
 	/**

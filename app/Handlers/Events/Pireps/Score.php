@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Event;
+use vAMSYS\Events\PirepHasFailed;
 use vAMSYS\Events\PirepWasFiled;
 
 use Illuminate\Queue\InteractsWithQueue;
@@ -29,6 +30,12 @@ class Score implements ShouldBeQueued {
 
         $event->pirep->status = "complete";
         $event->pirep->processed_time = date('Y-m-d H:i:s');
+
+        if ($event->pirep->pirep_data['failed_automatic_scoring'] === true){
+            $event->pirep->status = "failed";
+            Event::fire(new PirepHasFailed($event->pirep));
+        }
+
         $event->pirep->save();
 
         Event::fire(new PirepWasScored($event->pirep));

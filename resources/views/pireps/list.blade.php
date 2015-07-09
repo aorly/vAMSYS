@@ -42,7 +42,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($pireps as $pirep)
-                                    <tr>
+                                    <tr class="@if($pirep->status == 'complete' || $pirep->status == 'accepted') success @elseif($pirep->status == 'rejected' || $pirep->status == 'failed') danger @else info @endif ">
                                         <td>
                                             {{$pirep->id}}
                                         </td>
@@ -62,10 +62,12 @@
                                             {{$pirep->points}}
                                         </td>
                                         <td>
-                                            @if($pirep->status = 'processed')
+                                            @if($pirep->status == 'complete' || $pirep->status == 'accepted' || $pirep->status == 'rejected')
                                                 <a href="/pireps/{{$pirep->id}}" class="btn btn-sm blue">View</a>
+                                            @elseif($pirep->status == 'failed')
+                                                Awaiting PIREP Review
                                             @else
-                                                PIREP Status: {{$pirep->status}}
+                                                {{ucfirst($pirep->status)}}
                                             @endif
 
                                         </td>

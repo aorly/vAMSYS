@@ -17,7 +17,7 @@ class AddEvenMorePirepsColumns extends Migration {
             $table->longText('log');
 			$table->text('provided_route');
             $table->text('comments');
-            $table->enum('status', ['new', 'processing', 'failed', 'processed', 'scoring', 'complete'])
+            $table->enum('status', ['new', 'processing', 'failed', 'processed', 'scoring', 'complete', 'accepted', 'rejected'])
                 ->default('new');
             $table->dateTime('processed_time');
             $table->dateTime('scored_time');

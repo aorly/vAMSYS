@@ -31,6 +31,8 @@ Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
 Route::get('/pireps/{pirep}', 'PirepsController@getSinglePirep');
 
 Route::get('/staff/pireps/view/{pirep}', 'Staff\PirepsController@getView');
+Route::get('/staff/pireps/accept/{pirep}', 'Staff\PirepsController@getAccept');
+Route::get('/staff/pireps/reject/{pirep}', 'Staff\PirepsController@getReject');
 
 Route::controllers([
     'auth'           => 'Auth\AuthController',

@@ -28,7 +28,7 @@ class PirepScorer implements PirepScorerContract
                 if (!array_key_exists('scores', $pirepData))
                     $pirepData['scores'] = [];
 
-                $pirepData['scores'][ltrim($scorer['name'].' '.$rule['name'])] = $scorer['points'];
+                $pirepData['scores'][] = ['name' => ltrim($scorer['name'].' '.$rule['name']), 'points' => $scorer['points'], 'failure' => false];
                 $pirep->pirep_data = $pirepData;
             } catch (UnsuccessfulScoringException $e) {
                 // Rule could not be completed. Store on PIREP data for information
@@ -46,16 +46,14 @@ class PirepScorer implements PirepScorerContract
 
                 $scorer = json_decode($e->getMessage());
 
-                if ($scorer->points !== 0) {
-                    $totalpoints += $scorer->points;
+                $totalpoints += $scorer->points;
 
-                    $pirepData = $pirep->pirep_data;
-                    if (!array_key_exists('scores', $pirepData))
-                        $pirepData['scores'] = [];
+                $pirepData = $pirep->pirep_data;
+                if (!array_key_exists('scores', $pirepData))
+                    $pirepData['scores'] = [];
 
-                    $pirepData['scores'][ltrim($scorer->name . ' ' . $rule['name'])] = $scorer->points;
-                    $pirep->pirep_data = $pirepData;
-                }
+                $pirepData['scores'][] = ['name' => ltrim($scorer->name . ' ' . $rule['name']), 'points' => $scorer->points, 'failure' => true];
+                $pirep->pirep_data = $pirepData;
             }
         }
 

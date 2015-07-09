@@ -14,12 +14,12 @@ class AwayFromDestination implements Scorer {
         if (array_key_exists('landed_away', $pirepData)){
             // Yes!
             if (array_key_exists('failure', $rule) && $rule['failure'] === true){
-                $scorer = json_encode(['name' => $rule['name'], 'points' => $rule['points']]);
+                $scorer = json_encode(['name' => '', 'points' => $rule['points']]);
                 throw new PirepFailureException($scorer);
             }
 
             if ($rule['points'] !== 0)
-                return ['name' => $rule['name'], 'points' => $rule['points']];
+                return ['name' => '', 'points' => $rule['points']];
         }
 
         throw new UnsuccessfulScoringException();
