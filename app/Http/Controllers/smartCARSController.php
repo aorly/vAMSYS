@@ -479,8 +479,8 @@ class smartCARSController extends Controller
         $positionReport->altitude = (int)$request->input('altitude');
         $positionReport->magnetic_heading = (int)$request->input('magneticheading');
         $positionReport->true_heading = (int)$request->input('trueheading');
-        $positionReport->latitude = (float)$request->input('latitude');
-        $positionReport->longitude = (float)$request->input('longitude');
+        $positionReport->latitude = (float)str_replace(',', '.', $request->input('latitude'));
+        $positionReport->longitude = (float)str_replace(',', '.', $request->input('longitude'));
         $positionReport->groundspeed = (int)$request->input('groundspeed');
         $positionReport->distance_remaining = (int)$request->input('distanceremaining');
         $positionReport->phase = (int)$request->input('phase');

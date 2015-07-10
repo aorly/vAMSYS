@@ -16,7 +16,7 @@ class LineNotMatched implements ShouldBeQueued {
 	public function handle(PirepLineNotMatched $event)
 	{
         echo "PIREP Process Error: Line ".$event->line." not matched in PIREP ".$event->pirep->id.PHP_EOL;
-        echo "Line: ".$event->lineData;
+        echo "Line: ".$event->lineData.PHP_EOL;
 	}
 
 }
