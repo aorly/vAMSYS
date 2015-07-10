@@ -17,6 +17,8 @@ class PirepLineNotMatched extends Event {
      */
     public $line;
 
+    public $lineData;
+
     /**
 	 * Create a new event instance.
 	 *
