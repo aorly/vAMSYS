@@ -62,7 +62,7 @@ class Process implements ShouldBeQueued {
             try {
                 $event->pirep = $pirepParser->parseLine($log[1][$lineNumber], $lineData, $event->pirep);
             } catch (UnmatchedPirepLineException $e) {
-                Event::fire(new PirepLineNotMatched($event->pirep, $log[1][$lineNumber]));
+                Event::fire(new PirepLineNotMatched($event->pirep, $log[1][$lineNumber], $lineData));
             } catch (\Exception $e) {
                 // TODO For now, rethrow...
                 throw $e;

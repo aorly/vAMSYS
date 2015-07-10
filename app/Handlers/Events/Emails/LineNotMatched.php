@@ -15,13 +15,8 @@ class LineNotMatched implements ShouldBeQueued {
 	 */
 	public function handle(PirepLineNotMatched $event)
 	{
-    echo "PIREP Process Error: Line ".$event->line." not matched in PIREP ".$event->pirep->id.PHP_EOL;
-    $client = new RaygunClient("S0JuaRT7pohcXrkvNS5JqQ==", true);
-    try {
-      throw new \Exception("PIREP Process Error: Line ".$event->line." not matched in PIREP ".$event->pirep->id);
-    } catch (\Exception $e) {
-      $client->SendException($e);
-    }
+        echo "PIREP Process Error: Line ".$event->line." not matched in PIREP ".$event->pirep->id.PHP_EOL;
+        echo "Line: ".$event->lineData;
 	}
 
 }

@@ -22,10 +22,11 @@ class PirepLineNotMatched extends Event {
 	 *
 	 * @return void
 	 */
-	public function __construct(Pirep $pirep, $line)
+	public function __construct(Pirep $pirep, $line, $lineData)
 	{
         $this->pirep = $pirep;
         $this->line = $line;
+        $this->lineData = $lineData;
     }
 
 }

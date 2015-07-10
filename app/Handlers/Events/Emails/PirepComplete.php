@@ -14,7 +14,7 @@ class PirepComplete implements ShouldBeQueued {
 	public function handle(PirepWasScored $event)
 	{
 		// Email the user
-        echo "emailing ".$event->pirep->booking->pilot->user->email.PHP_EOL;
+        echo "Should email ".$event->pirep->booking->pilot->user->email.PHP_EOL;
 	}
 
 }

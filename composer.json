@@ -10,7 +10,7 @@
   "require": {
     "laravel/framework": "^5.1",
     "predis/predis": "~1.0",
-    "guzzlehttp/guzzle": "4.*",
+    "guzzlehttp/guzzle": "~5.3|~6.0"
     "neoxygen/neoclient": "2.1.*@dev",
     "illuminate/database": "~5.0",
     "league/period": "~2.4",
