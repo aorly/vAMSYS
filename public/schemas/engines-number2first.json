@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "options": {
+    "disable_properties": true
+  },
+  "additionalProperties": false,
+  "properties": {
+    "scorer": {
+      "id": "scorer",
+      "type": "string",
+      "enum": [
+        "Engines\\Number2First"
+      ],
+      "options": {
+        "hidden": true
+      }
+    },
+    "name": {
+      "id": "name",
+      "type": "string",
+      "minLength": 1,
+      "title": "Rule Name"
+    },
+    "points": {
+      "id": "points",
+      "type": "integer",
+      "multipleOf": 1,
+      "exclusiveMaximum": false,
+      "exclusiveMinimum": false,
+      "title": "Points"
+    }
+  },
+  "required": [
+    "scorer",
+    "name",
+    "points"
+  ]
+}

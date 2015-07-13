@@ -35,6 +35,7 @@ elixir(function(mix) {
             "../../vendor/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js",
             "../../vendor/bower_components/jstree/dist/jstree.min.js",
             "vendor/gmaps.min.js",
+            "vendor/jsoneditor.js",
             "app.js"
         ], 'public/js/combined.js')
         // JSTree

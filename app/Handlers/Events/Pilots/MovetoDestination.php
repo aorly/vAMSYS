@@ -22,12 +22,14 @@ class MoveToDestination implements ShouldBeQueued {
 	 */
 	public function handle(PirepWasFiled $event)
 	{
-        // Move the Pilot to their destination field
-        $pilot = Pilot::find($event->pirep->booking->pilot->id);
-        $newLocation = Airport::find($event->pirep->booking->route->arrivalAirport->id);
-        $pilot->location()->associate($newLocation);
-		$pilot->save();
-		echo "Moved Pilot ID ".$pilot->id." to Airport ".$newLocation->icao.PHP_EOL;
+		if ($event->reProcess === false) {
+			// Move the Pilot to their destination field
+			$pilot = Pilot::find($event->pirep->booking->pilot->id);
+			$newLocation = Airport::find($event->pirep->booking->route->arrivalAirport->id);
+			$pilot->location()->associate($newLocation);
+			$pilot->save();
+			echo "Moved Pilot ID " . $pilot->id . " to Airport " . $newLocation->icao . PHP_EOL;
+		}
 	}
 
 }

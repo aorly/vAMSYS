@@ -1,6 +1,9 @@
 <?php namespace vAMSYS\Http\Controllers\Staff;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Event;
+use vAMSYS\Events\PirepWasFiled;
+use vAMSYS\Events\PirepWasProcessed;
 use vAMSYS\Http\Controllers\Controller;
 use vAMSYS\Pirep;
 use vAMSYS\Services\Route;
@@ -55,14 +58,24 @@ class PirepsController extends Controller {
         $pirep->status = 'accepted';
         $pirep->save();
 
-        return redirect('/staff/pireps');
+        return redirect('/staff/pireps')->with('flash', 'PIREP ID '.$pirep->id.' was accepted');
     }
 
     public function getReject(Pirep $pirep){
         $pirep->status = 'rejected';
         $pirep->save();
 
-        return redirect('/staff/pireps');
+        return redirect('/staff/pireps')->with('flash', 'PIREP ID '.$pirep->id.' was rejected');
+    }
+
+    public function getReprocess(Pirep $pirep){
+        Event::fire(new PirepWasFiled($pirep, $pirep->booking->pilot, true));
+        return back()->with('flash', 'This PIREP has been submitted for reprocessing');
+    }
+
+    public function getRescore(Pirep $pirep){
+        Event::fire(new PirepWasProcessed($pirep, $pirep->booking->pilot, true));
+        return back()->with('flash', 'This PIREP has been submitted for rescoring');
     }
 
 }

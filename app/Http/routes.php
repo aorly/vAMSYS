@@ -33,16 +33,19 @@ Route::get('/pireps/{pirep}', 'PirepsController@getSinglePirep');
 Route::get('/staff/pireps/view/{pirep}', 'Staff\PirepsController@getView');
 Route::get('/staff/pireps/accept/{pirep}', 'Staff\PirepsController@getAccept');
 Route::get('/staff/pireps/reject/{pirep}', 'Staff\PirepsController@getReject');
+Route::get('/staff/pireps/reprocess/{pirep}', 'Staff\PirepsController@getReprocess');
+Route::get('/staff/pireps/rescore/{pirep}', 'Staff\PirepsController@getRescore');
 
 Route::controllers([
-    'auth'           => 'Auth\AuthController',
-    'password'       => 'Auth\PasswordController',
-    'staff/pilots'   => 'Staff\PilotsController',
-    'staff/airports' => 'Staff\AirportsController',
-    'staff/routes'   => 'Staff\RoutesController',
-    'staff/pireps'   => 'Staff\PirepsController',
-    'staff'          => 'Staff\StaffController',
-    'dashboard'      => 'DashboardController',
-    'flights'        => 'FlightsController',
-    'pireps'         => 'PirepsController'
+    'auth'              => 'Auth\AuthController',
+    'password'          => 'Auth\PasswordController',
+    'staff/pilots'      => 'Staff\PilotsController',
+    'staff/airports'    => 'Staff\AirportsController',
+    'staff/routes'      => 'Staff\RoutesController',
+    'staff/pireps'      => 'Staff\PirepsController',
+    'staff/settings'    => 'Staff\SettingsController',
+    'staff'             => 'Staff\StaffController',
+    'dashboard'         => 'DashboardController',
+    'flights'           => 'FlightsController',
+    'pireps'            => 'PirepsController'
 ]);

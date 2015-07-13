@@ -12,7 +12,7 @@
                 <div class="portlet box red">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-cogs"></i>Failed PIREPs
+                            <i class="fa fa-cogs"></i>Review Needed
                         </div>
                     </div>
                     <div class="portlet-body">
@@ -54,7 +54,7 @@
                                                 @endif
                                             @endforeach
                                         </td>
-                                        <td><a href="/staff/pireps/view/{{ $pirep->id }}">View</a></td>
+                                        <td><a href="/staff/pireps/view/{{ $pirep->id }}" class="btn btn-success btn-xs">View</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -106,7 +106,7 @@
                                         <td>{{ $pirep->booking->route->arrivalAirport->name }} ({{ $pirep->booking->route->arrivalAirport->icao }})</td>
                                         <td>{{ $pirep->status }}</td>
                                         <td>{{ $pirep->points }}</td>
-                                        <td><a href="/staff/pireps/view/{{ $pirep->id }}">View</a></td>
+                                        <td><a href="/staff/pireps/view/{{ $pirep->id }}" class="btn btn-success btn-xs">View</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

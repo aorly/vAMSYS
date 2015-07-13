@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "options": {
+    "disable_properties": true
+  },
+  "additionalProperties": false,
+  "properties": {
+    "scorer": {
+      "id": "scorer",
+      "type": "string",
+      "minLength": 1,
+      "options": {
+        "hidden": true
+      }
+    },
+    "name": {
+      "id": "name",
+      "type": "string",
+      "minLength": 1,
+      "title": "Rule Name"
+    },
+    "thresholds": {
+      "id": "thresholds",
+      "type": "array",
+      "format": "tabs",
+      "title": "Thresholds",
+      "minItems": 1,
+      "uniqueItems": true,
+      "additionalItems": false,
+      "items": {
+        "headerTemplate": "{{i}} - {{self.name}}",
+        "title": "Rule",
+        "type": "object",
+        "additionalProperties": false,
+
+        "properties": {
+          "name": {
+            "id": "name",
+            "type": "string",
+            "minLength": 1
+          },
+          "lightest": {
+            "id": "lightest",
+            "type": "integer",
+            "multipleOf": 1
+          },
+          "heaviest": {
+            "id": "heaviest",
+            "type": "integer",
+            "multipleOf": 1
+          },
+          "points": {
+            "id": "points",
+            "type": "integer",
+            "multipleOf": 1
+          },
+          "adjustment": {
+            "id": "adjustment",
+            "type": "object",
+            "format": "grid",
+            "title": "Adjustment",
+            "options": {
+              "disable_properties": true
+            },
+            "additionalProperties": false,
+            "properties": {
+              "direction": {
+                "id": "direction",
+                "type": "string",
+                "minLength": 1,
+                "enum": [
+                  "lighter",
+                  "heavier"
+                ]
+              },
+              "from": {
+                "id": "from",
+                "title": "than landing rate",
+                "type": "integer",
+                "multipleOf": 1
+              },
+              "points": {
+                "id": "points",
+                "type": "integer",
+                "multipleOf": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "scorer",
+    "name",
+    "thresholds"
+  ]
+}

@@ -12,15 +12,17 @@ class PirepWasProcessed extends Event {
      * @var Pirep
      */
     public $pirep;
+    public $reProcess;
 
     /**
 	 * Create a new event instance.
 	 *
 	 * @return void
 	 */
-	public function __construct(Pirep $pirep)
+	public function __construct(Pirep $pirep, $reProcess)
 	{
         $this->pirep = $pirep;
+        $this->reProcess = $reProcess;
     }
 
 }

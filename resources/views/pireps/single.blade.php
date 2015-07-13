@@ -6,7 +6,7 @@
             <h3 class="page-title">
                 {{$pirep->booking->callsign}} <small>{{$pirep->booking->route->departureAirport->name}} to {{$pirep->booking->route->arrivalAirport->name}}</small>
             </h3>
-            @if($staffBar)
+            @if($airlineStaff)
                 @if($pirep->status == 'failed')
                     <div class="alert alert-block alert-danger fade in">
                         <h4 class="alert-heading">PIREP Review</h4>
@@ -14,7 +14,7 @@
                         <p><strong>Failure Reason(s): </strong>
                             @foreach($pirep->pirep_data['scores'] as $score)
                                 @if($score['failure'] === true)
-                                    {{$score['name']}}
+                                    {{$score['name']}}<br />
                                 @endif
                             @endforeach
                         </p>
@@ -26,6 +26,16 @@
                         </p>
                     </div>
                 @endif
+
+                    <div class="alert alert-block alert-info fade in">
+                        <h4 class="alert-heading">Staff Actions</h4>
+                        <p>
+                            <a class="btn blue" href="/staff/pireps/reprocess/{{$pirep->id}}">
+                                Re-Process PIREP</a>
+                            <a class="btn green" href="/staff/pireps/rescore/{{$pirep->id}}">
+                                Re-Score PIREP</a>
+                        </p>
+                    </div>
             @endif
             <div class="row">
                 <div class="col-md-4">
@@ -119,13 +129,22 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                            <ul class="list-unstyled">
-                                <li><strong>Starting Points: </strong>100</li>
-                                @foreach($pirep->pirep_data['scores'] as $score)
-                                    <li><strong>{{$score['name']}}: </strong><span style="color:@if($score['points'] < 0 || $score['failure']) #990000 @else #009900 @endif">{{$score['points']}}</span></li>
-                                @endforeach
-                                <br /><li><strong>Total Points: </strong> {{$pirep->points}}</li>
-                            </ul>
+                                <table>
+                                    <tr>
+                                        <td style="padding-right: 1em;">100</td>
+                                        <td style="font-weight: bold">Starting Points</td>
+                                    </tr>
+                                    @foreach($pirep->pirep_data['scores'] as $score)
+                                        <tr>
+                                            <td style="padding-right: 1em; color:@if($score['points'] < 0 || $score['failure']) #990000 @else #009900 @endif">@if($score['points'] > 0)+@endif{{$score['points']}}</td>
+                                            <td style="font-weight: bold">@if($score['failure'] === true)<span style="color: red">(!!)</span>&nbsp;@endif{{$score['name']}}</td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                                <br /><strong>Total Points: </strong> {{$pirep->points}}
+                            @if($pirep->status == 'accepted' || $pirep->status == 'rejected' || $pirep->status == 'failed')
+                            <br /><br /><p><small>This PIREP failed automatic processing and has been manually reviewed by a staff member. The failure reasons are marked with a <span style="color: red">(!!)</span> symbol</small></p>
+                            @endif
                         </div>
                     </div>
                 </div>

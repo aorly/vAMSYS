@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use vAMSYS\Airline;
 use vAMSYS\Repositories\PilotRepository;
+use vAMSYS\Repositories\UserRepository;
 
 class GlobalComposer {
 
@@ -26,6 +27,8 @@ class GlobalComposer {
     if (Request::user()) {
       $view->with('user', Request::user());
       $view->with('pilot', PilotRepository::getCurrentPilot());
+      $airline = Airline::find(Session::get('airlineId'));
+      $view->with('airlineStaff', UserRepository::hasRole($airline->prefix.'-staff', Request::user()));
     }
   }
 

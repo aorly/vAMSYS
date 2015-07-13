@@ -87,7 +87,7 @@ class Process implements ShouldBeQueued {
         $event->pirep->processed_time = date('Y-m-d H:i:s');
         $event->pirep->save();
 
-        Event::fire(new PirepWasProcessed($event->pirep));
+        Event::fire(new PirepWasProcessed($event->pirep, $event->reProcess));
 	}
 
 }
