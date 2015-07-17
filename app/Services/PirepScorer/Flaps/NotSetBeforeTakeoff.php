@@ -15,12 +15,15 @@ class NotSetBeforeTakeoff implements Scorer {
 
         $pirepData = $pirep->pirep_data;
         foreach ($pirepData['flap_changes'] as $flapChange) {
+            echo $flapChange['to'].PHP_EOL;
             $flapTime = new Carbon($flapChange['timestamp']);
             if ($flapChange['to'] >= $rule['minLevel']
                 && $flapChange['to'] <= $rule['maxLevel']
                 && $flapTime->lt($takeoffTime)
-            )
-                throw new UnsuccessfulScoringException; // Flaps set successfully
+            ){
+                echo "caught!".PHP_EOL;
+                throw new UnsuccessfulScoringException;
+            }
         }
 
         // Nothing matched!
