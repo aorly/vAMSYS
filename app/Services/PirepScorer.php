@@ -17,6 +17,17 @@ class PirepScorer implements PirepScorerContract
 
     public static function score(Pirep $pirep)
     {
+        // Reset Everything
+        $pirepData = $pirep->pirep_data;
+        if (array_key_exists('scores', $pirepData))
+            $pirepData['scores'] = [];
+        if (array_key_exists('scoring_errors', $pirepData))
+            $pirepData['scoring_errors'] = [];
+        if (array_key_exists('failed_automatic_scoring', $pirepData))
+            $pirepData['failed_automatic_scoring'] = false;
+
+        $pirep->pirep_data = $pirepData;
+
         $scoringRules = $pirep->booking->pilot->airline->scoring_rules;
         $totalpoints = $scoringRules['starting_points'];
         foreach($scoringRules['rules'] as $rule){

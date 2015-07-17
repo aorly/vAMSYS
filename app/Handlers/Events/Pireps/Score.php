@@ -22,15 +22,6 @@ class Score implements ShouldQueue {
         $event->pirep->status = "scoring";
         $event->pirep->processed_time = date('Y-m-d H:i:s');
 
-        if (array_key_exists('failed_automatic_scoring', $event->pirep->pirep_data))
-            $event->pirep->pirep_data['failed_automatic_scoring'] = false;
-
-        if (array_key_exists('scores', $event->pirep->pirep_data))
-            $event->pirep->pirep_data['scores'] = [];
-
-        if (array_key_exists('scoring_errors', $event->pirep->pirep_data))
-            $event->pirep->pirep_data['scoring_errors'] = [];
-
         $event->pirep->save();
 
         $event->pirep = PirepScorer::score($event->pirep);
