@@ -1,17 +1,14 @@
 <?php namespace vAMSYS\Handlers\Events\Pireps;
 
-use Carbon\Carbon;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Event;
 use vAMSYS\Events\PirepHasFailed;
 use vAMSYS\Events\PirepWasFiled;
-
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldBeQueued;
 use vAMSYS\Events\PirepWasProcessed;
 use vAMSYS\Events\PirepWasScored;
 use vAMSYS\Services\PirepScorer;
 
-class Score implements ShouldBeQueued {
+class Score implements ShouldQueue {
 
 	/**
 	 * Handle the event.
@@ -26,13 +23,13 @@ class Score implements ShouldBeQueued {
         $event->pirep->processed_time = date('Y-m-d H:i:s');
 
         if (array_key_exists('failed_automatic_scoring', $event->pirep->pirep_data))
-            unset($event->pirep->pirep_data['failed_automatic_scoring']);
+            $event->pirep->pirep_data['failed_automatic_scoring'] = false;
 
         if (array_key_exists('scores', $event->pirep->pirep_data))
-            unset($event->pirep->pirep_data['scores']);
+            $event->pirep->pirep_data['scores'] = [];
 
         if (array_key_exists('scoring_errors', $event->pirep->pirep_data))
-            unset($event->pirep->pirep_data['scoring_errors']);
+            $event->pirep->pirep_data['scoring_errors'] = [];
 
         $event->pirep->save();
 

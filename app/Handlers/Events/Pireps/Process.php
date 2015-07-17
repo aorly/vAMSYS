@@ -2,15 +2,14 @@
 
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Event;
 use vAMSYS\Events\PirepLineNotMatched;
 use vAMSYS\Events\PirepWasFiled;
-
-use Illuminate\Contracts\Queue\ShouldBeQueued;
 use vAMSYS\Events\PirepWasProcessed;
 use vAMSYS\Exceptions\UnmatchedPirepLineException;
 
-class Process implements ShouldBeQueued {
+class Process implements ShouldQueue {
 
 	/**
 	 * Handle the event.
