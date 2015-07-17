@@ -17,6 +17,18 @@ class Route implements RouteContract
     $sections = [];
     if (count($routeParts) >= 3) {
       while ($i < count($routeParts)) {
+        // Check for co-ordinates
+        $coordinateRegex = '/(((\d{1,3})(N|S))((\d{1,3})(E|W)))/';
+        if (preg_match($coordinateRegex, $routeParts[$i - 1]) && preg_match($coordinateRegex, $routeParts[$i])){
+          $sections[] = [
+              "from" => $routeParts[$i - 1],
+              "via"  => 'DCT',
+              "to"   => $routeParts[$i],
+          ];
+          $i = $i + 1;
+          continue;
+        }
+
         $sections[] = [
           "from" => $routeParts[$i - 1],
           "via"  => $routeParts[$i],

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Config;
 use Neoxygen\NeoClient\ClientBuilder;
 
 class AirwaysRepository {
+  public static $coordinateregex = '/((\d{1,3})(N|S))((\d{1,3})(E|W))/';
+
   private static function buildConnection()
   {
     return ClientBuilder::create()
@@ -22,6 +24,14 @@ class AirwaysRepository {
 
   public static function getPoint($point)
   {
+    // Is this a coordinate?
+    if (preg_match(self::$coordinateregex, $point)){
+      // Return a fake object!
+      $return = self::convertDMStoLatLon($point);
+      $return['name'] = $point;
+      return (object)$return;
+    }
+
     $client = self::buildConnection();
     $query = "MATCH (n:Waypoint1501 { name:{point} }) RETURN n";
     $parameters = [
@@ -60,5 +70,23 @@ class AirwaysRepository {
     }
 
     return $waypoints;
+  }
+
+  public static function convertDMStoLatLon($dms)
+  {
+    preg_match(self::$coordinateregex, $dms, $matches);
+    if ($matches[3] == 'N'){
+      $latitude = $matches[2];
+    } else {
+      $latitude = $matches[2] * -1;
+    }
+
+    if ($matches[6] == 'E'){
+      $longitude = $matches[5];
+    } else {
+      $longitude = $matches[5] * -1;
+    }
+
+    return ["latitude" => $latitude, "longitude" => $longitude];
   }
 }
