@@ -50,6 +50,7 @@ class PirepScorer implements PirepScorerContract
 
                 $pirepData['scoring_errors'][] = [$rule['scorer'] => $rule];
                 $pirep->pirep_data = $pirepData;
+                continue;
             } catch (InsufficientScoringDataException $e) {
                 // Rule could not be completed. Store on PIREP data for information
                 $pirepData = $pirep->pirep_data;
@@ -58,6 +59,7 @@ class PirepScorer implements PirepScorerContract
 
                 $pirepData['insufficient_data_scoring_errors'][] = [$rule['scorer'] => $rule];
                 $pirep->pirep_data = $pirepData;
+                continue;
             } catch (PirepFailureException $e) {
                 // Pirep should be failed. Store on PIREP, apply points, continue processing!
                 $pirepData = $pirep->pirep_data;
@@ -74,6 +76,7 @@ class PirepScorer implements PirepScorerContract
 
                 $pirepData['scores'][] = ['name' => ltrim($scorer->name . ' ' . $rule['name']), 'points' => $scorer->points, 'failure' => true];
                 $pirep->pirep_data = $pirepData;
+                continue;
             }
         }
 
