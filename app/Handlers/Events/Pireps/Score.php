@@ -28,6 +28,15 @@ class Score implements ShouldBeQueued {
 
         $event->pirep = PirepScorer::score($event->pirep);
 
+        if (array_key_exists('failed_automatic_scoring', $event->pirep->pirep_data))
+            unset($event->pirep->pirep_data['failed_automatic_scoring']);
+
+        if (array_key_exists('scores', $event->pirep->pirep_data))
+            unset($event->pirep->pirep_data['scores']);
+
+        if (array_key_exists('scoring_errors', $event->pirep->pirep_data))
+            unset($event->pirep->pirep_data['scoring_errors']);
+
         $event->pirep->status = "complete";
         $event->pirep->processed_time = date('Y-m-d H:i:s');
 
