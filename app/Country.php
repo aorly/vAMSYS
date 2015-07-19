@@ -8,18 +8,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Country extends Model {
 
-  /**
-   * The database table used by the model.
-   *
-   * @var string
-   */
-  protected $table = 'countries';
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'countries';
 
-  public $timestamps = false;
+    public $timestamps = false;
 
-  public function regions()
-  {
-    return $this->hasMany('vAMSYS\Region');
-  }
+    public function regions()
+    {
+        return $this->hasMany('vAMSYS\Region');
+    }
 
 }

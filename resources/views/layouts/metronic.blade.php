@@ -52,7 +52,7 @@
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
                             <a href="/auth/logout">
-                                <i class="icon-key"></i> Log Out </a>
+                                <i class="icon-exit"></i> Log Out </a>
                         </li>
                     </ul>
                 </li>

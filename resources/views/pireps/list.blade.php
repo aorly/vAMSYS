@@ -42,9 +42,24 @@
                                     </thead>
                                     <tbody>
                                     @foreach($pireps as $pirep)
+                                        @if(array_key_exists('jumpseat', $pirep->pirep_data) && $pirep->pirep_data['jumpseat'] === true)
+                                            <tr style="height: 10px;">
+                                                <td style="padding: 4px; padding-left: 20px;"><small><em>Jumpseat</em></small></td>
+                                            <td style="padding: 4px;">
+                                                <small>{{$pirep->created_at}}</small>
+                                            </td>
+                                            <td style="padding: 4px;">
+                                                <small>{{$pirep->booking->route->departureAirport->icao}} - {{$pirep->booking->route->departureAirport->name}}</small>
+                                            </td>
+                                            <td style="padding: 4px;">
+                                                <small>{{$pirep->booking->route->arrivalAirport->icao}} - {{$pirep->booking->route->arrivalAirport->name}}</small>
+                                            </td>
+                                            <td style="padding: 4px;"></td><td style="padding: 4px;"></td>
+                                            </tr>
+                                        @else
                                     <tr class="@if($pirep->status == 'complete' || $pirep->status == 'accepted') success @elseif($pirep->status == 'rejected' || $pirep->status == 'failed') danger @else info @endif ">
                                         <td>
-                                            {{$pirep->id}}
+                                            {{$airline->prefix}}-{{ str_pad($pirep->id, 6, 0, STR_PAD_LEFT) }}
                                         </td>
                                         <td>
                                             {{$pirep->created_at}}
@@ -72,6 +87,7 @@
 
                                         </td>
                                     </tr>
+                                    @endif
                                     @endforeach
                                     </tbody>
                                 </table></div>

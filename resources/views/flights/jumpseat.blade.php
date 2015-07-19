@@ -4,32 +4,23 @@
 <div class="page-content-wrapper">
     <div class="page-content">
         <h3 class="page-title">
-            Book Flight <small>look at all the places you could visit!</small>
+            Jumpseat <small>free travel, see the world!</small>
         </h3>
         <div class="row">
             <div class="col-md-6">
-                <div class="portlet box green">
+                <div class="portlet box red">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-arrow"></i>Available Destinations from {{$currentLocation->name}}
-                    </div>
-                    <div class="actions">
-                        <a href="/flights/jumpseat" class="btn blue btn-sm">
-                            <i class="fa fa-plane"></i> Jumpseat </a>
+                        <i class="fa fa-arrow"></i>Available Jumpseat Destinations from {{$currentLocation->name}}
                     </div>
                 </div>
                 <div class="portlet-body">
-                        <div class="input-group" style="float: right; width: 1px;">
+                    <div class="input-group" style="float: right; width: 1px;">
                             <span class="input-group-addon">
                                 <i class="fa fa-search"></i>
                             </span>
-                            <input id="destinationSearch" type="text" class="form-control input-sm input-small" placeholder="Name / ICAO / IATA">
-                        </div>
-                    @if($pilot->location->id != $currentLocation->id)
-                        <div class="alert alert-info">
-                            <div class="text-center"><strong>Important:</strong> You are booking a flight from your final planned destination after all booked flights: {{$currentLocation->name}}</div>
-                        </div>
-                    @endif
+                        <input id="destinationSearch" type="text" class="form-control input-sm input-small" placeholder="Name / ICAO / IATA">
+                    </div>
                         <div id="destinations_tree" class="tree-demo">
                             <ul>
                                 @foreach ($sortedRoutes as $continentCode => $countries)
@@ -42,7 +33,7 @@
                                                 <li data-jstree='{ "icon" : "fa fa-flag" @if (count($regions)==1), "opened": true @endif }'>{{$regionName}}
                                                     <ul>
                                                         @foreach ($airports as $airport)
-                                                            <li data-jstree='{ "icon" : "fa fa-plane" }'><a href="javascript:showFlight('{{$airport->icao}}');">{{$airport->name}} <span style="display: none">{{$airport->icao}} / {{$airport->iata}}</span></a></li>
+                                                            <li data-jstree='{ "icon" : "fa fa-plane" }'><a href="javascript:showFlight('{{$airport->icao}}');">{{$airport->name}}</a></li>
                                                         @endforeach
                                                     </ul>
                                                 </li>
@@ -163,10 +154,7 @@
                 "icon" : "fa fa-file icon-state-warning icon-lg"
             }
         },
-        "plugins": ["types", "search", "sort", "ui"],
-        "search" : {
-            "search_leaves_only": true
-        }
+        "plugins": ["types", "search", "sort", "ui"]
     });
 
     var to = false;
@@ -195,9 +183,9 @@
         flightPaths[icao].setMap(map.map);
         // Update the Book Button
         var airportName = $('<textarea />').html(airports[icao].name).text();
-        $('#bookButton').text("Book Flight to " + airportName);
-        $('#bookButton').switchClass('default disabled', 'green');
-        $('#bookButton').attr("href", "/flights/book/"+airports[icao].routeId);
+        $('#bookButton').text("Jumpseat to " + airportName);
+        $('#bookButton').switchClass('default disabled', 'blue');
+        $('#bookButton').attr("href", "/flights/jumpseat/"+airports[icao].routeId);
     }
 </script>
 @stop

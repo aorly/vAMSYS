@@ -27,6 +27,7 @@ Route::get('/', function () {
 
 Route::get('/flights/cancel/{booking}', 'FlightsController@getCancel');
 Route::get('/flights/book/{route}', 'FlightsController@getDoBook');
+Route::get('/flights/jumpseat/{route}', 'FlightsController@getDoJumpseat');
 
 Route::get('/pireps/{pirep}', 'PirepsController@getSinglePirep');
 
@@ -35,6 +36,11 @@ Route::get('/staff/pireps/accept/{pirep}', 'Staff\PirepsController@getAccept');
 Route::get('/staff/pireps/reject/{pirep}', 'Staff\PirepsController@getReject');
 Route::get('/staff/pireps/reprocess/{pirep}', 'Staff\PirepsController@getReprocess');
 Route::get('/staff/pireps/rescore/{pirep}', 'Staff\PirepsController@getRescore');
+
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 Route::controllers([
     'auth'              => 'Auth\AuthController',
@@ -47,5 +53,6 @@ Route::controllers([
     'staff'             => 'Staff\StaffController',
     'dashboard'         => 'DashboardController',
     'flights'           => 'FlightsController',
-    'pireps'            => 'PirepsController'
+    'pireps'            => 'PirepsController',
+    'leaderboards'      => 'LeaderboardsController'
 ]);

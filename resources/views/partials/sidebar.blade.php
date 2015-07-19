@@ -25,8 +25,17 @@
             </li>
             <li>
                 <a href="/pireps">
-                    <i class="icon-plane"></i>
-                    <span class="title">View PIREPs</span>
+                    <i class="icon-list"></i>
+                    <span class="title">PIREPs</span>
+                </a>
+            </li>
+            <li class="heading">
+                <h3 class="uppercase">Statistics</h3>
+            </li>
+            <li>
+                <a href="/leaderboards">
+                    <i class="icon-trophy"></i>
+                    <span class="title">Leaderboards</span>
                 </a>
             </li>
             @if (vAMSYS\Repositories\UserRepository::hasRole($airline->prefix.'-staff', $user))

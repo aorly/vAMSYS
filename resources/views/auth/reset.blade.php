@@ -8,7 +8,7 @@
 <!--<![endif]-->
 <head>
     <meta charset="utf-8"/>
-    <title>vAMSYS - Login</title>
+    <title>vAMSYS - Reset Password</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -28,39 +28,33 @@
     </a>
 </div>
 <div class="content">
-    <form class="login-form" action="/auth/login" method="post">
-        <h3 class="form-title">Sign In</h3>
+    <form class="login-form" action="/password/reset" method="post">
+        <h3 class="form-title">Reset Password</h3>
 
-        <div class="alert alert-danger display-hide">
-            <button class="close" data-close="alert"></button>
-            <span>Enter your username and password</span>
-        </div>
+        <input type="hidden" name="token" value="{{ $token }}">
 
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button>
-                <span>{{ $errors->first('login') }}</span>
-            </div>
-        @endif
         <div class="form-group">
-            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-            <label class="control-label visible-ie8 visible-ie9">Login</label>
-            <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off"
-                   placeholder="Login" name="login"/>
+            <label class="control-label visible-ie8 visible-ie9">New Password</label>
+            <input class="form-control form-control-solid placeholder-no-fix" type="text"
+                   placeholder="Email Address" name="email" value="{{ old('email') }}"/>
         </div>
         <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Password</label>
+            <label class="control-label visible-ie8 visible-ie9">New Password</label>
             <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off"
-                   placeholder="Password" name="password"/>
+                   placeholder="New Password" name="password"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">Repeat Password</label>
+            <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off"
+                   placeholder="Repeat Password" name="password_confirmation"/>
         </div>
         <div class="form-actions">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <button type="submit" class="btn btn-success uppercase">Login</button>
-            <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+            <button type="submit" class="btn btn-info uppercase">Reset Password</button>
         </div>
     </form>
 
-    <form class="forget-form" action="/password/email" method="post">
+    <form class="forget-form" action="/auth/forgot-password" method="post">
         <h3>Reset Password</h3>
         <p>
             Enter your e-mail address below to reset your password.
