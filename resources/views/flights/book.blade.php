@@ -13,23 +13,25 @@
                     <div class="caption">
                         <i class="fa fa-arrow"></i>Available Destinations from {{$currentLocation->name}}
                     </div>
+                    @if($pilot->location->id == $currentLocation->id)
                     <div class="actions">
                         <a href="/flights/jumpseat" class="btn blue btn-sm">
                             <i class="fa fa-plane"></i> Jumpseat </a>
                     </div>
+                    @endif
                 </div>
                 <div class="portlet-body">
+                    @if($pilot->location->id != $currentLocation->id)
+                        <div style="clear:both" class="alert alert-info">
+                            <div class="text-center"><strong>Important:</strong> You are booking a flight from your final planned destination after all booked flights: {{$currentLocation->name}}</div>
+                        </div>
+                    @endif
                         <div class="input-group" style="float: right; width: 1px;">
                             <span class="input-group-addon">
                                 <i class="fa fa-search"></i>
                             </span>
                             <input id="destinationSearch" type="text" class="form-control input-sm input-small" placeholder="Name / ICAO / IATA">
                         </div>
-                    @if($pilot->location->id != $currentLocation->id)
-                        <div class="alert alert-info">
-                            <div class="text-center"><strong>Important:</strong> You are booking a flight from your final planned destination after all booked flights: {{$currentLocation->name}}</div>
-                        </div>
-                    @endif
                         <div id="destinations_tree" class="tree-demo">
                             <ul>
                                 @foreach ($sortedRoutes as $continentCode => $countries)
