@@ -51,7 +51,7 @@ class Process implements ShouldQueue {
         }
 
         // Set PIREP times
-        $event->pirep->pirep_start_time = new Carbon($log[1][0], $logMeta[5];
+        $event->pirep->pirep_start_time = new Carbon($log[1][0], $logMeta[5]);
         $event->pirep->pirep_end_time = new Carbon($log[1][count($log[1])-1], $logMeta[5]);
 
         // Start line parsing
