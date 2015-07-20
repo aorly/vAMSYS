@@ -18,7 +18,7 @@ class Score implements ShouldQueue {
      */
     public function handle(PirepWasProcessed $event)
     {
-        if (is_array($event->pirep->pirep_data) && isset($event->pirep->pirep_data['jumpseat'])){
+        if (is_array($event->pirep->pirep_data) && array_key_exists('jumpseat', $event->pirep->pirep_data) && $event->pirep->pirep_data['jumpseat']){
             return true; // This is a jumpseat!
         }
 
