@@ -10,14 +10,18 @@ use vAMSYS\Services\PirepScorer;
 
 class Score implements ShouldQueue {
 
-	/**
-	 * Handle the event.
-	 *
-	 * @param  PirepWasFiled  $event
-	 * @return void
-	 */
-	public function handle(PirepWasProcessed $event)
-	{
+    /**
+     * Handle the event.
+     *
+     * @param  PirepWasFiled  $event
+     * @return void
+     */
+    public function handle(PirepWasProcessed $event)
+    {
+        if (is_array($event->pirep->pirep_data) &&  $event->pirep->pirep_data['jumpseat']){
+            return true; // This is a jumpseat!
+        }
+
         // Score the PIREP!
         $event->pirep->status = "scoring";
         $event->pirep->processed_time = date('Y-m-d H:i:s');
@@ -37,6 +41,6 @@ class Score implements ShouldQueue {
         $event->pirep->save();
 
         Event::fire(new PirepWasScored($event->pirep));
-	}
+    }
 
 }

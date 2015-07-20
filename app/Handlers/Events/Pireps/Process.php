@@ -19,6 +19,10 @@ class Process implements ShouldQueue {
 	 */
 	public function handle(PirepWasFiled $event)
 	{
+        if (is_array($event->pirep->pirep_data) &&  $event->pirep->pirep_data['jumpseat']){
+            return true; // This is a jumpseat!
+        }
+
         $event->pirep->status = "processing";
         $event->pirep->processed_time = date('Y-m-d H:i:s');
         $event->pirep->save();

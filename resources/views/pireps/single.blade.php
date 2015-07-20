@@ -188,21 +188,21 @@
                                 <div class="tab-pane active" id="engines">
                                     <ul class="list-unstyled">
                                         @foreach($pirep->pirep_data['engines'] as $event)
-                                            <li><strong>{{$event['timestamp']}}</strong><br />Engine {{$event['engine']}}@if($event['status'] === 'on') Started @elseif($event['status'] === 'off') Shutdown @endif</li>
+                                            <li><strong>{{\Carbon\Carbon::parse($event['timestamp']['date'], $event['timestamp']['timezone'])->format("Y-m-d H:i:s")}}</strong><br />Engine {{$event['engine']}}@if($event['status'] === 'on') Started @elseif($event['status'] === 'off') Shutdown @endif</li>
                                         @endforeach
                                     </ul>
                                 </div>
                                 <div class="tab-pane" id="gear">
                                     <ul class="list-unstyled">
                                     @foreach($pirep->pirep_data['gear_changes'] as $event)
-                                        <li><strong>{{$event['timestamp']}}</strong><br />Gear @if($event['status'] === 'raised') Raised @elseif($event['status'] === 'lowered') Lowered @endif at {{$event['altitude']}}ft, {{$event['speed']}} kts</li>
+                                        <li><strong>{{\Carbon\Carbon::parse($event['timestamp']['date'], $event['timestamp']['timezone'])->format("Y-m-d H:i:s")}}</strong><br />Gear @if($event['status'] === 'raised') Raised @elseif($event['status'] === 'lowered') Lowered @endif at {{$event['altitude']}}ft, {{$event['speed']}} kts</li>
                                     @endforeach
                                     </ul>
                                 </div>
                                 <div class="tab-pane" id="flaps">
                                     <ul class="list-unstyled">
                                     @foreach($pirep->pirep_data['flap_changes'] as $event)
-                                        <li><strong>{{$event['timestamp']}}</strong><br />Flaps set to position {{$event['to']}}@if(array_key_exists('altitude', $event)) at {{$event['altitude']}}ft, {{$event['speed']}} kts @else on the ground @endif</li>
+                                        <li><strong>{{\Carbon\Carbon::parse($event['timestamp']['date'], $event['timestamp']['timezone'])->format("Y-m-d H:i:s")}}</strong><br />Flaps set to position {{$event['to']}}@if(array_key_exists('altitude', $event)) at {{$event['altitude']}}ft, {{$event['speed']}} kts @else on the ground @endif</li>
                                     @endforeach
                                     </ul>
                                 </div>

@@ -16,11 +16,6 @@ Route::group(['domain' => 'smartcars' . env('APP_DOMAIN')], function () {
   Route::any('/{airlineICAO}/frame.php', 'smartCARSController@main');
 });
 
-// Admin routes
-Route::group(['domain' => 'admin' . env('APP_DOMAIN')], function () {
-  Route::controller('/', 'Admin\AdminController');
-});
-
 Route::get('/', function () {
     return redirect('/dashboard');
 });

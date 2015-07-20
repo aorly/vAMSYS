@@ -78,4 +78,20 @@ class PirepsController extends Controller {
         return back()->with('flash', 'This PIREP has been submitted for rescoring');
     }
 
+    public function getReprocessAll(){
+        $pireps = Pirep::all();
+        foreach ($pireps as $pirep){
+            Event::fire(new PirepWasFiled($pirep, $pirep->booking->pilot, true));
+        }
+        return redirect('/staff/pireps')->with('flash', 'All PIREPs have been submitted for reprocessing');
+    }
+
+    public function getRescoreAll(){
+        $pireps = Pirep::all();
+        foreach ($pireps as $pirep){
+            Event::fire(new PirepWasProcessed($pirep, $pirep->booking->pilot, true));
+        }
+        return redirect('/staff/pireps')->with('flash', 'All PIREPs have been submitted for rescoring');
+    }
+
 }
