@@ -10,7 +10,7 @@ class Pushback implements Parser {
         $pirep->pirep_data = array_merge($pirep->pirep_data, ['pushback' => ['timestamp' => $timestamp, 'fuel' =>
             $matches[1],
         'units' => $matches[2]]]);
-        $pirep->off_blocks_time = $timestamp;
+        $pirep->off_blocks_time = new $timestamp;
         return $pirep;
     }
 }

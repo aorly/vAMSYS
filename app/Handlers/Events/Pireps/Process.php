@@ -51,15 +51,15 @@ class Process implements ShouldQueue {
         }
 
         // Set PIREP times
-        $event->pirep->pirep_start_time = $log[1][0];
-        $event->pirep->pirep_end_time = $log[1][count($log[1])-1];
+        $event->pirep->pirep_start_time = new Carbon($log[1][0], $logMeta[5];
+        $event->pirep->pirep_end_time = new Carbon($log[1][count($log[1])-1], $logMeta[5]);
 
         // Start line parsing
         $pirepParser = new \vAMSYS\Services\PirepParser($event->pirep->acars_id);
 
         foreach ($log[2] as $lineNumber => $lineData) {
             try {
-                $event->pirep = $pirepParser->parseLine($log[1][$lineNumber], $lineData, $event->pirep);
+                $event->pirep = $pirepParser->parseLine(new Carbon($log[1][$lineNumber], $logMeta[5]), $lineData, $event->pirep);
             } catch (UnmatchedPirepLineException $e) {
                 Event::fire(new PirepLineNotMatched($event->pirep, $log[1][$lineNumber], $lineData));
             } catch (\Exception $e) {

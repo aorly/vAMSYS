@@ -1,5 +1,6 @@
 <?php namespace vAMSYS\Services\PirepParser\smartCARS;
 
+use Carbon\Carbon;
 use vAMSYS\Pirep;
 use vAMSYS\Services\PirepParser\Parser;
 
