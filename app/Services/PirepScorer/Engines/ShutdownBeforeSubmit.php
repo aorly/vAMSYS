@@ -24,7 +24,7 @@ class ShutdownBeforeSubmit implements Scorer {
             if (array_key_exists($engineChange['engine'], $engines))
                 continue;
 
-            $engines[$engineChange['engine']] = new Carbon($engineChange['timestamp']);
+            $engines[$engineChange['engine']] = Carbon::parse($engineChange['timestamp']['date'], $engineChange['timestamp']['timezone']);
         }
 
         if (count($engines) < 2)

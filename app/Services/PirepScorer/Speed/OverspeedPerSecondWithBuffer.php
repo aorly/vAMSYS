@@ -19,8 +19,9 @@ class OverspeedPerSecondWithBuffer implements Scorer {
 
         foreach ($pirepData['overspeeds'] as $key => $overspeed)
         {
-            $start = new Carbon($overspeed['timestamp']);
-            $end = new Carbon($pirepData['overspeeds_corrected'][$key]['timestamp']);
+            $start = Carbon::parse($overspeed['timestamp']['date'], $overspeed['timestamp']['timezone']);
+            $end = Carbon::parse($pirepData['overspeeds_corrected'][$key]['timestamp']['date'],
+                $pirepData['overspeeds_corrected'][$key]['timestamp']['timezone']);
             $seconds = $start->diffInSeconds($end);
             $totalMultiplier = $seconds - $rule['buffer'];
             if ($totalMultiplier < 0)

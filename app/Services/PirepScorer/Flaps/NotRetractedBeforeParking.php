@@ -18,7 +18,7 @@ class NotRetractedBeforeParking implements Scorer {
         // Work from the end of the flap changes array
         $flapChanges = array_reverse($pirepData['flap_changes']);
         foreach ($flapChanges as $flapChange) {
-            $flapTime = new Carbon($flapChange['timestamp']);
+            $flapTime = Carbon::parse($flapChange['timestamp']['date'], $flapChange['timestamp']['timezone']);
             if ($flapChange['to'] == 0 && $flapTime->gt($landingTime) && $flapTime->lte($parkingTime))
                 throw new UnsuccessfulScoringException; // Flaps set successfully
         }
