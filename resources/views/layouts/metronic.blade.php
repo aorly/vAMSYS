@@ -79,7 +79,7 @@
 <!-- BEGIN FOOTER -->
 <div class="page-footer">
     <div class="page-footer-inner">
-        Powered by vAMSYS. Served by the <em>{{ gethostname() }}</em> droplet, using codebase version {{ `git rev-parse --short HEAD` }}
+        Powered by vAMSYS. Served by the <em>{{ $_ENV['DYNO'] }}</em> dyno
     </div>
     <div class="scroll-to-top">
         <i class="icon-arrow-up"></i>
