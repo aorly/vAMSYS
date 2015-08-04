@@ -6,7 +6,7 @@ use vAMSYS\Exceptions\UnsuccessfulScoringException;
 use vAMSYS\Pirep;
 use vAMSYS\Services\PirepScorer\Scorer;
 
-class NotRetractedBeforeParking implements Scorer {
+class NotSetBeforeParking implements Scorer {
 
     public static function score(Pirep &$pirep, $rule)
     {

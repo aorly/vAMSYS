@@ -11,6 +11,9 @@
 |
 */
 
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
+
 $app = new Illuminate\Foundation\Application(
 	realpath(__DIR__.'/../')
 );
@@ -51,5 +54,9 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
+
+$app->configureMonologUsing(function($monolog) {
+	$monolog->pushHandler(new StreamHandler('php://stderr', Logger::WARNING));
+});
 
 return $app;
