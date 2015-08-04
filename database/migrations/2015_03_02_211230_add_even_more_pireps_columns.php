@@ -14,13 +14,12 @@ class AddEvenMorePirepsColumns extends Migration {
 	{
 		Schema::table('pireps', function(Blueprint $table)
 		{
-            $table->longText('log');
-			$table->text('provided_route');
-            $table->text('comments');
+            $table->longText('log')->nullable();
+			$table->text('provided_route')->nullable();
+            $table->text('comments')->nullable();
             $table->enum('status', ['new', 'processing', 'failed', 'processed', 'scoring', 'complete', 'accepted', 'rejected'])
                 ->default('new');
-            $table->dateTime('processed_time');
-            $table->dateTime('scored_time');
+            $table->dateTime('processed_time')->nullable();
 		});
 	}
 
@@ -38,7 +37,6 @@ class AddEvenMorePirepsColumns extends Migration {
             $table->dropColumn('comments');
             $table->dropColumn('status');
             $table->dropColumn('processed_time');
-            $table->dropColumn('scored_time');
 		});
 	}
 

@@ -15,12 +15,12 @@ class AddPirepsColumns extends Migration {
 		Schema::table('pireps', function(Blueprint $table)
 		{
 			$table->integer('landing_rate');
-			$table->dateTime("pirep_start_time");
-			$table->dateTime("off_blocks_time");
-			$table->dateTime("departure_time");
-			$table->dateTime("landing_time");
-			$table->dateTime("on_blocks_time");
-			$table->dateTime("pirep_end_time");
+			$table->dateTime("pirep_start_time")->nullable();
+			$table->dateTime("off_blocks_time")->nullable();
+			$table->dateTime("departure_time")->nullable();
+			$table->dateTime("landing_time")->nullable();
+			$table->dateTime("on_blocks_time")->nullable();
+			$table->dateTime("pirep_end_time")->nullable();
 			$table->longText("pirep_data");
 		});
 	}

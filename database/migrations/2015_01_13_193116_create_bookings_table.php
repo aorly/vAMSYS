@@ -20,7 +20,7 @@ class CreateBookingsTable extends Migration {
 			$table->integer('route_id')->unsigned();
 			$table->foreign('route_id')->references('id')->on('routes');
 			$table->integer('aircraft_id')->unsigned();
-			$table->foreign('aircraft_id')->references('id')->on('aircraft');
+			$table->foreign('aircraft_id')->references('id')->on('aircraft')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

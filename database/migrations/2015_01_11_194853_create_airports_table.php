@@ -16,7 +16,7 @@ class CreateAirportsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('icao', 4)->index();
-			$table->string('iata', 3)->index();
+			$table->string('iata', 3)->index()->nullable();
 			$table->string('name');
 			$table->decimal('latitude', 10, 7);
 			$table->decimal('longitude', 10, 7);

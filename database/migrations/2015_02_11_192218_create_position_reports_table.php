@@ -25,7 +25,7 @@ class CreatePositionReportsTable extends Migration {
 			$table->integer('groundspeed');
 			$table->integer('distance_remaining');
 			$table->integer('phase');
-			$table->string('departure_time');
+			$table->string('departure_time')->nullable();
 			$table->string('time_remaining');
 			$table->string('estimated_arrival_time');
 			$table->string('network');
