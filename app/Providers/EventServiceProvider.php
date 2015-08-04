@@ -23,7 +23,7 @@ class EventServiceProvider extends ServiceProvider {
             'vAMSYS\Handlers\Events\Emails\PirepComplete',
         ],
         'vAMSYS\Events\PirepLineNotMatched' => [
-            'vAMSYS\Handlers\Events\Emails\LineNotMatched',
+            'vAMSYS\Handlers\Events\Errors\LineNotMatched',
         ],
 		'vAMSYS\Events\PirepHasFailed' => [
 			'vAMSYS\Handlers\Events\Emails\PirepFailed',

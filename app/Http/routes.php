@@ -26,6 +26,9 @@ Route::get('/flights/jumpseat/{route}', 'FlightsController@getDoJumpseat');
 
 Route::get('/pireps/{pirep}', 'PirepsController@getSinglePirep');
 
+Route::get('/profile', 'UsersController@getOwnProfile');
+Route::get('/profile/{pilot}', 'UsersController@getProfile');
+
 Route::get('/staff/pireps/view/{pirep}', 'Staff\PirepsController@getView');
 Route::get('/staff/pireps/accept/{pirep}', 'Staff\PirepsController@getAccept');
 Route::get('/staff/pireps/reject/{pirep}', 'Staff\PirepsController@getReject');
@@ -36,6 +39,8 @@ Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+Route::get('admin/delete-unparsed-line/{unparsedline}', 'Admin\AdminController@getDeleteUnparsedLine');
 
 Route::controllers([
     'auth'              => 'Auth\AuthController',
@@ -49,5 +54,6 @@ Route::controllers([
     'dashboard'         => 'DashboardController',
     'flights'           => 'FlightsController',
     'pireps'            => 'PirepsController',
-    'leaderboards'      => 'LeaderboardsController'
+    'leaderboards'      => 'LeaderboardsController',
+    'admin'             => 'Admin\AdminController'
 ]);

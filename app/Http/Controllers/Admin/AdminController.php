@@ -4,6 +4,7 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Request;
 use vAMSYS\Commands\ParseTextDataCommand;
 use vAMSYS\Http\Controllers\Controller;
+use vAMSYS\UnparsedLine;
 
 class AdminController extends Controller {
 
@@ -20,19 +21,17 @@ class AdminController extends Controller {
    *
    * @return Response
    */
-  public function getIndex()
-  {
+  public function getIndex(){
     return view('admin.dashboard');
   }
 
-  public function getImport(){
-    return view('admin.importTextData');
+  public function getUnparsedLines(){
+    return view('admin.unparsedLines', ['lines' => UnparsedLine::all()]);
   }
 
-  public function postImport(Guard $guard){
-    $file = Request::file('textFile')->move('/tmp/vAMSYS', 'ats.txt');
-    $this->dispatch(new ParseTextDataCommand([Request::get('type') => $file->getPathname()], $guard->user()->email));
-    return view('admin.importTextData');
+  public function getDeleteUnparsedLine(UnparsedLine $line){
+    $line->delete();
+    return redirect('/admin/unparsed-lines');
   }
 
 }
