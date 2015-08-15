@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "09638363fdcac6f60aaa5ace5d05443b",
+    "hash": "9021bfe517918803665f1e880852b18c",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1993,6 +1993,47 @@
                 "neo4j"
             ],
             "time": "2015-06-05 18:12:15"
+        },
+        {
+            "name": "neoxygen/neoclient-spatial-extension",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/neoxygen/neoclient-spatial-extension.git",
+                "reference": "812317250ae24b0fc68a490df613e41a9c2a1466"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/neoxygen/neoclient-spatial-extension/zipball/812317250ae24b0fc68a490df613e41a9c2a1466",
+                "reference": "812317250ae24b0fc68a490df613e41a9c2a1466",
+                "shasum": ""
+            },
+            "require": {
+                "neoxygen/neoclient": "~2.1"
+            },
+            "require-dev": {
+                "bossa/phpspec2-expect": "~1.0",
+                "phpspec/phpspec": "~2.1",
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Neoxygen\\NeoClientExtension\\Spatial\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Willemsen",
+                    "email": "chris@neoxygen.io"
+                }
+            ],
+            "description": "Neo4j Spatial Extension for NeoClient",
+            "time": "2015-06-10 20:24:23"
         },
         {
             "name": "nesbot/carbon",

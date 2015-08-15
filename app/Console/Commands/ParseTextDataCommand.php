@@ -40,6 +40,7 @@ class ParseTextDataCommand extends Command {
             Config::get('database.neo4j.profiles.default.username'),
             Config::get('database.neo4j.profiles.default.password'))
         ->setAutoFormatResponse(true)
+        ->registerExtension('spatial', 'Neoxygen\NeoClientExtension\Spatial')
         ->build();
     }
 
@@ -87,6 +88,8 @@ class ParseTextDataCommand extends Command {
             // Store into Neo4J
             $bar->advance();
 
+            $currentAirway = 'UNKNOWN';
+
             // Set the current airway
             if ($dataLine[0] == 'A'){
                 $bar->setMessage('Airway: '.$dataLine[1]);
@@ -98,63 +101,21 @@ class ParseTextDataCommand extends Command {
                 // New Waypoint
                 $latitude = preg_replace('/^(.*?)(.{6})$/', '$1.$2', $dataLine[2]);
                 $longitude = preg_replace('/^(.*?)(.{6})$/', '$1.$2', $dataLine[3]);
-                // Try and find the waypoint
-                $query = "MATCH (wp:Waypoint".$airacId.") WHERE wp.name = {name} AND wp.latitude = {latitude} AND wp.longitude = {longitude} RETURN id(wp);";
+                $nlatitude = preg_replace('/^(.*?)(.{6})$/', '$1.$2', $dataLine[5]);
+                $nlongitude = preg_replace('/^(.*?)(.{6})$/', '$1.$2', $dataLine[6]);
+
+                $query = "MATCH (thiswp:Waypoint".$airacId." {thiswpprops}),(nextwp:Waypoint".$airacId." {nextwpprops}) CREATE UNIQUE (thiswp)-[:".$currentAirway."]->(nextwp)";
                 $params = [
-                    "name"	=> $dataLine[1],
-                    "latitude"	=> (float)$latitude,
-                    "longitude"	=> (float)$longitude
-                ];
-                /* var $response \Neoxygen\NeoClient\Request\Response */
-                $response = $this->neo4j->sendCypherQuery($query, $params);
-
-                if (count($response->getBody()['results'][0]['data']) == 0){
-                    // Not found - create!
-                    $query = "CREATE (wp:Waypoint".$airacId." {props}) RETURN id(wp);";
-                    $params = [
-                        "props" => [
-                            "name"	=> $dataLine[1],
-                            "latitude"	=> (float)$latitude,
-                            "longitude"	=> (float)$longitude,
-                        ]
-                    ];
-
-                    $response = $this->neo4j->sendCypherQuery($query, $params);
-                }
-                $thisNodeId = $response->getBody()['results'][0]['data'][0]['row'][0];
-
-                // Does the next node exist?
-                $latitude = preg_replace('/^(.*?)(.{6})$/', '$1.$2', $dataLine[5]);
-                $longitude = preg_replace('/^(.*?)(.{6})$/', '$1.$2', $dataLine[6]);
-                $query = "MATCH (wp:Waypoint".$airacId.") WHERE wp.name = {name} AND wp.latitude = {latitude} AND wp.longitude = {longitude} RETURN id(wp);";
-                $params = [
-                    "name"	=> $dataLine[4],
-                    "latitude"	=> (float)$latitude,
-                    "longitude"	=> (float)$longitude
-                ];
-
-                $response = $this->neo4j->sendCypherQuery($query, $params);
-
-                if (count($response->getBody()['results'][0]['data']) == 0){
-                    // Not found - create!
-                    $query = "CREATE (wp:Waypoint".$airacId." {props}) RETURN id(wp);";
-                    $params = [
-                        "props" => [
-                            "name"	=> $dataLine[4],
-                            "latitude"	=> (float)$latitude,
-                            "longitude"	=> (float)$longitude,
-                        ]
-                    ];
-
-                    $response = $this->neo4j->sendCypherQuery($query, $params);
-                }
-                $nextNodeId = $response->getBody()['results'][0]['data'][0]['row'][0];
-
-                // Link the two nodes!
-                $query = "MATCH (wp1:Waypoint".$airacId."),(wp2:Waypoint".$airacId.") WHERE id(wp1) = {wp1} AND id(wp2) = {wp2} CREATE (wp1)-[r:".$currentAirway."]->(wp2) RETURN r;";
-                $params = [
-                    "wp1" => $thisNodeId,
-                    "wp2" => $nextNodeId,
+                    "thiswpprops" => [
+                        "name"	=> $dataLine[1],
+                        "latitude"	=> (float)$latitude,
+                        "longitude"	=> (float)$longitude,
+                    ],
+                    "nextwpprops" => [
+                        "name"	=> $dataLine[4],
+                        "latitude"	=> (float)$nlatitude,
+                        "longitude"	=> (float)$nlongitude,
+                    ]
                 ];
                 $this->neo4j->sendCypherQuery($query, $params);
             }
