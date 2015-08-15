@@ -103,7 +103,7 @@ class ParseTextDataCommand extends Command {
                 $nlatitude = preg_replace('/^(.*?)(.{6})$/', '$1.$2', $dataLine[5]);
                 $nlongitude = preg_replace('/^(.*?)(.{6})$/', '$1.$2', $dataLine[6]);
 
-                $query = "MATCH (thiswp:Waypoint".$airacId." {thiswpprops}),(nextwp:Waypoint".$airacId." {nextwpprops}) CREATE UNIQUE (thiswp)-[:".$currentAirway."]->(nextwp)";
+                $query = "MATCH (thiswp:Waypoint".$airacId." {thiswpprops}),(nextwp:Waypoint".$airacId." {nextwpprops}) CREATE UNIQUE (thiswp:Waypoint".$airacId." {thiswpprops})-[:".$currentAirway."]->(nextwp:Waypoint".$airacId." {nextwpprops}) RETURN ";
                 $params = [
                     "thiswpprops" => [
                         "name"	=> $dataLine[1],
