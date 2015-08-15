@@ -104,17 +104,17 @@ class ParseTextDataCommand extends Command {
                 $nlongitude = preg_replace('/^(.*?)(.{6})$/', '$1.$2', $dataLine[6]);
 
                 $transaction = $this->neo4j->createTransaction();
-                $transaction->pushQuery('MERGE (wp:Waypoint'.$airacId.' {name: {props}.id, latitude: {props}.latitude, longitude: {props}.longitude}) RETURN wp', ["props" => [
+                $transaction->pushQuery('MERGE (wp:Waypoint'.$airacId.' {name: {props}.name, latitude: {props}.latitude, longitude: {props}.longitude}) RETURN wp', ["props" => [
                         "name"	=> $dataLine[1],
                         "latitude"	=> (float)$latitude,
                         "longitude"	=> (float)$longitude,
                     ]]);
-                $transaction->pushQuery('MERGE (wp:Waypoint'.$airacId.' {name: {props}.id, latitude: {props}.latitude, longitude: {props}.longitude}) RETURN wp', ["props" => [
+                $transaction->pushQuery('MERGE (wp:Waypoint'.$airacId.' {name: {props}.name, latitude: {props}.latitude, longitude: {props}.longitude}) RETURN wp', ["props" => [
                     "name"	=> $dataLine[4],
                     "latitude"	=> (float)$nlatitude,
                     "longitude"	=> (float)$nlongitude,
                 ]]);
-                $transaction->pushQuery('MATCH (wp1:Waypoint'.$airacId.' {name: {wp1props}.id, latitude: {wp1props}.latitude, longitude: {wp1props}.longitude}),(wp2:Waypoint'.$airacId.' {name: {wp2props}.id, latitude: {wp2props}.latitude, longitude: {wp2props}.longitude}) CREATE UNIQUE (wp1)-[r:'.$currentAirway.']->(wp2) RETURN r', [
+                $transaction->pushQuery('MATCH (wp1:Waypoint'.$airacId.' {name: {wp1props}.name, latitude: {wp1props}.latitude, longitude: {wp1props}.longitude}),(wp2:Waypoint'.$airacId.' {name: {wp2props}.name, latitude: {wp2props}.latitude, longitude: {wp2props}.longitude}) CREATE UNIQUE (wp1)-[r:'.$currentAirway.']->(wp2) RETURN r', [
                     "wp1props" => [
                         "name"	=> $dataLine[1],
                         "latitude"	=> (float)$latitude,
