@@ -40,7 +40,7 @@ class ParseTextDataCommand extends Command {
             Config::get('database.neo4j.profiles.default.username'),
             Config::get('database.neo4j.profiles.default.password'))
         ->setAutoFormatResponse(true)
-        ->registerExtension('spatial', 'Neoxygen\NeoClientExtension\Spatial')
+        ->registerExtension('spatial', 'Neoxygen\NeoClientExtension\Spatial\SpatialExtension')
         ->build();
     }
 
@@ -60,7 +60,6 @@ class ParseTextDataCommand extends Command {
     }
 
     private function parseATS($airacId, $path){
-        date_default_timezone_set('UTC');
         // Actually do the parsing!
         set_time_limit(0);
 
