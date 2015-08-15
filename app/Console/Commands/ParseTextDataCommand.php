@@ -63,7 +63,9 @@ class ParseTextDataCommand extends Command {
         // Actually do the parsing!
         set_time_limit(0);
 
-        $atsFile = new File($path);
+        file_put_contents("/tmp/ats.txt", fopen($path, 'r'));
+
+        $atsFile = new File("/tmp/ats.txt");
         $atsFile = $atsFile->openFile();
         $atsFile->setFlags(SplFileObject::READ_CSV);
         $atsFile->setCsvControl('|');
