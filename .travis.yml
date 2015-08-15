@@ -6,7 +6,6 @@ php:
   - nightly
 services:
   - redis-server
-  - neo4j
 before_script:
   - cp .env.travis .env
   - psql -c 'create database travis_ci_test;' -U postgres
