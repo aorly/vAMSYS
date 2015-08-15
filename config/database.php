@@ -46,24 +46,6 @@ return [
 
 	'connections' => [
 
-		'sqlite' => [
-			'driver'   => 'sqlite',
-			'database' => storage_path().'/database.sqlite',
-			'prefix'   => '',
-		],
-
-		'mysql' => [
-			'driver'    => 'mysql',
-			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', 'forge'),
-			'username'  => env('DB_USERNAME', 'forge'),
-			'password'  => env('DB_PASSWORD', ''),
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-			'strict'    => false,
-		],
-
 		'pgsql' => [
 			'driver'   => 'pgsql',
 			'host'     => parse_url(getenv("DATABASE_URL"))["host"],
@@ -73,15 +55,6 @@ return [
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
-		],
-
-		'sqlsrv' => [
-			'driver'   => 'sqlsrv',
-			'host'     => env('DB_HOST', 'localhost'),
-			'database' => env('DB_DATABASE', 'forge'),
-			'username' => env('DB_USERNAME', 'forge'),
-			'password' => env('DB_PASSWORD', ''),
-			'prefix'   => '',
 		],
 
 	],
@@ -115,9 +88,11 @@ return [
 		'cluster' => false,
 
 		'default' => [
-			'host'     => env('REDIS_HOST', 'localhost'),
-			'port'     => env('REDIS_PORT', 6379),
-			'database' => env('REDIS_DB', 0),
+			'host'     => parse_url(getenv("REDIS_URL"))["host"],
+			'port'     => parse_url(getenv("REDIS_URL"))["port"],
+			'username' => parse_url(getenv("REDIS_URL"))["user"],
+			'password' => parse_url(getenv("REDIS_URL"))["pass"],
+			'database' => 0
 		],
 
 	],
@@ -133,11 +108,11 @@ return [
 
 		'profiles' => [
 			'default' => [
-				'scheme' => env('NEO4J_SCHEME', 'http'),
-				'host' => env('NEO4J_HOST', 'localhost'),
-				'port' => env('NEO4J_PORT', 7474),
-				'username' => env('NEO4J_USER', ''),
-				'password' => env('NEO4J_PASS', ''),
+				'scheme' => parse_url(getenv("GRAPHENEDB_URL"))["scheme"],
+				'host' => parse_url(getenv("GRAPHENEDB_URL"))["host"],
+				'port' => parse_url(getenv("GRAPHENEDB_URL"))["port"],
+				'username' => parse_url(getenv("GRAPHENEDB_URL"))["user"],
+				'password' => parse_url(getenv("GRAPHENEDB_URL"))["pass"],
 			]
 		]
 	]
