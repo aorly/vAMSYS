@@ -103,20 +103,29 @@ class ParseTextDataCommand extends Command {
                 $nlatitude = preg_replace('/^(.*?)(.{6})$/', '$1.$2', $dataLine[5]);
                 $nlongitude = preg_replace('/^(.*?)(.{6})$/', '$1.$2', $dataLine[6]);
 
-                $query = "MATCH (thiswp:Waypoint".$airacId." {name: {thiswpprops}.id, latitude: {thiswpprops}.latitude, longitude: {thiswpprops}.longitude}),(nextwp:Waypoint".$airacId." {name: {nextwpprops}.id, latitude: {nextwpprops}.latitude, longitude: {nextwpprops}.longitude}) CREATE UNIQUE (thiswp)-[:".$currentAirway."]->(nextwp) RETURN thiswp,nextwp";
-                $params = [
-                    "thiswpprops" => [
+                $transaction = $this->neo4j->createTransaction();
+                $transaction->pushQuery('MERGE (wp:Waypoint'.$airacId.' {name: {props}.id, latitude: {props}.latitude, longitude: {props}.longitude}) RETURN wp', ["props" => [
+                        "name"	=> $dataLine[1],
+                        "latitude"	=> (float)$latitude,
+                        "longitude"	=> (float)$longitude,
+                    ]]);
+                $transaction->pushQuery('MERGE (wp:Waypoint'.$airacId.' {name: {props}.id, latitude: {props}.latitude, longitude: {props}.longitude}) RETURN wp', ["props" => [
+                    "name"	=> $dataLine[4],
+                    "latitude"	=> (float)$nlatitude,
+                    "longitude"	=> (float)$nlongitude,
+                ]]);
+                $transaction->pushQuery('MATCH (wp1:Waypoint'.$airacId.' {name: {wp1props}.id, latitude: {wp1props}.latitude, longitude: {wp1props}.longitude}),(wp2:Waypoint'.$airacId.' {name: {wp2props}.id, latitude: {wp2props}.latitude, longitude: {wp2props}.longitude}) CREATE UNIQUE (wp1)-[r:'.$currentAirway.']->(wp2) RETURN r', [
+                    "wp1props" => [
                         "name"	=> $dataLine[1],
                         "latitude"	=> (float)$latitude,
                         "longitude"	=> (float)$longitude,
                     ],
-                    "nextwpprops" => [
+                    "wp2props" => [
                         "name"	=> $dataLine[4],
                         "latitude"	=> (float)$nlatitude,
                         "longitude"	=> (float)$nlongitude,
-                    ]
-                ];
-                $this->neo4j->sendCypherQuery($query, $params);
+                ]]);
+                $transaction->commit();
             }
         }
         $bar->finish();
