@@ -19,6 +19,6 @@
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
 	<env name="APP_KEY" value="CnXDUiIi9MhwcN0NiaQ4OZYrlYue4zFv"/>
-	<env name="DATABASE_URL" value="postgres://homestead:secret@localhost/vamsys-test"/>	
+	<env name="DATABASE_URL" value="postgres://postgres:password@127.0.0.1:5432/vamsys"/>
     </php>
 </phpunit>

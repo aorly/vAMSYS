@@ -7,8 +7,8 @@ php:
 services:
   - redis-server
 before_script:
-  - cp .env.travis .env
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp .env.testing .env
+  - psql -c 'create database vamsys;' -U postgres
   - composer install
   - php artisan migrate
 matrix:
