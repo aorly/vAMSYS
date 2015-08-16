@@ -34,12 +34,14 @@
             {
                 "scorer": "Engines\\Number2First",
                 "name": "Engine 2 Started First",
-                "points": 10
+                "points": 10,
+                "failure": false
             },
             {
                 "scorer": "Engines\\ShutdownBeforeSubmit",
                 "name": "Engines Shutdown before PIREP Filed",
-                "points": 10
+                "points": 10,
+                "failure": false
             },
             {
                 "scorer": "Landing\\Graduated",
@@ -49,13 +51,15 @@
                         "name": "Perfect",
                         "lightest": -136,
                         "heaviest": -164,
-                        "points": 40
+                        "points": 40,
+                        "failure": false
                     },
                     {
                         "name": "Good",
                         "lightest": -110,
                         "heaviest": -135,
                         "points": 35,
+                        "failure": false,
                         "adjustment": {
                             "direction": "lighter",
                             "points": -1,
@@ -67,6 +71,7 @@
                         "lightest": -165,
                         "heaviest": -190,
                         "points": 35,
+                        "failure": false,
                         "adjustment": {
                             "direction": "heavier",
                             "points": -1,
@@ -77,27 +82,97 @@
                         "name": "Fair",
                         "lightest": -190,
                         "heaviest": -250,
-                        "points": 10
+                        "points": 10,
+                        "failure": false
                     },
                     {
                         "name": "Hard",
                         "lightest": -350,
                         "heaviest": -499,
-                        "points": -10
+                        "points": -10,
+                        "failure": false
                     },
                     {
                         "name": "Soft",
                         "lightest": 0,
                         "heaviest": -100,
-                        "points": -10
+                        "points": -10,
+                        "failure": false
                     },
                     {
                         "name": "Crash",
                         "lightest": -500,
                         "heaviest": -999999999999,
-                        "points": -50
+                        "points": -50,
+                        "failure": true
                     }
                 ]
+            },
+            {
+                "scorer": "Landing\\AwayFromDestination",
+                "name": "Landed Away from Destination",
+                "failure": true,
+                "points": 0
+            },
+            {
+                "scorer": "FlightLength\\MinuteThresholds",
+                "name": "Flight Length",
+                "thresholds": [
+                    {
+                        "name": "Less than 1 Hour",
+                        "moreThan": 0,
+                        "lessThan": 59,
+                        "points": 0
+                    },
+                    {
+                        "name": "Between 1 and 2 Hours",
+                        "moreThan": 60,
+                        "lessThan": 119,
+                        "points": 10
+                    },
+                    {
+                        "name": "Between 2 and 3 Hours",
+                        "moreThan": 120,
+                        "lessThan": 179,
+                        "points": 25
+                    },
+                    {
+                        "name": "More than 3 Hours",
+                        "moreThan": 180,
+                        "lessThan": 9999999999,
+                        "points": 40
+                    }
+                ]
+            },
+            {
+                "scorer": "FlightLength\\PreparationTime",
+                "name": "Preparation Time",
+                "thresholds": [
+                    {
+                        "name": "Between 20 and 40 minutes",
+                        "moreThan": 20,
+                        "lessThan": 40,
+                        "points": 25
+                    }
+                ]
+            },
+            {
+                "scorer": "Flaps\\NotSetBeforeTakeoff",
+                "name": "Flaps not set before Takeoff",
+                "minLevel": 3,
+                "maxLevel": 999,
+                "points": -10
+            },
+            {
+                "scorer": "Flaps\\NotRetractedBeforeParking",
+                "name": "Flaps not retracted before Parking",
+                "points": -10
+            },
+            {
+                "scorer": "Speed\\OverspeedPerSecondWithBuffer",
+                "name": "Overspeed",
+                "points": -1,
+                "buffer": 10
             }
         ]
 
@@ -129,6 +204,30 @@
                         {
                             $ref: "/schemas/landing-graduated.json",
                             title: "Landing / Graduated"
+                        },
+                        {
+                            $ref: "/schemas/landing-awayFromDestination.json",
+                            title: "Landing / Away From Destination"
+                        },
+                        {
+                            $ref: "/schemas/flightLength-minuteThresholds.json",
+                            title: "Flight Length / Minute Thresholds"
+                        },
+                        {
+                            $ref: "/schemas/flightLength-preparationTime.json",
+                            title: "Flight Length / Preparation Time"
+                        },
+                        {
+                            $ref: "/schemas/flaps-notRetractedBeforeParking.json",
+                            title: "Flaps / Not Retracted before Parking"
+                        },
+                        {
+                            $ref: "/schemas/flaps-notSetBeforeTakeoff.json",
+                            title: "Flaps / Not Set before Takeoff"
+                        },
+                        {
+                            $ref: "/schemas/speed-overspeedPerSecondWithBuffer.json",
+                            title: "Overspeed / Penalty Per Second (with Buffer)"
                         }
                     ]
                 }

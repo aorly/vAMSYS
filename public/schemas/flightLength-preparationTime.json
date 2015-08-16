@@ -11,7 +11,7 @@
       "id": "scorer",
       "type": "string",
       "enum": [
-        "Landing\\Graduated"
+        "FlightLength\\PreparationTime"
       ],
       "minLength": 1,
       "options": {
@@ -49,64 +49,26 @@
             "title": "Threshold Name",
             "required": true
           },
-          "lightest": {
-            "id": "lightest",
+          "moreThan": {
+            "id": "moreThan",
             "type": "integer",
             "multipleOf": 1,
-            "title": "Lightest Landing",
+            "title": "More Than",
             "required": true
           },
-          "heaviest": {
-            "id": "heaviest",
+          "lessThan": {
+            "id": "lessThan",
             "type": "integer",
             "multipleOf": 1,
-            "title": "Heaviest Landing",
+            "title": "Less Than",
             "required": true
           },
           "points": {
             "id": "points",
             "type": "integer",
             "multipleOf": 1,
-            "title": "Base Points",
+            "title": "Points",
             "required": true
-          },
-          "failure": {
-            "id": "failure",
-            "title": "Failure",
-            "type": "boolean",
-            "required": true
-          },
-          "adjustment": {
-            "id": "adjustment",
-            "type": "object",
-            "format": "grid",
-            "title": "Adjustment",
-            "options": {
-              "disable_properties": true
-            },
-            "additionalProperties": false,
-            "properties": {
-              "direction": {
-                "id": "direction",
-                "type": "string",
-                "minLength": 1,
-                "enum": [
-                  "lighter",
-                  "heavier"
-                ]
-              },
-              "from": {
-                "id": "from",
-                "title": "than landing rate",
-                "type": "integer",
-                "multipleOf": 1
-              },
-              "points": {
-                "id": "points",
-                "type": "integer",
-                "multipleOf": 1
-              }
-            }
           }
         }
       }

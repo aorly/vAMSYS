@@ -11,7 +11,7 @@
       "id": "scorer",
       "type": "string",
       "enum": [
-        "Engines\\Number2First"
+        "Speed\\OverspeedPerSecondWithBuffer"
       ],
       "options": {
         "hidden": true
@@ -23,6 +23,13 @@
       "type": "string",
       "minLength": 1,
       "title": "Rule Name",
+      "required": true
+    },
+    "buffer": {
+      "id": "points",
+      "type": "integer",
+      "multipleOf": 1,
+      "title": "Buffer Seconds",
       "required": true
     },
     "points": {

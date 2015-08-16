@@ -22,7 +22,7 @@ class AirwaysRepository {
       ->build();
   }
 
-  public static function getPoint($point)
+  public static function getPoint($point, $lastPoint = null)
   {
     // Is this a coordinate?
     if (preg_match(self::$coordinateregex, $point)){
@@ -38,6 +38,20 @@ class AirwaysRepository {
       "point"    => $point,
     ];
     $response = $client->sendCypherQuery($query, $parameters);
+    if (count($response->getRows()['n']) > 1 && $lastPoint !== null){
+      // Use the closest one...
+      $closest = null;
+      $maxDistance = PHP_INT_MAX;
+      $lastPoint = self::getPoint($lastPoint);
+      foreach ($response->getRows()['n'] as $testingPoint){
+        $distance = self::distance($lastPoint->latitude, $lastPoint->longitude, $testingPoint['latitude'], $testingPoint['longitude']);
+        if ($distance < $maxDistance){
+          $closest = $testingPoint;
+          $maxDistance = $distance;
+        }
+      }
+      return (object)$closest;
+    }
     return (object)$response->getRows()['n'][0];
   }
 
@@ -89,4 +103,13 @@ class AirwaysRepository {
 
     return ["latitude" => $latitude, "longitude" => $longitude];
   }
+
+  public static function distance($lat1, $lon1, $lat2, $lon2) {
+    $theta = $lon1 - $lon2;
+    $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+    $dist = acos($dist);
+    $dist = rad2deg($dist);
+    return ($dist * 60 * 1.1515) * 0.8684;
+  }
+
 }

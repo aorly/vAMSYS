@@ -15,13 +15,15 @@
       ],
       "options": {
         "hidden": true
-      }
+      },
+      "required": true
     },
     "name": {
       "id": "name",
       "type": "string",
       "minLength": 1,
-      "title": "Rule Name"
+      "title": "Rule Name",
+      "required": true
     },
     "points": {
       "id": "points",
@@ -29,7 +31,8 @@
       "multipleOf": 1,
       "exclusiveMaximum": false,
       "exclusiveMinimum": false,
-      "title": "Points"
+      "title": "Points",
+      "required": true
     }
   },
   "required": [

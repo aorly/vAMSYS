@@ -11,7 +11,7 @@
       "id": "scorer",
       "type": "string",
       "enum": [
-        "Engines\\Number2First"
+        "Landing\\AwayFromDestination"
       ],
       "options": {
         "hidden": true
@@ -32,6 +32,12 @@
       "exclusiveMaximum": false,
       "exclusiveMinimum": false,
       "title": "Points",
+      "required": true
+    },
+    "failure": {
+      "id": "failure",
+      "title": "Failure",
+      "type": "boolean",
       "required": true
     }
   },

@@ -49,7 +49,7 @@ class Route implements RouteContract
       if ($routeSection['via'] == 'DCT'){
         $allPoints = array_merge($allPoints, [
           AirwaysRepository::getPoint($routeSection['from']),
-          AirwaysRepository::getPoint($routeSection['to']),
+          AirwaysRepository::getPoint($routeSection['to'], $routeSection['from']),
         ]);
         continue;
       }

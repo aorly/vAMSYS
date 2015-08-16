@@ -11,7 +11,7 @@
       "id": "scorer",
       "type": "string",
       "enum": [
-        "Engines\\Number2First"
+        "Flaps\\NotRetractedBeforeParking"
       ],
       "options": {
         "hidden": true

@@ -11,7 +11,7 @@
       "id": "scorer",
       "type": "string",
       "enum": [
-        "Engines\\Number2First"
+        "Flaps\\NotSetBeforeTakeoff"
       ],
       "options": {
         "hidden": true
@@ -23,6 +23,20 @@
       "type": "string",
       "minLength": 1,
       "title": "Rule Name",
+      "required": true
+    },
+    "minLevel": {
+      "id": "minLevel",
+      "type": "integer",
+      "multipleOf": 1,
+      "title": "Minimum Flaps Setting",
+      "required": true
+    },
+    "maxLevel": {
+      "id": "maxLevel",
+      "type": "integer",
+      "multipleOf": 1,
+      "title": "Maximum Flaps Setting",
       "required": true
     },
     "points": {
