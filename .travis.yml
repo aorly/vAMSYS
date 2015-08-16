@@ -7,6 +7,8 @@ services:
   - redis-server
 before_script:
   - cp .env.testing .env
+  - rm phpunit.xml
+  - cp phpunit.travis.xml phpunit.xml
   - psql -c 'create database vamsys;' -U postgres
   - composer install
   - php artisan migrate
