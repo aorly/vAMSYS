@@ -22,17 +22,21 @@
                         </div>
                     </div>
                     <div class="portlet-body">
-                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;"><div class="scroller" style="height: 200px; overflow: hidden; width: auto;" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd" data-initialized="1">
+                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;">
+                            <div class="scroller" style="height: 200px; overflow: hidden; width: auto;" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd" data-initialized="1">
                                 <h4>
-                                    Update 2015-07-19
+                                    Update 2015-08-22
                                 </h4>
                                 <p>
-                                    <ul>
-                                        <li>Book Flight is now Searchable by Name, ICAO, and IATA</li>
-                                        <li>Jumpseat flights are now available from the Book Flight screen. Jumpseats will appear in your PIREPs list</li>
-                                        <li>Leaderboards are now visible!</li>
-                                        <li>Password Reset now exists on the login page</li>
-                                    </ul>
+                                We apologise for the lack of updates over the last month! We promise work has been ongoing, including...
+                                <ul>
+                                    <li>Production servers have been launched and are ready to go</li>
+                                    <li>Many, many bug fixes including improved routing algorithms</li>
+                                    <li>A state of the art routing database has been developed and implemented</li>
+                                    <li>Massive updates to the staff panels and functionality for staff members</li>
+                                    <li>Improved speed and efficiency of important tasks (e.g. PIREP scoring)</li>
+                                    <li><strong>In Progress:</strong> Events and Rosters</li>
+                                </ul>
                                 </p>
 
                             </div><div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 136.986301369863px; background: rgb(161, 178, 189);"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; display: none; background: yellow;"></div></div>

@@ -40,7 +40,6 @@ class ParseTextDataCommand extends Command {
             Config::get('database.neo4j.profiles.default.username'),
             Config::get('database.neo4j.profiles.default.password'))
         ->setAutoFormatResponse(true)
-        ->registerExtension('spatial', 'Neoxygen\NeoClientExtension\Spatial\SpatialExtension')
         ->build();
     }
 
