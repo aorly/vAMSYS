@@ -738,16 +738,16 @@
         },
         {
             "name": "hoa/compiler",
-            "version": "2.15.05.29",
+            "version": "2.15.08.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Compiler.git",
-                "reference": "4b448762461dc115ff8f63d0fede34a0dce45e4a"
+                "reference": "f72e659616041dcfe22dcab1b5fd84795883e7b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Compiler/zipball/4b448762461dc115ff8f63d0fede34a0dce45e4a",
-                "reference": "4b448762461dc115ff8f63d0fede34a0dce45e4a",
+                "url": "https://api.github.com/repos/hoaproject/Compiler/zipball/f72e659616041dcfe22dcab1b5fd84795883e7b6",
+                "reference": "f72e659616041dcfe22dcab1b5fd84795883e7b6",
                 "shasum": ""
             },
             "require": {
@@ -814,7 +814,7 @@
                 "trace",
                 "uniform"
             ],
-            "time": "2015-05-29 13:43:46"
+            "time": "2015-08-25 06:04:36"
         },
         {
             "name": "hoa/core",
@@ -1003,16 +1003,16 @@
         },
         {
             "name": "hoa/math",
-            "version": "0.15.05.29",
+            "version": "0.15.08.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Math.git",
-                "reference": "7d159567f4ee10de7391f5042dc957fd041f9dec"
+                "reference": "934e10201999572872375df56bc91d5b5191b1e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Math/zipball/7d159567f4ee10de7391f5042dc957fd041f9dec",
-                "reference": "7d159567f4ee10de7391f5042dc957fd041f9dec",
+                "url": "https://api.github.com/repos/hoaproject/Math/zipball/934e10201999572872375df56bc91d5b5191b1e0",
+                "reference": "934e10201999572872375df56bc91d5b5191b1e0",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
                 "sampler",
                 "set"
             ],
-            "time": "2015-05-29 14:00:38"
+            "time": "2015-08-25 05:55:04"
         },
         {
             "name": "hoa/regex",
@@ -1119,16 +1119,16 @@
         },
         {
             "name": "hoa/stream",
-            "version": "0.15.05.29",
+            "version": "0.15.08.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Stream.git",
-                "reference": "38b2ece5a0683f5cd91e4062dcf45f4885a3a826"
+                "reference": "cbd0f4749e447f4d31001e7c898f5e794c5861cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Stream/zipball/38b2ece5a0683f5cd91e4062dcf45f4885a3a826",
-                "reference": "38b2ece5a0683f5cd91e4062dcf45f4885a3a826",
+                "url": "https://api.github.com/repos/hoaproject/Stream/zipball/cbd0f4749e447f4d31001e7c898f5e794c5861cb",
+                "reference": "cbd0f4749e447f4d31001e7c898f5e794c5861cb",
                 "shasum": ""
             },
             "require": {
@@ -1173,7 +1173,7 @@
                 "stream",
                 "wrapper"
             ],
-            "time": "2015-05-29 14:11:35"
+            "time": "2015-08-28 07:31:43"
         },
         {
             "name": "hoa/ustring",
@@ -1236,16 +1236,16 @@
         },
         {
             "name": "hoa/visitor",
-            "version": "1.15.05.29",
+            "version": "1.15.08.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hoaproject/Visitor.git",
-                "reference": "8211aaefedb158068c2349a491e2186e238b043b"
+                "reference": "e30bfff741f71979f6476a41548e34afe8053c67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hoaproject/Visitor/zipball/8211aaefedb158068c2349a491e2186e238b043b",
-                "reference": "8211aaefedb158068c2349a491e2186e238b043b",
+                "url": "https://api.github.com/repos/hoaproject/Visitor/zipball/e30bfff741f71979f6476a41548e34afe8053c67",
+                "reference": "e30bfff741f71979f6476a41548e34afe8053c67",
                 "shasum": ""
             },
             "require": {
@@ -1287,7 +1287,7 @@
                 "visit",
                 "visitor"
             ],
-            "time": "2015-05-29 14:18:25"
+            "time": "2015-08-17 06:30:58"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1814,16 +1814,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.16.0",
+            "version": "1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "c0c0b4bee3aabce7182876b0d912ef2595563db7"
+                "reference": "877ae631713cc961952df713ae785735b90df682"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c0c0b4bee3aabce7182876b0d912ef2595563db7",
-                "reference": "c0c0b4bee3aabce7182876b0d912ef2595563db7",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/877ae631713cc961952df713ae785735b90df682",
+                "reference": "877ae631713cc961952df713ae785735b90df682",
                 "shasum": ""
             },
             "require": {
@@ -1840,7 +1840,7 @@
                 "php-console/php-console": "^3.1.3",
                 "phpunit/phpunit": "~4.5",
                 "phpunit/phpunit-mock-objects": "2.3.0",
-                "raven/raven": "~0.8",
+                "raven/raven": "~0.11",
                 "ruflin/elastica": ">=0.90 <3.0",
                 "swiftmailer/swiftmailer": "~5.3",
                 "videlalvaro/php-amqplib": "~2.4"
@@ -1886,7 +1886,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-08-09 17:44:44"
+            "time": "2015-08-30 11:40:25"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -3546,16 +3546,16 @@
         },
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "v71",
+            "version": "v75",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "115ddf16d45cff621961d8dd57e14ba1ff1e41dd"
+                "reference": "1f671f8deef2e591f0641a345144558fa8ff6d58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/115ddf16d45cff621961d8dd57e14ba1ff1e41dd",
-                "reference": "115ddf16d45cff621961d8dd57e14ba1ff1e41dd",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/1f671f8deef2e591f0641a345144558fa8ff6d58",
+                "reference": "1f671f8deef2e591f0641a345144558fa8ff6d58",
                 "shasum": ""
             },
             "bin": [
@@ -3586,7 +3586,7 @@
                 "nginx",
                 "php"
             ],
-            "time": "2015-07-14 00:38:23"
+            "time": "2015-08-21 17:18:32"
         },
         {
             "name": "mockery/mockery",
@@ -4116,16 +4116,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.4",
+            "version": "4.8.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "55bf1d6092b0e13a1f26bd5eaffeef3d8ad85ea7"
+                "reference": "2246830f4a1a551c67933e4171bf2126dc29d357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/55bf1d6092b0e13a1f26bd5eaffeef3d8ad85ea7",
-                "reference": "55bf1d6092b0e13a1f26bd5eaffeef3d8ad85ea7",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2246830f4a1a551c67933e4171bf2126dc29d357",
+                "reference": "2246830f4a1a551c67933e4171bf2126dc29d357",
                 "shasum": ""
             },
             "require": {
@@ -4184,24 +4184,24 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-08-15 04:21:23"
+            "time": "2015-08-24 04:09:38"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "2.3.6",
+            "version": "2.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "18dfbcb81d05e2296c0bcddd4db96cade75e6f42"
+                "reference": "5e2645ad49d196e020b85598d7c97e482725786a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/18dfbcb81d05e2296c0bcddd4db96cade75e6f42",
-                "reference": "18dfbcb81d05e2296c0bcddd4db96cade75e6f42",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/5e2645ad49d196e020b85598d7c97e482725786a",
+                "reference": "5e2645ad49d196e020b85598d7c97e482725786a",
                 "shasum": ""
             },
             "require": {
-                "doctrine/instantiator": "~1.0,>=1.0.2",
+                "doctrine/instantiator": "^1.0.2",
                 "php": ">=5.3.3",
                 "phpunit/php-text-template": "~1.2",
                 "sebastian/exporter": "~1.2"
@@ -4240,7 +4240,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-07-10 06:54:24"
+            "time": "2015-08-19 09:14:08"
         },
         {
             "name": "sebastian/comparator",

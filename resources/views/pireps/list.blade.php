@@ -24,6 +24,9 @@
                                             ID
                                         </th>
                                         <th>
+                                            Callsign
+                                        </th>
+                                        <th>
                                             Date
                                         </th>
                                         <th>
@@ -44,7 +47,7 @@
                                     @foreach($pireps as $pirep)
                                         @if(array_key_exists('jumpseat', $pirep->pirep_data) && $pirep->pirep_data['jumpseat'] === true)
                                             <tr style="height: 10px;">
-                                                <td style="padding: 4px; padding-left: 20px;"><small><em>Jumpseat</em></small></td>
+                                                <td style="padding: 4px; padding-left: 20px;" colspan="2"><small><em>Jumpseat</em></small></td>
                                             <td style="padding: 4px;">
                                                 <small>{{$pirep->created_at}}</small>
                                             </td>
@@ -62,6 +65,9 @@
                                             {{$airline->prefix}}-{{ str_pad($pirep->id, 6, 0, STR_PAD_LEFT) }}
                                         </td>
                                         <td>
+                                            {{$pirep->booking->callsign}}
+                                        </td>
+                                        <td>
                                             {{$pirep->created_at}}
                                         </td>
                                         <td>
@@ -77,7 +83,9 @@
                                             {{$pirep->points}}
                                         </td>
                                         <td>
-                                            @if($pirep->status == 'complete' || $pirep->status == 'accepted' || $pirep->status == 'rejected')
+                                            @if($pirep->acars_id == 0)
+                                                <em><abbr title="This is a Legacy PIREP from the old vRACARS system. vAMSYS cannot currently display details for this PIREP.">Legacy PIREP</abbr></em>
+                                            @elseif($pirep->status == 'complete' || $pirep->status == 'accepted' || $pirep->status == 'rejected')
                                                 <a href="/pireps/{{$pirep->id}}" class="btn btn-sm blue">View</a>
                                             @elseif($pirep->status == 'failed')
                                                 Awaiting PIREP Review
