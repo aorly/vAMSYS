@@ -12,9 +12,7 @@
 */
 
 // Special cases for smartCARS
-Route::group(['domain' => 'smartcars' . env('APP_DOMAIN')], function () {
-  Route::any('/{airlineICAO}/frame.php', 'smartCARSController@main');
-});
+Route::any('/{airlineICAO}/frame.php', 'smartCARSController@main');
 
 Route::get('/', function () {
     return redirect('/dashboard');
