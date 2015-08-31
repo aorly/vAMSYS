@@ -508,6 +508,7 @@ class smartCARSController extends Controller
         $pirep->landing_rate = $request->input('landingrate');
         $pirep->fuel_used = $request->input('fuelused');
         $pirep->load = $request->input('load');
+        $pirep->points = 0;
         $pirep->acars_id = 1;
         $pirep->save();
 
