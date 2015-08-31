@@ -27,6 +27,33 @@
                         </strong></h3>
                 </div>
                     </div>
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-cogs"></i>METAR Reports
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li>
+                                <a href="#departure" data-toggle="tab">
+                                    {{ $currentBooking->route->departureAirport->icao }}</a>
+                            </li>
+                            <li>
+                                <a href="#arrival" data-toggle="tab">
+                                    {{ $currentBooking->route->arrivalAirport->icao }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="departure">
+                                <pre style="font-size: smaller">{{ $depMetar }}</pre>
+                            </div>
+                            <div class="tab-pane" id="arrival">
+                                <pre style="font-size: smaller">{{ $arrMetar }}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="portlet box blue">
