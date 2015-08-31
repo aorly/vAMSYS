@@ -24,7 +24,7 @@
                         <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;">
                             <div class="scroller" style="height: 200px; overflow: hidden; width: auto;" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd" data-initialized="1">
                                 <h4>
-                                    We're Open! - 31/08/15 @ 1900z
+                                    We're Open! - 31/08/15 @ 1800z
                                 </h4>
                                 <p>
                                 We're back! Thank you for your patience and we hope you like the new system! vAMSYS is a complete rewrite from the ground up, and so many vRAMS features are not yet ported.
