@@ -94,6 +94,10 @@ class FlightsController extends Controller {
         $pirep->booking()->associate($booking);
         $pirep->pirep_data = ['jumpseat' => true];
         $pirep->status = 'complete';
+        $pirep->points = 0;
+        $pirep->landing_rate = 0;
+        $pirep->fuel_used = 0;
+        $pirep->load = 0;
         $pirep->save();
 
         $pilot->location()->associate($route->arrivalAirport);
