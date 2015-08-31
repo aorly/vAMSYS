@@ -25,9 +25,11 @@ class LeaderboardsController extends Controller {
         // Collect statistics if required
         $data = Cache::remember(PilotRepository::getCurrentPilot()->airline->prefix.':Leaderboards:Global', 15, function(){
 
-            $pireps = Pirep::where('pirep_data', '!=', '{"jumpseat":true}')->get(); // TODO Improve this detection...
-            $pirepsByUser = $pireps->groupBy(function ($item, $key){
-                return $item->booking->pilot->id;
+            $pirepsByUser = null;
+            Pirep::where('pirep_data', '!=', '{"jumpseat":true}')->chunk(100, function ($pirepsChunk) use (&$pirepsByUser) { // TODO Improve this detection...
+                $pirepsByUser = $pirepsChunk->groupBy(function ($item, $key) {
+                    return $item->booking->pilot->id;
+                });
             });
 
             // Most Points
