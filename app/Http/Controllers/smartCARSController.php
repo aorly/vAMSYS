@@ -510,6 +510,7 @@ class smartCARSController extends Controller
         $pirep->load = $request->input('load');
         $pirep->points = 0;
         $pirep->acars_id = 1;
+        $pirep->pirep_data = [];
         $pirep->save();
 
         $pilot = SmartCARS_Session::where('pilot_id', '=', $request->input('dbid'))->where('sessionid', '=', $request->input('sessionid'))->first()->pilot;
