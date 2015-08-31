@@ -11,6 +11,7 @@
                 <h1>Welcome to vAMSYS</h1>
                     <h3>vRYR Flight Tracking and PIREP Recording</h3>
                     <h5><a href="https://tfdidesign.com/smartcars/app.php?action=download&airlineid=124&language=en-US">Click here to download smartCARS 2</a></h5>
+                    <h5><strong>Join us on TeamSpeak: <a href="ts3server://ts.vryr.eu/?nickname={{ $user->first_name }}%20{{ $user->last_name }}%20{{ $pilot->username }}">ts.vryr.eu</a> (Connect as <em>{{ $user->first_name }} {{ $user->last_name }} {{ $pilot->username }}</em>)</strong></h5>
                     </center><br />
                 <div class="col-md-6">
                 <div class="portlet box blue">
