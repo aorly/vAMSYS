@@ -17,7 +17,7 @@ class PirepsController extends Controller {
 
     public function getIndex()
     {
-        $pireps = Pirep::fromPilot()->get();
+        $pireps = Pirep::fromPilot()->orderBy('created_at', 'desc')->get();
         $pireps->load([
             'booking' => function ($query){
                 $query->withTrashed(); // Include "deleted" bookings
