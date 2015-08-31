@@ -46,6 +46,9 @@ class Route implements RouteContract
     $allPoints = [];
     $allPoints[] = AirportsRepository::getPointFormat($route->departureAirport);
     foreach($parsedRoute as $key => $routeSection) {
+      if (AirwaysRepository::getPoint($routeSection['from']) === null || AirwaysRepository::getPoint($routeSection['to'], $routeSection['from']) === null)
+        continue;
+
       if ($routeSection['via'] == 'DCT'){
         $allPoints = array_merge($allPoints, [
           AirwaysRepository::getPoint($routeSection['from']),

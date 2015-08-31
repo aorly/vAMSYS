@@ -38,6 +38,9 @@ class AirwaysRepository {
       "point"    => $point,
     ];
     $response = $client->sendCypherQuery($query, $parameters);
+    if (!array_key_exists('n', $response->getRows())){
+      return null;
+    }
     if (count($response->getRows()['n']) > 1 && $lastPoint !== null){
       // Use the closest one...
       $closest = null;

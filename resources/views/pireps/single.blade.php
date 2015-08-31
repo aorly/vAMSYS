@@ -56,7 +56,7 @@
                                 <br />
                                 <li><strong>Landing Rate:</strong> {{$pirep->landing_rate}}fpm</li>
                                 <li><strong>Total Points:</strong> {{$pirep->points}}</li>
-                                <li><strong>Network:</strong> {{$pirep->pirep_data['network']}}</li>
+                                <li><strong>Network:</strong> {{(array_key_exists('network', $pirep->pirep_data))?$pirep->pirep_data['network']:'vRAMS'}}</li>
                             </ul>
                         </div>
                     </div>
@@ -129,11 +129,13 @@
                             </div>
                         </div>
                         <div class="portlet-body">
+                            @if(array_key_exists('scores', $pirep->pirep_data))
                                 <table>
                                     <tr>
                                         <td style="padding-right: 1em;">100</td>
                                         <td style="font-weight: bold">Starting Points</td>
                                     </tr>
+
                                     @foreach($pirep->pirep_data['scores'] as $score)
                                         <tr>
                                             <td style="padding-right: 1em; color:@if($score['points'] < 0 || $score['failure']) #990000 @else #009900 @endif">@if($score['points'] > 0)+@endif{{$score['points']}}</td>
@@ -141,6 +143,9 @@
                                         </tr>
                                     @endforeach
                                 </table>
+                            @else
+                                <em>This PIREP is a legacy smartCARS 1 PIREP and is still being converted to vAMSYS format. More data will display once the conversion is complete.</em><br />
+                            @endif
                                 <br /><strong>Total Points: </strong> {{$pirep->points}}
                             @if($pirep->status == 'accepted' || $pirep->status == 'rejected' || $pirep->status == 'failed')
                             <br /><br /><p><small>This PIREP failed automatic processing and has been manually reviewed by a staff member. The failure reasons are marked with a <span style="color: red">(!!)</span> symbol</small></p>
@@ -163,6 +168,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
+                    @if(!array_key_exists('vrams_res', $pirep->pirep_data))
                     <div class="portlet box blue">
                         <div class="portlet-title">
                             <div class="caption">
@@ -209,6 +215,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

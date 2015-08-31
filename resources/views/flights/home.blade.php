@@ -106,7 +106,8 @@
                                     {{ $booking->aircraft->registration }}
                                 </td>
                                 <td>
-									Buttons
+                                    <a onClick="javascript:doPartialDelete({{$booking->id}})" class="btn btn-sm btn-danger">
+                                        <i class="fa fa-times-circle"></i> Cancel Booking </a>
                                 </td>
                             </tr>
                             @endforeach
@@ -136,6 +137,12 @@
             window.location = "/flights/cancel/" + bookingId;
         @endif
     }
+    function doPartialDelete(bookingId) {
+        var confirm = window.confirm('This will cancel all booked flights after this booking. Are you sure?');
+        if (confirm){
+            window.location = "/flights/cancel/" + bookingId;
+        }
+    }
 
     var mapPolylines = function () {
         var map = new GMaps({
@@ -157,14 +164,14 @@
             @endforeach
         ];
 
-        var departureLatlng = new google.maps.LatLng({{$routePoints[0]->latitude}},{{$routePoints[0]->longitude}});
+        var departureLatlng = new google.maps.LatLng({{@$routePoints[0]->latitude}},{{@$routePoints[0]->longitude}});
         var departure = new google.maps.Marker({
             position: departureLatlng,
             animation: google.maps.Animation.DROP,
             title: '{{$currentBooking->route->departureAirport->name}} ({{$currentBooking->route->departureAirport->icao}})'
         });
 
-        var arrivalLatlng = new google.maps.LatLng({{$routePoints[count($routePoints) - 1]->latitude}},{{$routePoints[count($routePoints) - 1]->longitude}});
+        var arrivalLatlng = new google.maps.LatLng({{@$routePoints[count($routePoints) - 1]->latitude}},{{@$routePoints[count($routePoints) - 1]->longitude}});
         var arrival = new google.maps.Marker({
             position: arrivalLatlng,
             animation: google.maps.Animation.DROP,
