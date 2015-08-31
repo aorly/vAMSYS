@@ -29,15 +29,6 @@
                     <span class="title">PIREPs</span>
                 </a>
             </li>
-            <li class="heading">
-                <h3 class="uppercase">Statistics</h3>
-            </li>
-            <li>
-                <a href="/leaderboards">
-                    <i class="icon-trophy"></i>
-                    <span class="title">Leaderboards</span>
-                </a>
-            </li>
             @if (vAMSYS\Repositories\UserRepository::hasRole($airline->prefix.'-staff', $user))
             <li class="heading">
                 <h3 class="uppercase">Staff</h3>
